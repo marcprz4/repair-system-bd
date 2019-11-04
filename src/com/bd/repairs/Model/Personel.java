@@ -59,7 +59,41 @@ public class Personel {
         return active;
     }
 
-    public static Optional<Personel> findPerson(String username) {
+    public static Optional<Personel> findPersonByName(String name) {
+        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name=? AND last_name=?;";
+        Personel person;
+        String [] names=name.split("\\s+");
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            if(names.length==2){
+                statement.setString(1, names[0]);
+                statement.setString(2,names[1]);
+            }
+            else{
+                statement.setString(1, names[0]+" "+names[1]);
+                statement.setString(2,names[2]);
+            }
+
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                person = new Personel(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getBoolean(7));
+                return Optional.of(person);
+            } else {
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static Optional<Personel> findPersonByUsername(String username) {
         String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE username=?;";
         Personel person;
         try {

@@ -1,11 +1,11 @@
 package com.bd.repairs.Controller;
 
 
-import com.bd.repairs.Main;
 import com.bd.repairs.Model.Personel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,8 +34,13 @@ public class MainWindowController implements Initializable {
 
     @FXML
     private void search(ActionEvent event) {
-        Personel person=Personel.findPerson(searchField.getText().toString()).get();
-        resultLabel.setText(person.getFirst_name()+"\n"+person.getLast_name()+"\n"+person.getRole()+"\n"+person.getUsername()+"\n"+person.getId_personel());
+        switch(entitiesComboBox.getValue()){
+            case "Personel":
+            {
+                Personel.findPersonByName(searchField.getText()).ifPresent(personel -> resultLabel.setText("name: "+personel.getFirst_name()+"\nlast name: "+personel.getLast_name()+"\nrole: "+personel.getRole()+"\nusername: "+personel.getUsername()+"\nid: "+personel.getId_personel()));
+
+            }
+        }
     }
 
     @FXML
@@ -56,6 +61,7 @@ public class MainWindowController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        helloLabel.setText("hello "+ Main.loggedPerson.getFirst_name()+" "+Main.loggedPerson.getLast_name()+" you have "+Main.loggedPerson.getRole()+" rights.");
+//        helloLabel.setText("hello "+ Main.loggedPerson.getFirst_name()+" "+Main.loggedPerson.getLast_name()+" you have "+Main.loggedPerson.getRole()+" rights.");
+        entitiesComboBox.setItems(FXCollections.observableArrayList("Request","Car","Client","Activity","Personel","Activity-dictionary","Car-type"));
     }
 }

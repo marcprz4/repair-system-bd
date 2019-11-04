@@ -20,7 +20,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("View/login_window.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("View/login_window.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/main_window.fxml"));
         primaryStage.setTitle("Repair System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

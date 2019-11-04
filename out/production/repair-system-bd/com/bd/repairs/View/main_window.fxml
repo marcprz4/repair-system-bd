@@ -39,6 +39,10 @@
             <JFXButton fx:id="removeButton" onAction="#remove" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: #dcdcdc;" text="Remove" />
          </children>
       </VBox>
-      <Label fx:id="resultLabel" layoutX="440.0" layoutY="196.0" prefHeight="219.0" prefWidth="142.0" />
+      <Label fx:id="resultLabel" layoutX="333.0" layoutY="137.0" prefHeight="259.0" prefWidth="186.0">
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

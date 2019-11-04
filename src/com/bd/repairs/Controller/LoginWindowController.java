@@ -9,15 +9,12 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * @author Marcin Przybylski, Bartosz Prusak
@@ -36,7 +33,7 @@ public class LoginWindowController {
     @FXML
     private void login(ActionEvent event) {
         try {
-            Personel person = Personel.findPerson(username.getText().toString()).get();
+            Personel person = Personel.findPersonByUsername(username.getText().toString()).get();
             PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
             if (passwordAuthentication.authenticate(password.getText().toCharArray(), person.getPassword())) {
                 Main.loggedPerson=person;
