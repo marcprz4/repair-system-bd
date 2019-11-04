@@ -1,6 +1,7 @@
 package com.bd.repairs;
 
 import com.bd.repairs.Controller.PostgreSQLController;
+import com.bd.repairs.Model.Personel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,13 +16,15 @@ import java.sql.Connection;
  */
 public class Main extends Application {
     public static Connection connection;
+    public static Personel loggedPerson;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("View/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/login_window.fxml"));
         primaryStage.setTitle("Repair System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
         connection = PostgreSQLController.connect();
         //Adding first user - admin.
 //        PasswordAuthentication passwordAuthentication=new PasswordAuthentication();

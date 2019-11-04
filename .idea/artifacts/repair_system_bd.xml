@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="repair-system-bd">
+    <output-path>$PROJECT_DIR$/out/artifacts/repair_system_bd</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.bd.repairs.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="repair_system_bd.jar">
+        <element id="module-output" name="repair-system-bd" />
+      </element>
+    </root>
+  </artifact>
+</component>

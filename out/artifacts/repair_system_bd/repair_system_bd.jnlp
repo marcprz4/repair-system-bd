@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="repair_system_bd.jnlp">
+  <information>
+    <title>repair-system-bd</title>
+    <vendor>Unknown</vendor>
+    <description>repair-system-bd</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="repair_system_bd.jar" size="68628" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="com.bd.repairs.Main"  name="repair-system-bd" />
+  <update check="background"/>
+</jnlp>

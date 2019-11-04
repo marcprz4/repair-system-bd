@@ -13,32 +13,34 @@ import java.util.Optional;
  * @version 1.0
  */
 public class Personel {
-    int id_pers;
-    String fname;
-    String lname;
+    int id_personel;
+    String first_name;
+    String last_name;
     String role;
     String username;
     String password;
+    boolean active;
 
-    public Personel(int id_pers, String fname, String lname, String role, String username, String password) {
-        this.id_pers = id_pers;
-        this.fname = fname;
-        this.lname = lname;
+    public Personel(int id_personel, String first_name, String last_name, String role, String username, String password, boolean active) {
+        this.id_personel = id_personel;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.role = role;
         this.username = username;
         this.password = password;
+        this.active=active;
     }
 
-    public int getId_pers() {
-        return id_pers;
+    public int getId_personel() {
+        return id_personel;
     }
 
-    public String getFname() {
-        return fname;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public String getLname() {
-        return lname;
+    public String getLast_name() {
+        return last_name;
     }
 
     public String getRole() {
@@ -53,8 +55,12 @@ public class Personel {
         return password;
     }
 
-    public static Optional<Personel> findId(String username) {
-        String SQL = "SELECT id_pers, fname, lname, role, username, password FROM public.\"Personel\" WHERE username=?;";
+    public boolean isActive() {
+        return active;
+    }
+
+    public static Optional<Personel> findPerson(String username) {
+        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE username=?;";
         Personel person;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
@@ -66,7 +72,8 @@ public class Personel {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6));
+                        rs.getString(6),
+                        rs.getBoolean(7));
                 return Optional.of(person);
             } else {
                 return Optional.empty();
@@ -78,16 +85,17 @@ public class Personel {
     }
 
     public int insertPersonel() {
-        String SQL = "INSERT INTO public.\"Personel\"(id_pers, fname, lname, role, username, password) VALUES (?, ?, ?, ?, ?, ?);";
+        String SQL = "INSERT INTO public.\"Personel\"(id_personel, first_name, last_name, role, username, password, active) VALUES (?, ?, ?, ?, ?, ?, ?);";
         int id = 0;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, this.getId_pers());
-            statement.setString(2, this.getFname());
-            statement.setString(3, this.getLname());
+            statement.setInt(1, this.getId_personel());
+            statement.setString(2, this.getFirst_name());
+            statement.setString(3, this.getLast_name());
             statement.setString(4, this.getRole());
             statement.setString(5, this.getUsername());
             statement.setString(6, this.getPassword());
+            statement.setBoolean(7,this.isActive());
             int affectedRows = statement.executeUpdate();
 
             if (affectedRows > 0) {
