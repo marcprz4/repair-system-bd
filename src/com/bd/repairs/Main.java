@@ -18,10 +18,14 @@ public class Main extends Application {
     public static Connection connection;
     public static Personel loggedPerson;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("View/login_window.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("View/main_window.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/login_window.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("View/main_window.fxml"));
         primaryStage.setTitle("Repair System");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -32,10 +36,5 @@ public class Main extends Application {
 //        String password=passwordAuthentication.hash("admin".toCharArray());
 //        Personel personel=new Personel(1,"marcin","marcin2","ADMIN","admin1",password);
 //        personel.insertPersonel();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

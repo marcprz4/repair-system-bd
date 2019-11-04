@@ -47,6 +47,18 @@ public final class PasswordAuthentication {
         return 1 << cost;
     }
 
+    private static byte[] pbkdf2(char[] password, byte[] salt, int iterations) {
+        KeySpec spec = new PBEKeySpec(password, salt, iterations, SIZE);
+        try {
+            SecretKeyFactory f = SecretKeyFactory.getInstance(ALGORITHM);
+            return f.generateSecret(spec).getEncoded();
+        } catch (NoSuchAlgorithmException ex) {
+            throw new IllegalStateException("Missing algorithm: " + ALGORITHM, ex);
+        } catch (InvalidKeySpecException ex) {
+            throw new IllegalStateException("Invalid SecretKeyFactory", ex);
+        }
+    }
+
     public String hash(char[] password) {
         byte[] salt = new byte[SIZE / 8];
         random.nextBytes(salt);
@@ -57,7 +69,6 @@ public final class PasswordAuthentication {
         Base64.Encoder enc = Base64.getUrlEncoder().withoutPadding();
         return ID + cost + '$' + enc.encodeToString(hash);
     }
-
 
     public boolean authenticate(char[] password, String token) {
         Matcher m = layout.matcher(token);
@@ -71,18 +82,6 @@ public final class PasswordAuthentication {
         for (int idx = 0; idx < check.length; ++idx)
             zero |= hash[salt.length + idx] ^ check[idx];
         return zero == 0;
-    }
-
-    private static byte[] pbkdf2(char[] password, byte[] salt, int iterations) {
-        KeySpec spec = new PBEKeySpec(password, salt, iterations, SIZE);
-        try {
-            SecretKeyFactory f = SecretKeyFactory.getInstance(ALGORITHM);
-            return f.generateSecret(spec).getEncoded();
-        } catch (NoSuchAlgorithmException ex) {
-            throw new IllegalStateException("Missing algorithm: " + ALGORITHM, ex);
-        } catch (InvalidKeySpecException ex) {
-            throw new IllegalStateException("Invalid SecretKeyFactory", ex);
-        }
     }
 
     @Deprecated

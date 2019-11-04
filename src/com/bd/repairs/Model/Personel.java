@@ -1,6 +1,8 @@
 package com.bd.repairs.Model;
 
 import com.bd.repairs.Main;
+import com.bd.repairs.View.AlertWindow;
+import javafx.scene.control.Alert;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +30,7 @@ public class Personel {
         this.role = role;
         this.username = username;
         this.password = password;
-        this.active=active;
+        this.active = active;
     }
 
     public int getId_personel() {
@@ -59,19 +61,56 @@ public class Personel {
         return active;
     }
 
-    public static Optional<Personel> findPersonByName(String name) {
+    public int insert() {
+        String SQL = "INSERT INTO public.\"Personel\"(id_personel, first_name, last_name, role, username, password, active) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        int id = 0;
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, this.getId_personel());
+            statement.setString(2, this.getFirst_name());
+            statement.setString(3, this.getLast_name());
+            statement.setString(4, this.getRole());
+            statement.setString(5, this.getUsername());
+            statement.setString(6, this.getPassword());
+            statement.setBoolean(7, this.isActive());
+            int affectedRows = statement.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = statement.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        id = rs.getInt(1);
+                    }
+                    else
+                        throw new SQLException();
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                }
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return id;
+    }
+
+    public static Optional<Personel> findByName(String name) {
         String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name=? AND last_name=?;";
         Personel person;
-        String [] names=name.split("\\s+");
         try {
+            if (name.isEmpty()) {
+                throw new NullPointerException();
+            }
+            String[] names = name.split("\\s+");
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
-            if(names.length==2){
+            if (names.length == 2) {
                 statement.setString(1, names[0]);
-                statement.setString(2,names[1]);
+                statement.setString(2, names[1]);
+            } else if (names.length==3){
+                statement.setString(1, names[0] + " " + names[1]);
+                statement.setString(2, names[2]);
             }
             else{
-                statement.setString(1, names[0]+" "+names[1]);
-                statement.setString(2,names[2]);
+                throw new IndexOutOfBoundsException();
             }
 
             ResultSet rs = statement.executeQuery();
@@ -85,15 +124,17 @@ public class Personel {
                         rs.getBoolean(7));
                 return Optional.of(person);
             } else {
-                return Optional.empty();
+                throw new SQLException();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            AlertWindow alert=new AlertWindow("Error","Name not found.","Check your input.");
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
+            AlertWindow alert=new AlertWindow("Error","Wrong name field.","Check your input.");
         }
-        return null;
+        return Optional.empty();
     }
 
-    public static Optional<Personel> findPersonByUsername(String username) {
+    public static Optional<Personel> findByUsername(String username) {
         String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE username=?;";
         Personel person;
         try {
@@ -110,41 +151,15 @@ public class Personel {
                         rs.getBoolean(7));
                 return Optional.of(person);
             } else {
-                return Optional.empty();
+                throw new SQLException();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Name not found.");
+            alert.setContentText("Check your input.");
+            alert.showAndWait();
         }
-        return null;
-    }
-
-    public int insertPersonel() {
-        String SQL = "INSERT INTO public.\"Personel\"(id_personel, first_name, last_name, role, username, password, active) VALUES (?, ?, ?, ?, ?, ?, ?);";
-        int id = 0;
-        try {
-            PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, this.getId_personel());
-            statement.setString(2, this.getFirst_name());
-            statement.setString(3, this.getLast_name());
-            statement.setString(4, this.getRole());
-            statement.setString(5, this.getUsername());
-            statement.setString(6, this.getPassword());
-            statement.setBoolean(7,this.isActive());
-            int affectedRows = statement.executeUpdate();
-
-            if (affectedRows > 0) {
-                try (ResultSet rs = statement.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        id = rs.getInt(1);
-                    }
-                } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
-                }
-
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return id;
+        return Optional.empty();
     }
 }

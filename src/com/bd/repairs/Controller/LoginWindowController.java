@@ -33,14 +33,14 @@ public class LoginWindowController {
     @FXML
     private void login(ActionEvent event) {
         try {
-            Personel person = Personel.findPersonByUsername(username.getText().toString()).get();
+            Personel person = Personel.findByUsername(username.getText().toString()).get();
             PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
             if (passwordAuthentication.authenticate(password.getText().toCharArray(), person.getPassword())) {
-                Main.loggedPerson=person;
+                Main.loggedPerson = person;
                 Parent root;
-                try{
-                    root= FXMLLoader.load(getClass().getResource("../View/main_window.fxml"));
-                    Stage stage=new Stage();
+                try {
+                    root = FXMLLoader.load(getClass().getResource("../View/main_window.fxml"));
+                    Stage stage = new Stage();
                     stage.setTitle("Repair System");
                     stage.setScene(new Scene(root));
                     stage.show();
