@@ -33,7 +33,7 @@ public class LoginWindowController {
     @FXML
     private void login(ActionEvent event) {
         try {
-            Personel person = Personel.findByUsername(username.getText().toString()).get();
+            Personel person = Personel.findByUsername(username.getText()).get();
             PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
             if (passwordAuthentication.authenticate(password.getText().toCharArray(), person.getPassword())) {
                 Main.loggedPerson = person;

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="570.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.MainWindowController">
+    <children>
+        <Label fx:id="helloLabel" layoutX="132.0" layoutY="32.0" prefHeight="17.0" prefWidth="250.0" text="Searching on ... table" />
+      <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="25.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/logo.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="26.0" layoutY="82.0" prefHeight="25.0" prefWidth="515.0">
+         <children>
+            <TextField fx:id="resField1" prefHeight="25.0" prefWidth="258.0" />
+            <Separator prefHeight="0.0" prefWidth="124.0" visible="false" />
+                <JFXButton fx:id="searchButton" onAction="#search" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: #dcdcdc;" text="Search" />
+         </children>
+      </HBox>
+      <ListView layoutX="25.0" layoutY="117.0" prefHeight="373.0" prefWidth="713.0" style="-fx-background-radius: 3;" />
+      <JFXButton fx:id="clearButton" layoutX="625.0" layoutY="82.0" onAction="#clear" prefHeight="17.0" prefWidth="113.0" style="-fx-background-color: #dcdcdc;" text="Clear" />
+      <JFXButton fx:id="clearButton1" layoutX="625.0" layoutY="512.0" onAction="#clear" prefHeight="17.0" prefWidth="113.0" style="-fx-background-color: #dcdcdc;" text="Add" />
+    </children>
+</AnchorPane>
