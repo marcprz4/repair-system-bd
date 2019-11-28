@@ -9,11 +9,16 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,7 +26,7 @@ public class MainWindowController implements Initializable {
     @FXML
     Label helloLabel;
     @FXML
-    JFXComboBox<String> entitiesComboBox;
+    static JFXComboBox<String> entitiesComboBox;
     @FXML
     JFXTextField searchField;
     @FXML
@@ -56,27 +61,57 @@ public class MainWindowController implements Initializable {
     VBox resVBox;
 
     @FXML
-    private void search(ActionEvent event) {
+    private void search(ActionEvent event) throws IOException {
+        Parent root;
         switch (entitiesComboBox.getValue()) {
             case "Personel": {
+//                Parent root = FXMLLoader.load(getClass().getResource("View/search_window.fxml"));
+//                primaryStage.setTitle("Repair System");
+//                primaryStage.setScene(new Scene(root));
+//                primaryStage.show();
+                ///////////
                 try {
-                    Personel.findByName(searchField.getText()).ifPresent(personel ->{
-                        resVBox.setVisible(true);
-                        resLabel1.setText("Name: ");
-                        resField1.setText(personel.getFirst_name()+" "+personel.getLast_name());
-                        resLabel2.setText("Role: ");
-                        resField2.setText(personel.getRole());
-                        resLabel3.setText("Username: ");
-                        resField3.setText(personel.getUsername());
-                        resLabel4.setText("Id: ");
-                        resField4.setText(Integer.toString(personel.getId_personel()));
-                        resField4.setEditable(false);
-                        resLabel5.setVisible(false);
-                        resField5.setVisible(false);
-                    });
-                } catch (NullPointerException e) {
+                    root = FXMLLoader.load(getClass().getResource("../View/search_window.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Repair System");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
+//                root = FXMLLoader.load(getClass().getResource("../View/search_window.fxml"));
+//                Stage stage = new Stage();
+//                stage.setTitle("Repair System");
+//                stage.setScene(new Scene(root));
+//                stage.show();
+//                System.out.println("PERSONEL");
+                break;
+                ////////////
+//                try {
+//                    Personel.findByName(searchField.getText()).ifPresent(personel ->{
+//                        resVBox.setVisible(true);
+//                        resLabel1.setText("Name: ");
+//                        resField1.setText(personel.getFirst_name()+" "+personel.getLast_name());
+//                        resLabel2.setText("Role: ");
+//                        resField2.setText(personel.getRole());
+//                        resLabel3.setText("Username: ");
+//                        resField3.setText(personel.getUsername());
+//                        resLabel4.setText("Id: ");
+//                        resField4.setText(Integer.toString(personel.getId_personel()));
+//                        resField4.setEditable(false);
+//                        resLabel5.setVisible(false);
+//                        resField5.setVisible(false);
+//                    });
+//                } catch (NullPointerException e) {
+//                    e.printStackTrace();
+//                }
+            }
+            case "Car":{
+                System.out.println("CAR");
+                break;
+            }
+            default:{
+                System.out.println("def111");
             }
         }
     }
