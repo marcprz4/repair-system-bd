@@ -27,6 +27,7 @@ public class MainWindowController implements Initializable {
     private Label helloLabel;
     @FXML
     private JFXComboBox<String> entitiesComboBox;
+    public static String type;
 //    @FXML
 //    private JFXTextField searchField;
 //    @FXML
@@ -79,6 +80,7 @@ public class MainWindowController implements Initializable {
 
     @FXML
     private void search(ActionEvent event) throws IOException {
+        type=entitiesComboBox.getValue();
         Parent root;
         root = FXMLLoader.load(getClass().getResource("../View/search_window.fxml"));
         Stage stage = new Stage();

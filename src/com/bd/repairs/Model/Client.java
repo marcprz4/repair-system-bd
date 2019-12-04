@@ -1,79 +1,63 @@
 package com.bd.repairs.Model;
 
+
 import com.bd.repairs.Main;
 import com.bd.repairs.View.AlertWindow;
 import javafx.scene.control.Alert;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
+
 /**
- * @author Marcin Przybylski, Bartosz Prusak
+ * @author Bartosz Prusak
  * @version 1.0
  */
-public class Personel {
-    private int id_personel;
-    private String first_name;
-    private String last_name;
-    private String role;
-    private String username;
-    private String password;
-    private boolean active;
 
-    public Personel(int id_personel, String first_name, String last_name, String role, String username, String password, boolean active) {
-        this.id_personel = id_personel;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.role = role;
-        this.username = username;
-        this.password = password;
-        this.active = active;
+public class Client {
+
+    private int id_client;
+    private String fname;
+    private String lname;
+    private String name;
+    private String telephone;
+
+    public Client(int id_client, String fname, String lname, String name, String telephone) {
+        this.id_client = id_client;
+        this.fname = fname;
+        this.lname = lname;
+        this.name = name;
+        this.telephone = telephone;
     }
 
-    public int getId_personel() {
-        return id_personel;
-    }
 
-    public String getFirst_name() {
-        return first_name;
-    }
+    public int getId_client() { return id_client;  }
 
-    public String getLast_name() {
-        return last_name;
-    }
+    public String getFname()  {  return fname;     }
 
-    public String getRole() {
-        return role;
-    }
+    public String getLname()  {  return lname;     }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getName()   {  return name;      }
 
-    public String getPassword() {
-        return password;
-    }
+    public String getTelephone() { return telephone;   }
 
-    public boolean isActive() {
-        return active;
-    }
+
 
     public int insert() {
-        String SQL = "INSERT INTO public.\"Personel\"(first_name, last_name, role, username, password, active) VALUES (?, ?, ?, ?, ?, ?);";
+        String SQL = "INSERT INTO public.\"Client\"(id_client, fname, lname, name, telephone) VALUES (?, ?, ?, ?, ?);";
         int id = 0;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-//            statement.setInt(1, this.getId_personel());
-            statement.setString(1, this.getFirst_name());
-            statement.setString(2, this.getLast_name());
-            statement.setString(3, this.getRole());
-            statement.setString(4, this.getUsername());
-            statement.setString(5, this.getPassword());
-            statement.setBoolean(6, this.isActive());
+            statement.setInt(1, this.getId_client());
+            statement.setString(2, this.getFname());
+            statement.setString(3, this.getLname());
+            statement.setString(4, this.getName());
+            statement.setString(5, this.getTelephone());
+
             int affectedRows = statement.executeUpdate();
 
             if (affectedRows > 0) {
@@ -94,14 +78,14 @@ public class Personel {
         return id;
     }
 
-    public static Optional<Personel> findByName(String name) {
-        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name=? AND last_name=?;";
-        Personel person;
+    public static Optional<Client> findByNames(String namelf) {
+        String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE fname=? AND lname=?;";
+        Client client;
         try {
-            if (name.isEmpty()) {
+            if (namelf.isEmpty()) {
                 throw new NullPointerException();
             }
-            String[] names = name.split("\\s+");
+            String[] names = namelf.split("\\s+");
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             if (names.length == 2) {
                 statement.setString(1, names[0]);
@@ -116,14 +100,12 @@ public class Personel {
 
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                person = new Personel(rs.getInt(1),
+                client = new Client(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getBoolean(7));
-                return Optional.of(person);
+                        rs.getString(5));
+                return Optional.of(client);
             } else {
                 throw new SQLException();
             }
@@ -135,22 +117,21 @@ public class Personel {
         return Optional.empty();
     }
 
-    public static Optional<Personel> findByUsername(String username) {
-        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE username=?;";
-        Personel person;
+
+    public static Optional<Client> findByName(String name) {
+        String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE name=?;";
+        Client client;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
-            statement.setString(1, username);
+            statement.setString(1, name);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                person = new Personel(rs.getInt(1),
+                client = new Client(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getBoolean(7));
-                return Optional.of(person);
+                        rs.getString(5));
+                return Optional.of(client);
             } else {
                 throw new SQLException();
             }
@@ -164,21 +145,22 @@ public class Personel {
         return Optional.empty();
     }
 
-    public static ArrayList<Personel> findAll() {
-        ArrayList<Personel> list=new ArrayList<>();
-        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\";";
+
+    public static ArrayList<Client> findAll() {
+        ArrayList<Client> list=new ArrayList<>();
+        String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\";";
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                Personel person = new Personel(rs.getInt(1),
+
+                Client client = new Client(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getBoolean(7));
-                list.add(person);
+                        rs.getString(5));
+
+                list.add(client);
             }
             return list;
         } catch (SQLException e) {
@@ -190,4 +172,7 @@ public class Personel {
         }
         return null;
     }
+
+
+
 }

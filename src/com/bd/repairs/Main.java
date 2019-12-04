@@ -1,6 +1,7 @@
 package com.bd.repairs;
 
 import com.bd.repairs.Controller.PostgreSQLController;
+import com.bd.repairs.Model.PasswordAuthentication;
 import com.bd.repairs.Model.Personel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -31,8 +32,8 @@ public class Main extends Application {
         connection = PostgreSQLController.connect();
         //Adding first user - admin.
 //        PasswordAuthentication passwordAuthentication=new PasswordAuthentication();
-//        String password=passwordAuthentication.hash("admin".toCharArray());
-//        Personel personel=new Personel(1,"marcin","marcin2","ADMIN","admin1",password);
-//        personel.insertPersonel();
+//        String password=passwordAuthentication.hash("tester1".toCharArray());
+//        Personel personel=new Personel(1,"tester","testowy","USER","tester1",password,true);
+//        personel.insert();
     }
 }
