@@ -3,7 +3,6 @@ package com.bd.repairs.Model;
 import com.bd.repairs.Main;
 import com.bd.repairs.View.AlertWindow;
 import javafx.scene.control.Alert;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,13 +14,13 @@ import java.util.Optional;
  * @version 1.0
  */
 public class Personel {
-    int id_personel;
-    String first_name;
-    String last_name;
-    String role;
-    String username;
-    String password;
-    boolean active;
+    private int id_personel;
+    private String first_name;
+    private String last_name;
+    private String role;
+    private String username;
+    private String password;
+    private boolean active;
 
     public Personel(int id_personel, String first_name, String last_name, String role, String username, String password, boolean active) {
         this.id_personel = id_personel;

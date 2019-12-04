@@ -7,8 +7,9 @@ import javafx.scene.control.Label;
 public class SearchWindowController {
     @FXML
     private Label helloLabel;
+
     public SearchWindowController() {
-        helloLabel.setText("Searching on "+MainWindowController.entitiesComboBox.getSelectionModel().getSelectedItem()+" table");
+//        helloLabel.setText("Searching on "+MainWindowController.entitiesComboBox.getSelectionModel().getSelectedItem()+" table");
     }
 
     public void search(ActionEvent actionEvent) {

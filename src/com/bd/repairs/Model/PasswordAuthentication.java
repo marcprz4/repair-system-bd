@@ -70,7 +70,7 @@ public final class PasswordAuthentication {
         return ID + cost + '$' + enc.encodeToString(hash);
     }
 
-    public boolean authenticate(char[] password, String token) {
+    public static boolean authenticate(char[] password, String token) {
         Matcher m = layout.matcher(token);
         if (!m.matches())
             throw new IllegalArgumentException("Invalid token format");

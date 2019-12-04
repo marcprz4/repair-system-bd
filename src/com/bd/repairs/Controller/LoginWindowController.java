@@ -3,7 +3,6 @@ package com.bd.repairs.Controller;
 import com.bd.repairs.Main;
 import com.bd.repairs.Model.PasswordAuthentication;
 import com.bd.repairs.Model.Personel;
-import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -21,22 +20,19 @@ import java.io.IOException;
  * @version 1.0
  */
 public class LoginWindowController {
+    public static Personel loggedPerson;
     @FXML
-    Label errorLabel;
+    private Label errorLabel;
     @FXML
-    JFXTextField username;
+    private JFXTextField username;
     @FXML
-    JFXPasswordField password;
-    @FXML
-    JFXCheckBox rememberme;
+    private JFXPasswordField password;
 
     @FXML
     private void login(ActionEvent event) {
         try {
             Personel person = Personel.findByUsername(username.getText()).get();
-            PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
-            if (passwordAuthentication.authenticate(password.getText().toCharArray(), person.getPassword())) {
-                Main.loggedPerson = person;
+            if (PasswordAuthentication.authenticate(password.getText().toCharArray(), person.getPassword())) {
                 Parent root;
                 try {
                     root = FXMLLoader.load(getClass().getResource("../View/main_window.fxml"));
@@ -45,13 +41,15 @@ public class LoginWindowController {
                     stage.setScene(new Scene(root));
                     stage.show();
                 } catch (IOException e) {
+                    errorLabel.setText(e.getMessage());
                     e.printStackTrace();
                 }
+                loggedPerson = person;
             } else {
-                errorLabel.setText("Wrong login data.");
+                errorLabel.setText("Wrong login or password.");
             }
         } catch (NullPointerException ex) {
-            errorLabel.setText(ex.getMessage());
+            errorLabel.setText("Database error.");
         }
     }
 }

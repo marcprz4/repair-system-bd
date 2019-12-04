@@ -16,7 +16,6 @@ import java.sql.Connection;
  */
 public class Main extends Application {
     public static Connection connection;
-    public static Personel loggedPerson;
 
     public static void main(String[] args) {
         launch(args);
@@ -24,7 +23,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("View/main_window.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("View/login_window.fxml"));
         primaryStage.setTitle("Repair System");
         primaryStage.setScene(new Scene(root));
