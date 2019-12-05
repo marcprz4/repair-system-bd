@@ -62,7 +62,11 @@ public class SearchWindowController implements Initializable {
 //                private String name;
 //                private int id_client;
 //                private int id_type;
-                label.setText("id" + "    " + "name" + "    " + "id_client" + "    " + "id_type");
+                label.setText("id" + "    " + "name" + "    " + "id_type" + "    " + "id_client");
+                ArrayList<Object> objects=Object.findAll();
+                for (Object o : objects) {
+                        list.getItems().add(o.getId_object() + "    " + o.getName() + "    " + o.getId_type()+ "    " +o.getId_client());
+                }
                 break;
             }
             default:{

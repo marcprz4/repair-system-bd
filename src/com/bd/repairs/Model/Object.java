@@ -2,20 +2,25 @@ package com.bd.repairs.Model;
 
 import com.bd.repairs.Main;
 import com.bd.repairs.View.AlertWindow;
-
+import javafx.scene.control.Alert;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-
+/**
+ * @author Paweł Nieć, Daniel Sajdak
+ * @version 1.0
+ */
 public class Object {
     private int id_object;
     private String name;
     private int id_client;
-    private int id_type;
+    private String id_type;
 
-    public Object(int id_object, String name,int id_client, int id_type){
+    public Object(int id_object, String name,int id_client, String id_type){
         this.id_object = id_object;
         this.name = name;
         this.id_client = id_client;
@@ -28,7 +33,7 @@ public class Object {
 
     public int getId_client() { return id_client; }
 
-    public int getId_type() { return id_type; }
+    public String getId_type() { return id_type; }
 
     public int insert(){
         String SQL = "INSERT INTO public.\"Object\"(id_object, name, id_client, id_type)VALUES (?, ?, ?, ?);";
@@ -39,7 +44,7 @@ public class Object {
             statement.setInt(1,this.getId_object());
             statement.setString(2,this.getName());
             statement.setInt(3,this.getId_client());
-            statement.setInt(4,this.getId_type());
+            statement.setString(4,this.getId_type());
             int affectedRows = statement.executeUpdate();
 
             if (affectedRows > 0) {
@@ -60,32 +65,24 @@ public class Object {
         return id;
     }
 
+
     public static Optional<Object> FindByName(String name){
-        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\"; WHERE name LIKE ?";
+        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ?;";
         Object object;
         try {
             if (name.isEmpty()){
                 throw new NullPointerException();
             }
-            String[] names = name.split("\\s+");
+            name=name+'%';
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
-            if (names.length == 2) {
-                statement.setString(1, names[0]);
-                statement.setString(2, names[1]);
-            } else if (names.length==3){
-                statement.setString(1, names[0] + " " + names[1]);
-                statement.setString(2, names[2]);
-            }
-            else{
-                statement.setString(1, names[0]);
-            }
+            statement.setString(1, name);
 
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 object = new Object(rs.getInt(1),
                         rs.getString(2),
                         rs.getInt(3),
-                        rs.getInt(4));
+                        rs.getString(4));
                 return Optional.of(object);
             } else {
                 throw new SQLException();
@@ -98,5 +95,28 @@ public class Object {
         return Optional.empty();
     }
 
+    public static ArrayList<Object> findAll() {
+        ArrayList<Object> list=new ArrayList<>();
+        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\";";
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Object object = new Object(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4));
+                list.add(object);
+            }
+            return list;
+        } catch (SQLException e) {
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Name not found.");
+            alert.setContentText("Check your input.");
+            alert.showAndWait();
+        }
+        return null;
+    }
 
 }

@@ -87,23 +87,6 @@ public class MainWindowController implements Initializable {
         stage.setTitle("Repair System");
         stage.setScene(new Scene(root));
         stage.show();
-//        switch (entitiesComboBox.getValue()) {
-//            case "Personel": {
-//                try {
-//
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                break;
-//            }
-//            case "Car":{
-//                System.out.println("CAR");
-//                break;
-//            }
-//            default:{
-//                System.out.println("def111");
-//            }
-//        }
     }
 
     @FXML
