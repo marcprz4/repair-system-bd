@@ -48,15 +48,14 @@ public class Client {
 
 
     public int insert() {
-        String SQL = "INSERT INTO public.\"Client\"(id_client, fname, lname, name, telephone) VALUES (?, ?, ?, ?, ?);";
+        String SQL = "INSERT INTO public.\"Client\"(fname, lname, name, telephone) VALUES (?, ?, ?, ?);";
         int id = 0;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, this.getId_client());
-            statement.setString(2, this.getFname());
-            statement.setString(3, this.getLname());
-            statement.setString(4, this.getName());
-            statement.setString(5, this.getTelephone());
+            statement.setString(1, this.getFname());
+            statement.setString(2, this.getLname());
+            statement.setString(3, this.getName());
+            statement.setString(4, this.getTelephone());
 
             int affectedRows = statement.executeUpdate();
 
@@ -78,25 +77,28 @@ public class Client {
         return id;
     }
 
-    public static Optional<Client> findByNames(String namelf) {
-        String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE fname=? AND lname=?;";
+    public static Optional<Client> findByNames(String name) {
+        String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE fname LIKE ? OR lname LIKE ?;";
+        name+='%';
         Client client;
         try {
-            if (namelf.isEmpty()) {
+            if (name.isEmpty()) {
                 throw new NullPointerException();
             }
-            String[] names = namelf.split("\\s+");
+//            String[] names = name.split("\\s+");
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
-            if (names.length == 2) {
-                statement.setString(1, names[0]);
-                statement.setString(2, names[1]);
-            } else if (names.length==3){
-                statement.setString(1, names[0] + " " + names[1]);
-                statement.setString(2, names[2]);
-            }
-            else{
-                throw new IndexOutOfBoundsException();
-            }
+            statement.setString(1, name);
+                statement.setString(2, name);
+//            if (names.length == 2) {
+//                statement.setString(1, names[0]);
+//                statement.setString(2, names[1]);
+//            } else if (names.length==3){
+//                statement.setString(1, names[0] + " " + names[1]);
+//                statement.setString(2, names[2]);
+//            }
+//            else{
+//                throw new IndexOutOfBoundsException();
+//            }
 
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
@@ -119,7 +121,8 @@ public class Client {
 
 
     public static Optional<Client> findByName(String name) {
-        String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE name=?;";
+        String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE name LIKE ?;";
+        name+='%';
         Client client;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);

@@ -30,10 +30,14 @@ public class Main extends Application {
         primaryStage.show();
 
         connection = PostgreSQLController.connect();
-        //Adding first user - admin.
-//        PasswordAuthentication passwordAuthentication=new PasswordAuthentication();
-//        String password=passwordAuthentication.hash("tester1".toCharArray());
-//        Personel personel=new Personel(1,"tester","testowy","USER","tester1",password,true);
-//        personel.insert();
+//Creator.createClient("Janusz","Nosacz","brak","101010101");//1
+//        Creator.createClient("Gabriela","Gabrielowa","brak","123123123");//2
+//        Creator.createClient("Edward","Tester","brak","090909090");//3
+//        Creator.createClient("brak","brak","Polskie zaklady programowania","101010123");//4
+//        Creator.createObject("VW Golf 7",1,"VW");
+//        Creator.createObject("Peugeot 508",2,"PSA");
+//        Creator.createObject("VW Passat B8",1,"VW");
+//        Creator.createObject("Audi A4 B9",3,"VW");
+//        Creator.createObject("Opel Corsa 2016",4,"GM");
     }
 }

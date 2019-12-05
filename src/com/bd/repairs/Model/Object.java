@@ -36,15 +36,14 @@ public class Object {
     public String getId_type() { return id_type; }
 
     public int insert(){
-        String SQL = "INSERT INTO public.\"Object\"(id_object, name, id_client, id_type)VALUES (?, ?, ?, ?);";
+        String SQL = "INSERT INTO public.\"Object\"(name, id_client, id_type)VALUES (?, ?, ?);";
         int id = 0;
         try {
 
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1,this.getId_object());
-            statement.setString(2,this.getName());
-            statement.setInt(3,this.getId_client());
-            statement.setString(4,this.getId_type());
+            statement.setString(1,this.getName());
+            statement.setInt(2,this.getId_client());
+            statement.setString(3,this.getId_type());
             int affectedRows = statement.executeUpdate();
 
             if (affectedRows > 0) {

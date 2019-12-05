@@ -96,23 +96,26 @@ public class Personel {
 
     public static Optional<Personel> findByName(String name) {
         String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name=? AND last_name=?;";
+        name+='%';
         Personel person;
         try {
             if (name.isEmpty()) {
                 throw new NullPointerException();
             }
-            String[] names = name.split("\\s+");
+//            String[] names = name.split("\\s+");
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
-            if (names.length == 2) {
-                statement.setString(1, names[0]);
-                statement.setString(2, names[1]);
-            } else if (names.length==3){
-                statement.setString(1, names[0] + " " + names[1]);
-                statement.setString(2, names[2]);
-            }
-            else{
-                throw new IndexOutOfBoundsException();
-            }
+            statement.setString(1, name);
+            statement.setString(2, name);
+//            if (names.length == 2) {
+//                statement.setString(1, names[0]);
+//                statement.setString(2, names[1]);
+//            } else if (names.length==3){
+//                statement.setString(1, names[0] + " " + names[1]);
+//                statement.setString(2, names[2]);
+//            }
+//            else{
+//                throw new IndexOutOfBoundsException();
+//            }
 
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
@@ -136,7 +139,8 @@ public class Personel {
     }
 
     public static Optional<Personel> findByUsername(String username) {
-        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE username=?;";
+        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE username LIKE ?;";
+        username+='%';
         Personel person;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
