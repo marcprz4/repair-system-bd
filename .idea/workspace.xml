@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc750c0b-584c-46e9-91c2-291195c4d4f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/CreateUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WindowLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WorkerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/StringConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/createUser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/editUser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/worker.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/LoginWindowController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/MainWindowController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/PostgreSQLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/PostgreSQLController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/SearchWindowController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/description_window.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/login_window.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/main_window.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/search_window.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginWindowController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/MainWindowController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/PostgreSQLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/PostgreSQLController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/SearchWindowController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/description_window.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/login_window.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/main_window.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/search_window.fxml" beforeDir="false" />
-    </list>
+    <list default="true" id="fc750c0b-584c-46e9-91c2-291195c4d4f0" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,14 +25,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+            <state relative-caret-position="212">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="206" column="143" selection-start-line="206" selection-start-column="143" selection-end-line="206" selection-end-column="143" />
             </state>
           </provider>
         </entry>
@@ -116,12 +84,12 @@
         <option value="$PROJECT_DIR$/src/com/bd/repairs/View/editUser.fxml" />
         <option value="$PROJECT_DIR$/src/com/bd/repairs/View/createUser.fxml" />
         <option value="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" />
-        <option value="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" />
         <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/CreateUserController.java" />
         <option value="$PROJECT_DIR$/src/com/bd/repairs/Model/StringToId.java" />
         <option value="$PROJECT_DIR$/src/com/bd/repairs/Model/StringConverter.java" />
         <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditUserController.java" />
         <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" />
       </list>
     </option>
   </component>
@@ -194,7 +162,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576186848320" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576186970693" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/postgresql-42.2.8 — kopia.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -205,6 +173,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mprzy\IdeaProjects\repair-system-bd" />
       <recent name="C:\Users\Mprzy\IdeaProjects\repair-system-bd\src\com\bd\repairs\View" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -284,12 +253,12 @@
       <workItem from="1575471434943" duration="13728000" />
       <workItem from="1575551575610" duration="2557000" />
       <workItem from="1575554677813" duration="2126000" />
-      <workItem from="1576165379567" duration="15956000" />
+      <workItem from="1576165379567" duration="16232000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15956000" />
+    <option name="totallyTimeSpent" value="16232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -524,13 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="111" column="165" selection-start-line="111" selection-start-column="165" selection-end-line="111" selection-end-column="165" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/WindowLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -575,11 +537,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+        <state relative-caret-position="212">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="206" column="143" selection-start-line="206" selection-start-column="143" selection-end-line="206" selection-end-column="143" />
         </state>
       </provider>
     </entry>
@@ -648,7 +617,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>postgresql-42.2.8</last-edited>
+          <last-edited>jfoenix-8.0.8 — kopia</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
