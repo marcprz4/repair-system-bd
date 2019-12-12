@@ -1,7 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc750c0b-584c-46e9-91c2-291195c4d4f0" name="Default Changelist" comment="" />
+    <list default="true" id="fc750c0b-584c-46e9-91c2-291195c4d4f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/CreateUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WindowLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WorkerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/StringConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/createUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/editUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/worker.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/LoginWindowController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/MainWindowController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/PostgreSQLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/PostgreSQLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/SearchWindowController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/description_window.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/login_window.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/main_window.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/search_window.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginWindowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/MainWindowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/PostgreSQLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/PostgreSQLController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/SearchWindowController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/description_window.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/login_window.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/main_window.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/search_window.fxml" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,58 +61,24 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="postgres@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="postgres: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="Object: table" type="69fad909:PgImplModel$LocalTable" />
-      </path>
-    </expand>
+    <expand />
     <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,10 +88,102 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>findall</find>
+      <find>findByName</find>
+      <find>Personel</find>
+      <find>id</find>
+      <find>id=</find>
+      <find>deac</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginWindowController.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/PostgreSQLController.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/View/worker.fxml" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/View/login.fxml" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/WindowLoader.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/View/editUser.fxml" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/View/createUser.fxml" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/CreateUserController.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Model/StringToId.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Model/StringConverter.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditUserController.java" />
+        <option value="$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="105" />
+    <option name="y" value="417" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
   <component name="ProjectId" id="1UWTbQ7l7PymfsiSlI0f9Uu2E3j" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="repair-system-bd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="repair-system-bd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="repair-system-bd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="repair-system-bd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="repair-system-bd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="repair-system-bd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="repairs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="repair-system-bd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="repair-system-bd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="repairs" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="repair-system-bd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="repair-system-bd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="repairs" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="repair-system-bd" type="b2602c69:ProjectViewProjectNode" />
+              <item name="repair-system-bd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="repairs" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -93,17 +194,40 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/biblioteki/postgresql-42.2.8.jar!/" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576186848320" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/postgresql-42.2.8 — kopia.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mprzy\IdeaProjects\repair-system-bd\src\com\bd\repairs\View" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Mprzy\IdeaProjects\repair-system-bd\src\com\bd\repairs\View" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.bd.repairs.Controller" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.bd.repairs.Model" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -160,8 +284,47 @@
       <workItem from="1575471434943" duration="13728000" />
       <workItem from="1575551575610" duration="2557000" />
       <workItem from="1575554677813" duration="2126000" />
+      <workItem from="1576165379567" duration="15956000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="15956000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30985916" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" weight="0.32942432" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -227,5 +390,274 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1575476247618" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3408b8ce-e900-4380-bedf-9e3ec07ee3bd/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/View/css.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/SearchWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="31" column="68" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Model/PasswordAuthentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/072bd5ed-58f6-49df-a24f-d2195392fb20/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="78" column="5" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="78" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/PostgreSQLController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/View/worker.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="161" selection-start-line="14" selection-start-column="161" selection-end-line="14" selection-end-column="161" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="80" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="1772" selection-start-line="1772" selection-end-line="1772" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/View/login.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="81" lean-forward="true" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/View/editUser.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="85" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/View/createUser.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="91" selection-start-line="17" selection-start-column="91" selection-end-line="17" selection-end-column="91" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/WorkerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Model/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1139">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_221/javafx-src.zip!/javafx/scene/control/TextInputControl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="347" column="35" selection-start-line="347" selection-start-column="35" selection-end-line="347" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="111" column="165" selection-start-line="111" selection-start-column="165" selection-end-line="111" selection-end-column="165" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/WindowLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Model/StringConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="77" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="77" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/EditUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/CreateUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="33" column="8" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="34" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>repair-system-bd</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>postgresql-42.2.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

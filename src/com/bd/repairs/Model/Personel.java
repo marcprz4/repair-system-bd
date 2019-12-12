@@ -33,6 +33,15 @@ public class Personel {
         this.password = password;
         this.active = active;
     }
+    public Personel(Personel other){
+        this.id_personel = other.getId_personel();
+        this.first_name = other.getFirst_name();
+        this.last_name = other.getLast_name();
+        this.role = other.getRole();
+        this.username = other.getUsername();
+        this.password = other.getPassword();
+        this.active = other.isActive();
+    }
 
     public int getId_personel() {
         return id_personel;
@@ -61,61 +70,56 @@ public class Personel {
     public boolean isActive() {
         return active;
     }
+    public void changeActive(){active=!active;}
+//        String SQL = "INSERT INTO public.\"Personel\"(first_name, last_name, role, username, password, active) VALUES (?, ?, ?, ?, ?, ?);";
+public int update() {
+    String SQL = "UPDATE public.\"Personel\" SET first_name=?, last_name=?, role=?, active=? WHERE id_personel=?;";
+    int id=0;
+    int affectedRows=0;
+    try {
+        PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+        statement.setString(1, this.getFirst_name().toUpperCase());
+        statement.setString(2, this.getLast_name().toUpperCase());
+        statement.setString(3, this.getRole());
+        statement.setBoolean(4, this.isActive());
+        statement.setInt(5,this.getId_personel());
+        affectedRows = statement.executeUpdate();
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+    return affectedRows;
+}
 
     public int insert() {
         String SQL = "INSERT INTO public.\"Personel\"(first_name, last_name, role, username, password, active) VALUES (?, ?, ?, ?, ?, ?);";
-        int id = 0;
+        int affectedRows=0;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-//            statement.setInt(1, this.getId_personel());
-            statement.setString(1, this.getFirst_name());
-            statement.setString(2, this.getLast_name());
-            statement.setString(3, this.getRole());
-            statement.setString(4, this.getUsername());
-            statement.setString(5, this.getPassword());
+            statement.setString(1, this.getFirst_name().toUpperCase());
+            statement.setString(2, this.getLast_name().toUpperCase());
+            statement.setString(3, this.getRole().toUpperCase());
+            statement.setString(4, this.getUsername().toUpperCase());
+            statement.setString(5, this.getPassword().toUpperCase());
             statement.setBoolean(6, this.isActive());
-            int affectedRows = statement.executeUpdate();
-
-            if (affectedRows > 0) {
-                try (ResultSet rs = statement.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        id = rs.getInt(1);
-                    }
-                    else
-                        throw new SQLException();
-                } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
-                }
-
-            }
+            affectedRows = statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        return id;
+        return affectedRows;
     }
 
     public static Optional<Personel> findByName(String name) {
-        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name=? AND last_name=?;";
+        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name LIKE ? OR last_name LIKE ?;";
+        name=name.toUpperCase();
         name+='%';
         Personel person;
         try {
             if (name.isEmpty()) {
                 throw new NullPointerException();
             }
-//            String[] names = name.split("\\s+");
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setString(1, name);
             statement.setString(2, name);
-//            if (names.length == 2) {
-//                statement.setString(1, names[0]);
-//                statement.setString(2, names[1]);
-//            } else if (names.length==3){
-//                statement.setString(1, names[0] + " " + names[1]);
-//                statement.setString(2, names[2]);
-//            }
-//            else{
-//                throw new IndexOutOfBoundsException();
-//            }
 
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
@@ -140,6 +144,7 @@ public class Personel {
 
     public static Optional<Personel> findByUsername(String username) {
         String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE username LIKE ?;";
+        username=username.toUpperCase();
         username+='%';
         Personel person;
         try {
@@ -161,7 +166,36 @@ public class Personel {
         } catch (SQLException e) {
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Name not found.");
+            alert.setHeaderText("Username not found.");
+            alert.setContentText("Check your input.");
+            alert.showAndWait();
+        }
+        return Optional.empty();
+    }
+
+    public static Optional<Personel> findById(int id) {
+        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE id_personel = ?;";
+        Personel person;
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                person = new Personel(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getBoolean(7));
+                return Optional.of(person);
+            } else {
+                throw new SQLException();
+            }
+        } catch (SQLException e) {
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Id not found.");
             alert.setContentText("Check your input.");
             alert.showAndWait();
         }
@@ -170,7 +204,7 @@ public class Personel {
 
     public static ArrayList<Personel> findAll() {
         ArrayList<Personel> list=new ArrayList<>();
-        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\";";
+        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" ORDER BY id_personel;";
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             ResultSet rs = statement.executeQuery();
