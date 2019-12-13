@@ -108,10 +108,11 @@ public int update() {
         return affectedRows;
     }
 
-    public static Optional<Personel> findByName(String name) {
+    public static Optional<ArrayList<Personel>> findByName(String name) {
         String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name LIKE ? OR last_name LIKE ?;";
         name=name.toUpperCase();
         name+='%';
+        ArrayList<Personel> people=new ArrayList<>();
         Personel person;
         try {
             if (name.isEmpty()) {
@@ -122,7 +123,7 @@ public int update() {
             statement.setString(2, name);
 
             ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
+            while(rs.next()){
                 person = new Personel(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -130,10 +131,15 @@ public int update() {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getBoolean(7));
-                return Optional.of(person);
-            } else {
-                throw new SQLException();
+                people.add(person);
             }
+            return Optional.of(people);
+//            if (rs.next()) {
+//
+////                return Optional.of(person);
+//            } else {
+//                throw new SQLException();
+//            }
         } catch (SQLException e) {
             AlertWindow alert=new AlertWindow("Error","Name not found.","Check your input.");
         } catch (NullPointerException | IndexOutOfBoundsException e) {

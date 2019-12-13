@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -34,6 +35,16 @@ public static int id;
                     sp + person.getUsername() + sp + person.getRole() + sp + person.isActive());
         }
         usersList.getItems().setAll(FXCollections.observableList(users));
+    }
+
+    public void refreshArrayOfElements(ArrayList<Personel> people){
+            users.clear();
+            String sp="    ";
+            for(Personel person:people){
+                users.add(person.getId_personel()+ sp + person.getFirst_name()+ sp + person.getLast_name() +
+                        sp + person.getUsername() + sp + person.getRole() + sp + person.isActive());
+            }
+            usersList.getItems().setAll(FXCollections.observableList(users));
     }
 
     public void refreshSingleElement(Personel person){
@@ -85,8 +96,8 @@ public static int id;
 
     public void find(ActionEvent actionEvent) {
         if(!findField.getText().isEmpty()){
-            Personel person=Personel.findByName(findField.getText()).get();
-            refreshSingleElement(person);
+            ArrayList<Personel> people=Personel.findByName(findField.getText()).get();
+            refreshArrayOfElements(people);
         }
     }
 }
