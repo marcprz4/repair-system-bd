@@ -25,22 +25,19 @@ public class LoginController {
         try {
             Personel person = Personel.findByUsername(login.getText()).get();
             if (PasswordAuthentication.authenticate(password.getText().toCharArray(), person.getPassword())) {
-                WindowLoader windowLoader=new WindowLoader();
+                WindowLoader windowLoader = new WindowLoader();
                 try {
-                    switch(person.getRole()){
-                        case "ADMIN":
-                        {
-                            windowLoader.load(new Stage(),"Application","admin");
+                    switch (person.getRole()) {
+                        case "ADMIN": {
+                            windowLoader.load(new Stage(), "Application", "admin");
                             break;
                         }
-                        case "MANAGER":
-                        {
-                            windowLoader.load(new Stage(),"Application","manager");
+                        case "MANAGER": {
+                            windowLoader.load(new Stage(), "Application", "manager");
                             break;
                         }
-                        case "WORKER":
-                        {
-                            windowLoader.load(new Stage(),"Application","worker");
+                        case "WORKER": {
+                            windowLoader.load(new Stage(), "Application", "worker");
                             break;
                         }
                     }
@@ -56,7 +53,7 @@ public class LoginController {
     }
 
     public void enter(KeyEvent keyEvent) {
-        if(keyEvent.getCode().equals(KeyCode.ENTER)){
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
             login(new ActionEvent());
         }
     }

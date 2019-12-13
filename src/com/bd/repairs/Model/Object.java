@@ -3,13 +3,14 @@ package com.bd.repairs.Model;
 import com.bd.repairs.Main;
 import com.bd.repairs.View.AlertWindow;
 import javafx.scene.control.Alert;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
+
 /**
  * @author Paweł Nieć, Daniel Sajdak
  * @version 1.0
@@ -20,59 +21,21 @@ public class Object {
     private int id_client;
     private String id_type;
 
-    public Object(int id_object, String name,int id_client, String id_type){
+    public Object(int id_object, String name, int id_client, String id_type) {
         this.id_object = id_object;
         this.name = name;
         this.id_client = id_client;
         this.id_type = id_type;
     }
 
-    public int getId_object() { return id_object; }
-
-    public String getName() { return name; }
-
-    public int getId_client() { return id_client; }
-
-    public String getId_type() { return id_type; }
-
-    public int insert(){
-        String SQL = "INSERT INTO public.\"Object\"(name, id_client, id_type)VALUES (?, ?, ?);";
-        int id = 0;
-        try {
-
-            PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1,this.getName());
-            statement.setInt(2,this.getId_client());
-            statement.setString(3,this.getId_type());
-            int affectedRows = statement.executeUpdate();
-
-            if (affectedRows > 0) {
-                try (ResultSet rs = statement.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        id = rs.getInt(1);
-                    }
-                    else
-                        throw new SQLException();
-                } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
-                }
-
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return id;
-    }
-
-
-    public static Optional<Object> FindByName(String name){
+    public static Optional<Object> FindByName(String name) {
         String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ?;";
         Object object;
         try {
-            if (name.isEmpty()){
+            if (name.isEmpty()) {
                 throw new NullPointerException();
             }
-            name=name+'%';
+            name = name + '%';
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setString(1, name);
 
@@ -87,15 +50,15 @@ public class Object {
                 throw new SQLException();
             }
         } catch (SQLException e) {
-            AlertWindow alert=new AlertWindow("Error","Name not found.","Check your input.");
+            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
         } catch (NullPointerException | IndexOutOfBoundsException e) {
-            AlertWindow alert=new AlertWindow("Error","Wrong name field.","Check your input.");
+            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
         }
         return Optional.empty();
     }
 
     public static ArrayList<Object> findAll() {
-        ArrayList<Object> list=new ArrayList<>();
+        ArrayList<Object> list = new ArrayList<>();
         String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\";";
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
@@ -109,13 +72,57 @@ public class Object {
             }
             return list;
         } catch (SQLException e) {
-            Alert alert=new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Name not found.");
             alert.setContentText("Check your input.");
             alert.showAndWait();
         }
         return null;
+    }
+
+    public int getId_object() {
+        return id_object;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getId_client() {
+        return id_client;
+    }
+
+    public String getId_type() {
+        return id_type;
+    }
+
+    public int insert() {
+        String SQL = "INSERT INTO public.\"Object\"(name, id_client, id_type)VALUES (?, ?, ?);";
+        int id = 0;
+        try {
+
+            PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, this.getName());
+            statement.setInt(2, this.getId_client());
+            statement.setString(3, this.getId_type());
+            int affectedRows = statement.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = statement.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        id = rs.getInt(1);
+                    } else
+                        throw new SQLException();
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                }
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return id;
     }
 
 }

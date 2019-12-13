@@ -59,17 +59,6 @@ public final class PasswordAuthentication {
         }
     }
 
-    public String hash(char[] password) {
-        byte[] salt = new byte[SIZE / 8];
-        random.nextBytes(salt);
-        byte[] dk = pbkdf2(password, salt, 1 << cost);
-        byte[] hash = new byte[salt.length + dk.length];
-        System.arraycopy(salt, 0, hash, 0, salt.length);
-        System.arraycopy(dk, 0, hash, salt.length, dk.length);
-        Base64.Encoder enc = Base64.getUrlEncoder().withoutPadding();
-        return ID + cost + '$' + enc.encodeToString(hash);
-    }
-
     public static boolean authenticate(char[] password, String token) {
         Matcher m = layout.matcher(token);
         if (!m.matches())
@@ -82,6 +71,17 @@ public final class PasswordAuthentication {
         for (int idx = 0; idx < check.length; ++idx)
             zero |= hash[salt.length + idx] ^ check[idx];
         return zero == 0;
+    }
+
+    public String hash(char[] password) {
+        byte[] salt = new byte[SIZE / 8];
+        random.nextBytes(salt);
+        byte[] dk = pbkdf2(password, salt, 1 << cost);
+        byte[] hash = new byte[salt.length + dk.length];
+        System.arraycopy(salt, 0, hash, 0, salt.length);
+        System.arraycopy(dk, 0, hash, salt.length, dk.length);
+        Base64.Encoder enc = Base64.getUrlEncoder().withoutPadding();
+        return ID + cost + '$' + enc.encodeToString(hash);
     }
 
     @Deprecated

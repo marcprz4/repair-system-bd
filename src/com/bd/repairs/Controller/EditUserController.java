@@ -1,6 +1,5 @@
 package com.bd.repairs.Controller;
 
-import com.bd.repairs.Model.PasswordAuthentication;
 import com.bd.repairs.Model.Personel;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.Initializable;
@@ -14,8 +13,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EditUserController implements Initializable {
-    Personel person;
-
     public TextField fname;
     public TextField lname;
     public TextField username;
@@ -23,9 +20,10 @@ public class EditUserController implements Initializable {
     public CheckBox active;
     public JFXButton applyButton;
     public ChoiceBox<String> role;
+    Personel person;
 
-    public void apply(){
-        Personel person=new Personel(Personel.findById(AdminController.id).get().getId_personel(),fname.getText(),lname.getText(),role.getSelectionModel().getSelectedItem(),username.getText(),password.getText(),active.isSelected());
+    public void apply() {
+        Personel person = new Personel(Personel.findById(AdminController.id).get().getId_personel(), fname.getText(), lname.getText(), role.getSelectionModel().getSelectedItem(), username.getText(), password.getText(), active.isSelected());
         person.update();
         Stage stage = (Stage) applyButton.getScene().getWindow();
         stage.close();
@@ -33,7 +31,7 @@ public class EditUserController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        person=Personel.findById(AdminController.id).get();
+        person = Personel.findById(AdminController.id).get();
         this.fname.setText(person.getFirst_name());
         this.lname.setText(person.getLast_name());
         this.username.setText(person.getUsername());

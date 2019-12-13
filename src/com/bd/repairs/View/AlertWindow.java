@@ -1,5 +1,7 @@
 package com.bd.repairs.View;
+
 import javafx.scene.control.Alert;
+
 public class AlertWindow {
     Alert alert;
 

@@ -2,12 +2,7 @@ package com.bd.repairs;
 
 import com.bd.repairs.Controller.PostgreSQLController;
 import com.bd.repairs.Controller.WindowLoader;
-import com.bd.repairs.Model.PasswordAuthentication;
-import com.bd.repairs.Model.Personel;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -26,7 +21,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         connection = PostgreSQLController.connect();
-        WindowLoader windowLoader=new WindowLoader();
-        windowLoader.load(primaryStage,"Application","login");
+        WindowLoader windowLoader = new WindowLoader();
+        windowLoader.load(primaryStage, "Application", "login");
     }
 }
