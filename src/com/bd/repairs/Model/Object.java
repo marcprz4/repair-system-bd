@@ -28,9 +28,10 @@ public class Object {
         this.id_type = id_type;
     }
 
-    public static Optional<Object> FindByName(String name) {
+    public static Optional<ArrayList<Object>> FindByName(String name) {
         String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ?;";
         Object object;
+        ArrayList<Object> objects=new ArrayList<>();
         try {
             if (name.isEmpty()) {
                 throw new NullPointerException();
@@ -40,15 +41,14 @@ public class Object {
             statement.setString(1, name);
 
             ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 object = new Object(rs.getInt(1),
                         rs.getString(2),
                         rs.getInt(3),
                         rs.getString(4));
-                return Optional.of(object);
-            } else {
-                throw new SQLException();
+                objects.add(object);
             }
+            return Optional.of(objects);
         } catch (SQLException e) {
             AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
         } catch (NullPointerException | IndexOutOfBoundsException e) {

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.WorkerController">
-   <children>
-      <Label fx:id="userInfo" layoutX="506.0" layoutY="14.0" prefHeight="30.0" prefWidth="107.0" text="Label" />
-      <JFXListView fx:id="actList" layoutX="54.0" layoutY="90.0" prefHeight="251.0" prefWidth="302.0" />
-      <Label layoutX="54.0" layoutY="73.0" prefHeight="17.0" prefWidth="201.0" text="activities" />
-      <JFXButton fx:id="doneButton" layoutX="54.0" layoutY="350.0" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Done" />
-      <JFXButton fx:id="cancelButton" layoutX="193.0" layoutY="350.0" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Cancel" />
-   </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="536.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8.0.221"
+            fx:controller="com.bd.repairs.Controller.WorkerController">
+    <children>
+        <Label fx:id="userInfo" layoutX="506.0" layoutY="14.0" prefHeight="30.0" prefWidth="107.0" text="Label"/>
+        <JFXListView fx:id="actList" layoutX="54.0" layoutY="90.0" prefHeight="251.0" prefWidth="302.0"/>
+        <Label layoutX="54.0" layoutY="73.0" prefHeight="17.0" prefWidth="201.0" text="activities"/>
+        <JFXButton fx:id="doneButton" layoutX="54.0" layoutY="350.0" prefHeight="30.0" prefWidth="107.0"
+                   style="-fx-background-color: #e6e6e6;" text="Done"/>
+        <JFXButton fx:id="cancelButton" layoutX="193.0" layoutY="350.0" prefHeight="30.0" prefWidth="107.0"
+                   style="-fx-background-color: #e6e6e6;" text="Cancel"/>
+    </children>
 </AnchorPane>

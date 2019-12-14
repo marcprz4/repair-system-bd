@@ -3,26 +3,27 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label layoutX="44.0" layoutY="21.0" prefHeight="21.0" prefWidth="187.0" text="Add new activity" />
-      <Label layoutX="44.0" layoutY="53.0" prefHeight="17.0" prefWidth="143.0" text="current request" />
-      <JFXTextField fx:id="seqNumber" layoutX="44.0" layoutY="85.0" promptText="sequence number" />
-      <JFXTextArea fx:id="desc" layoutX="44.0" layoutY="122.0" prefHeight="95.0" prefWidth="343.0" promptText="description" />
-      <JFXTextArea fx:id="res" layoutX="44.0" layoutY="234.0" prefHeight="95.0" prefWidth="343.0" promptText="result" />
-      <DatePicker fx:id="startDate" layoutX="45.0" layoutY="424.0" />
-      <DatePicker fx:id="endDate" layoutX="45.0" layoutY="477.0" />
-      <Label layoutX="47.0" layoutY="400.0" prefHeight="17.0" prefWidth="143.0" text="start" />
-      <Label layoutX="47.0" layoutY="460.0" prefHeight="17.0" prefWidth="143.0" text="end" />
-      <ChoiceBox fx:id="status" layoutX="44.0" layoutY="369.0" prefWidth="150.0" />
-      <Label layoutX="44.0" layoutY="352.0" prefHeight="17.0" prefWidth="143.0" text="status" />
-      <ChoiceBox fx:id="workerList" layoutX="44.0" layoutY="531.0" prefWidth="150.0" />
-      <Label layoutX="44.0" layoutY="514.0" prefHeight="17.0" prefWidth="143.0" text="worker" />
-      <JFXButton fx:id="applyButton" layoutX="165.0" layoutY="575.0" onAction="#apply" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #e6e6e6;" text="Apply" />
-   </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="614.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.221">
+    <children>
+        <Label layoutX="44.0" layoutY="21.0" prefHeight="21.0" prefWidth="187.0" text="Add new activity"/>
+        <Label layoutX="44.0" layoutY="53.0" prefHeight="17.0" prefWidth="143.0" text="current request"/>
+        <JFXTextField fx:id="seqNumber" layoutX="44.0" layoutY="85.0" promptText="sequence number"/>
+        <JFXTextArea fx:id="desc" layoutX="44.0" layoutY="122.0" prefHeight="95.0" prefWidth="343.0"
+                     promptText="description"/>
+        <JFXTextArea fx:id="res" layoutX="44.0" layoutY="234.0" prefHeight="95.0" prefWidth="343.0"
+                     promptText="result"/>
+        <DatePicker fx:id="startDate" layoutX="45.0" layoutY="424.0"/>
+        <DatePicker fx:id="endDate" layoutX="45.0" layoutY="477.0"/>
+        <Label layoutX="47.0" layoutY="400.0" prefHeight="17.0" prefWidth="143.0" text="start"/>
+        <Label layoutX="47.0" layoutY="460.0" prefHeight="17.0" prefWidth="143.0" text="end"/>
+        <ChoiceBox fx:id="status" layoutX="44.0" layoutY="369.0" prefWidth="150.0"/>
+        <Label layoutX="44.0" layoutY="352.0" prefHeight="17.0" prefWidth="143.0" text="status"/>
+        <ChoiceBox fx:id="workerList" layoutX="44.0" layoutY="531.0" prefWidth="150.0"/>
+        <Label layoutX="44.0" layoutY="514.0" prefHeight="17.0" prefWidth="143.0" text="worker"/>
+        <JFXButton fx:id="applyButton" layoutX="165.0" layoutY="575.0" onAction="#apply" prefHeight="25.0"
+                   prefWidth="109.0" style="-fx-background-color: #e6e6e6;" text="Apply"/>
+    </children>
 </AnchorPane>

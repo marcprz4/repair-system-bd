@@ -25,24 +25,28 @@ public class LoginController {
         try {
             Personel person = Personel.findByUsername(login.getText()).get();
             if (PasswordAuthentication.authenticate(password.getText().toCharArray(), person.getPassword())) {
-                WindowLoader windowLoader = new WindowLoader();
-                try {
-                    switch (person.getRole()) {
-                        case "ADMIN": {
-                            windowLoader.load(new Stage(), "Application", "admin");
-                            break;
+                if(person.isActive()){
+                    WindowLoader windowLoader = new WindowLoader();
+                    try {
+                        switch (person.getRole()) {
+                            case "ADMIN": {
+                                windowLoader.load(new Stage(), "Application", "admin");
+                                break;
+                            }
+                            case "MANAGER": {
+                                windowLoader.load(new Stage(), "Application", "manager");
+                                break;
+                            }
+                            case "WORKER": {
+                                windowLoader.load(new Stage(), "Application", "worker");
+                                break;
+                            }
                         }
-                        case "MANAGER": {
-                            windowLoader.load(new Stage(), "Application", "manager");
-                            break;
-                        }
-                        case "WORKER": {
-                            windowLoader.load(new Stage(), "Application", "worker");
-                            break;
-                        }
+                    } catch (IOException e) {
+                        label.setText("can't open window.");
                     }
-                } catch (IOException e) {
-                    label.setText("can't open window.");
+                } else {
+                    label.setText("user not active.");
                 }
             } else {
                 label.setText("wrong login data.");

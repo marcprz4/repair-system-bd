@@ -5,10 +5,7 @@ import com.bd.repairs.Main;
 import com.bd.repairs.View.AlertWindow;
 import javafx.scene.control.Alert;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -57,40 +54,29 @@ public class Client {
         return Optional.empty();
     }
 
-    public static Optional<Client> findByNames(String name) {
+    public static Optional<ArrayList<Client>> findByNames(String name) {
         String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE fname LIKE ? OR lname LIKE ?;";
+        name=name.toUpperCase();
         name += '%';
         Client client;
+        ArrayList<Client> clients=new ArrayList<>();
         try {
             if (name.isEmpty()) {
                 throw new NullPointerException();
             }
-//            String[] names = name.split("\\s+");
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setString(1, name);
             statement.setString(2, name);
-//            if (names.length == 2) {
-//                statement.setString(1, names[0]);
-//                statement.setString(2, names[1]);
-//            } else if (names.length==3){
-//                statement.setString(1, names[0] + " " + names[1]);
-//                statement.setString(2, names[2]);
-//            }
-//            else{
-//                throw new IndexOutOfBoundsException();
-//            }
-
             ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 client = new Client(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5));
-                return Optional.of(client);
-            } else {
-                throw new SQLException();
+                clients.add(client);
             }
+            return Optional.of(clients);
         } catch (SQLException e) {
             AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
         } catch (NullPointerException | IndexOutOfBoundsException e) {
@@ -99,24 +85,25 @@ public class Client {
         return Optional.empty();
     }
 
-    public static Optional<Client> findByName(String name) {
+    public static Optional<ArrayList<Client>> findByName(String name) {
         String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE name LIKE ?;";
+        name=name.toUpperCase();
         name += '%';
+        ArrayList<Client> clients=new ArrayList<>();
         Client client;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setString(1, name);
             ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 client = new Client(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5));
-                return Optional.of(client);
-            } else {
-                throw new SQLException();
+                clients.add(client);
             }
+            return Optional.of(clients);
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -179,9 +166,9 @@ public class Client {
         int id = 0;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, this.getFname());
-            statement.setString(2, this.getLname());
-            statement.setString(3, this.getName());
+            statement.setString(1, this.getFname().toUpperCase());
+            statement.setString(2, this.getLname().toUpperCase());
+            statement.setString(3, this.getName().toUpperCase());
             statement.setString(4, this.getTelephone());
 
             int affectedRows = statement.executeUpdate();

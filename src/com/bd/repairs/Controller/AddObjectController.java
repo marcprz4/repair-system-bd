@@ -30,4 +30,8 @@ public class AddObjectController implements Initializable {
 
     public void apply(ActionEvent actionEvent) {
     }
+
+    public void addType(ActionEvent actionEvent) {
+
+    }
 }

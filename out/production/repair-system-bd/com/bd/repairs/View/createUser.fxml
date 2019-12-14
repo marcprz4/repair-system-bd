@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.CreateUserController">
-   <children>
-      <TextField fx:id="fname" layoutX="97.0" layoutY="104.0" prefHeight="25.0" prefWidth="211.0" promptText="First name" />
-      <TextField fx:id="lname" layoutX="98.0" layoutY="138.0" prefHeight="25.0" prefWidth="211.0" promptText="Last name" />
-      <TextField fx:id="username" layoutX="97.0" layoutY="226.0" prefHeight="25.0" prefWidth="211.0" promptText="username" />
-      <PasswordField fx:id="password" layoutX="98.0" layoutY="265.0" prefHeight="25.0" prefWidth="211.0" promptText="password" />
-      <CheckBox fx:id="active" layoutX="97.0" layoutY="305.0" mnemonicParsing="false" text="active" />
-      <Label layoutX="98.0" layoutY="61.0" prefHeight="25.0" prefWidth="211.0" text="create user" />
-      <JFXButton fx:id="applyButton" layoutX="146.0" layoutY="357.0" onAction="#apply" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="apply" />
-      <ChoiceBox fx:id="role" layoutX="97.0" layoutY="190.0" prefHeight="25.0" prefWidth="211.0" />
-      <Label layoutX="97.0" layoutY="173.0" prefHeight="17.0" prefWidth="143.0" text="role" />
-   </children>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="450.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            fx:controller="com.bd.repairs.Controller.CreateUserController">
+    <children>
+        <TextField fx:id="fname" layoutX="97.0" layoutY="104.0" prefHeight="25.0" prefWidth="211.0"
+                   promptText="First name"/>
+        <TextField fx:id="lname" layoutX="98.0" layoutY="138.0" prefHeight="25.0" prefWidth="211.0"
+                   promptText="Last name"/>
+        <TextField fx:id="username" layoutX="97.0" layoutY="226.0" prefHeight="25.0" prefWidth="211.0"
+                   promptText="username"/>
+        <PasswordField fx:id="password" layoutX="98.0" layoutY="265.0" prefHeight="25.0" prefWidth="211.0"
+                       promptText="password"/>
+        <CheckBox fx:id="active" layoutX="97.0" layoutY="305.0" mnemonicParsing="false" text="active"/>
+        <Label layoutX="98.0" layoutY="61.0" prefHeight="25.0" prefWidth="211.0" text="create user"/>
+        <JFXButton fx:id="applyButton" layoutX="146.0" layoutY="357.0" onAction="#apply" prefHeight="25.0"
+                   prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="apply"/>
+        <ChoiceBox fx:id="role" layoutX="97.0" layoutY="190.0" prefHeight="25.0" prefWidth="211.0"/>
+        <Label layoutX="97.0" layoutY="173.0" prefHeight="17.0" prefWidth="143.0" text="role"/>
+    </children>
 </AnchorPane>

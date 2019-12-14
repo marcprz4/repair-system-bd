@@ -2,28 +2,33 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.ManagerController">
-   <children>
-      <JFXButton fx:id="button1" layoutX="57.0" layoutY="105.0" onAction="#searchObject" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="search" />
-      <ChoiceBox fx:id="searchList" layoutX="59.0" layoutY="74.0" prefHeight="22.0" prefWidth="214.0" />
-      <JFXButton fx:id="button2" layoutX="196.0" layoutY="105.0" onAction="#addObject" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="add" />
-      <Label fx:id="userInfo" layoutX="637.0" layoutY="14.0" prefHeight="22.0" prefWidth="99.0" text="Label" />
-      <JFXListView fx:id="listView" layoutX="54.0" layoutY="202.0" prefHeight="191.0" prefWidth="346.0" />
-      <Label layoutX="57.0" layoutY="188.0" prefHeight="17.0" prefWidth="153.0" text="activities" />
-      <JFXButton fx:id="addActivity" layoutX="57.0" layoutY="420.0" onAction="#addActivity" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="add new activity" />
-      <JFXButton fx:id="activateAct" layoutX="196.0" layoutY="420.0" onAction="#activate2" prefHeight="33.0" prefWidth="153.0" style="-fx-background-color: #e6e6e6;" text="make active/deactivate" />
-      <JFXButton fx:id="editWorker" layoutX="49.0" layoutY="508.0" onAction="#editActivityWorker" prefHeight="33.0" prefWidth="133.0" style="-fx-background-color: #e6e6e6;" text="edit activity worker" />
-      <ChoiceBox fx:id="reqList" layoutX="54.0" layoutY="159.0" prefHeight="22.0" prefWidth="214.0" />
-      <Label layoutX="57.0" layoutY="142.0" prefHeight="17.0" prefWidth="153.0" text="requests" />
-      <Label layoutX="57.0" layoutY="49.0" prefHeight="17.0" prefWidth="122.0" text="search by car/owner" />
-      <Label fx:id="objectInfo" layoutX="386.0" layoutY="49.0" prefHeight="77.0" prefWidth="271.0" text="active car/owner" />
-      <JFXButton fx:id="addReq" layoutX="280.0" layoutY="159.0" onAction="#addRequest" prefHeight="22.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="add" />
-      <JFXButton fx:id="activateReq" layoutX="354.0" layoutY="159.0" onAction="#activate" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="(de)activate" />
-      <Label layoutX="57.0" layoutY="482.0" prefHeight="17.0" prefWidth="153.0" text="workers" />
-      <ChoiceBox fx:id="typeList" layoutX="182.0" layoutY="45.0" prefHeight="0.0" prefWidth="105.0" />
-   </children>
+    <children>
+        <JFXButton fx:id="button1" layoutX="57.0" layoutY="136.0" onAction="#searchObject" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="search" />
+        <ChoiceBox fx:id="searchList" layoutX="177.0" layoutY="77.0" prefHeight="22.0" prefWidth="214.0" />
+        <JFXButton fx:id="addCar" layoutX="207.0" layoutY="136.0" onAction="#addCar" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="add car to owner" />
+        <Label fx:id="userInfo" layoutX="637.0" layoutY="14.0" prefHeight="22.0" prefWidth="99.0" text="Label" />
+        <JFXListView fx:id="listView" layoutX="87.0" layoutY="233.0" prefHeight="191.0" prefWidth="346.0" />
+        <Label layoutX="90.0" layoutY="219.0" prefHeight="17.0" prefWidth="153.0" text="activities" />
+        <JFXButton fx:id="addActivity" layoutX="90.0" layoutY="451.0" onAction="#addActivity" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="add new activity" />
+        <JFXButton fx:id="activateAct" layoutX="229.0" layoutY="451.0" onAction="#activate2" prefHeight="33.0" prefWidth="153.0" style="-fx-background-color: #e6e6e6;" text="make active/deactivate" />
+        <JFXButton fx:id="editWorker" layoutX="82.0" layoutY="539.0" onAction="#editActivityWorker" prefHeight="33.0" prefWidth="133.0" style="-fx-background-color: #e6e6e6;" text="edit activity worker" />
+        <ChoiceBox fx:id="reqList" layoutX="87.0" layoutY="190.0" prefHeight="22.0" prefWidth="214.0" />
+        <Label layoutX="90.0" layoutY="173.0" prefHeight="17.0" prefWidth="153.0" text="requests" />
+        <Label layoutX="87.0" layoutY="51.0" prefHeight="17.0" prefWidth="122.0" text="search by car/owner" />
+        <Label fx:id="objectInfo" layoutX="416.0" layoutY="51.0" prefHeight="77.0" prefWidth="271.0" text="active car/owner" />
+        <JFXButton fx:id="addReq" layoutX="313.0" layoutY="190.0" onAction="#addRequest" prefHeight="22.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="add" />
+        <JFXButton fx:id="activateReq" layoutX="387.0" layoutY="190.0" onAction="#activate" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="(de)activate" />
+        <Label layoutX="90.0" layoutY="513.0" prefHeight="17.0" prefWidth="153.0" text="workers" />
+        <ChoiceBox fx:id="typeList" layoutX="212.0" layoutY="47.0" prefHeight="0.0" prefWidth="105.0" />
+      <TextField fx:id="searchField1" layoutX="54.0" layoutY="77.0" prefHeight="25.0" prefWidth="116.0" promptText="enter car/owner" />
+      <CheckBox fx:id="business" layoutX="54.0" layoutY="111.0" mnemonicParsing="false" text="Business client" />
+      <JFXButton fx:id="addClient" layoutX="333.0" layoutY="136.0" onAction="#addClient" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="add new client" />
+    </children>
 </AnchorPane>
