@@ -65,19 +65,34 @@ public class Request {
         return id_object;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
+    public void setResult(String result) {
+        this.result = result;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
+    public void setDate_start(Date date_start) {
+        this.date_start = date_start;
+    }
 
-    public static Optional<ArrayList<Request>> findByIdObject(int id) {
-        String SQL = "SELECT id_request, description, result, status, date_start, date_end, id_object, id_personel FROM public.\"Request\" WHERE id_object = ?;";
-        ArrayList<Request> list = new ArrayList<>();
+    public void setDate_end(Date date_end) {
+        this.date_end = date_end;
+    }
+
+    public static Optional<Request> findByIdObject(int id) {
+        String SQL = "SELECT id_request, description, result, status, date_start, date_end, id_object, id_personel FROM public.\"Request\" WHERE id_request = ?;";
         Request req;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
-            while (rs.next()) {
+            if (rs.next()) {
                 req = new Request(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
@@ -86,9 +101,10 @@ public class Request {
                         rs.getDate(6),
                         rs.getInt(7),
                         rs.getInt(8));
-                list.add(req);
+                return Optional.of(req);
+            } else{
+                req=null;
             }
-            return Optional.of(list);
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -129,8 +145,8 @@ public class Request {
 
 
 
-    public int update(int idO) {
-        String SQL = "UPDATE public.\"Request\" SET description=?, result=?, status=?, date_start=?, date_end=?, id_object,id_personel=? WHERE id_object=?;";
+    public int update() {
+        String SQL = "UPDATE public.\"Request\" SET description=?, result=?, status=?, date_start=?, date_end=?, id_object=?,id_personel=? WHERE id_request=?;";
         int id = 0;
         int affectedRows = 0;
         try {
@@ -140,9 +156,9 @@ public class Request {
             statement.setString(3, this.getStatus().toUpperCase());
             statement.setDate(4, this.getDate_start());
             statement.setDate(5, this.getDate_end());
-            statement.setInt(5, this.getId_object());
+            statement.setInt(6, this.getId_object());
             statement.setInt(7,this.getId_personel());
-            statement.setInt(8,idO);
+            statement.setInt(8,this.getId_request());
 
             affectedRows = statement.executeUpdate();
         } catch (SQLException ex) {
@@ -163,7 +179,6 @@ public class Request {
             statement.setDate(5, this.getDate_end());
             statement.setInt(6, this.getId_object());
             statement.setInt(7,this.getId_personel());
-
             affectedRows = statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

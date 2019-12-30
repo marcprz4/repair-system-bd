@@ -1,7 +1,7 @@
 package com.bd.repairs.Controller;
 
-import com.bd.repairs.Model.*;
 import com.bd.repairs.Model.Object;
+import com.bd.repairs.Model.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import javafx.event.ActionEvent;
@@ -36,6 +36,7 @@ public class ManagerController implements Initializable {
     public JFXButton addClient;
     public Label objectInfo;
     private WindowLoader windowLoader;
+    public JFXButton showcars;
 
     private void initList(int var) {
         searchList.getItems().clear();
@@ -81,10 +82,8 @@ public class ManagerController implements Initializable {
                             searchList.getItems().add(c.getId_client() + sp + c.getFname() + sp + c.getLname());
                         }
                     }
+                    break;
                 }
-
-                break;
-
                 case 1: {
                     searchList.getItems().clear();
                     for (Object c : Object.findByName(searchField1.getText()).get()) {
@@ -122,11 +121,21 @@ public class ManagerController implements Initializable {
     }
 
     public void addRequest(ActionEvent actionEvent) throws IOException {
-                AddRequestController.car=Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+        AddRequestController.car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+
         windowLoader.load(new Stage(), "Application", "addRequest");
     }
 
     public void activate(ActionEvent actionEvent) {
+        int id=StringConverter.convert(reqList.getSelectionModel().getSelectedItem());
+        Request temp=Request.findByIdObject(id).get();
+        if(temp.getStatus().equals("IN PROGRESS")) {
+            temp.setStatus("FINISHED");
+        }
+        else if(temp.getStatus().equals("CANCELED")||temp.getStatus().equals("FINISHED")){
+            temp.setStatus("IN PROGRESS");
+        }
+        temp.update();
     }
 
     @Override
@@ -136,14 +145,14 @@ public class ManagerController implements Initializable {
         typeList.getItems().add("by Car");
         typeList.getSelectionModel().select(0);
         initList(typeList.getSelectionModel().getSelectedIndex());
-        if(user!=null)
-        userInfo.setText(user.getFirst_name()+" "+user.getLast_name());
+        if (user != null)
+            userInfo.setText(user.getFirst_name() + " " + user.getLast_name());
         for (int i = 0; i < Request.findAll().size(); i++) {
             Request req = Request.findAll().get(i);
             Object obj = Object.findById(req.getId_object()).get();
             Client cli = Client.findById(obj.getId_client()).get();
             //option with company name
-            String requestString = req.getId_request() + " " + obj.getName() + " " + cli.getLname();
+            String requestString = req.getId_request() + " " + obj.getName() + " " + cli.getLname()+ " " +req.getStatus();
             reqList.getItems().add(requestString);
         }
     }
@@ -161,6 +170,20 @@ public class ManagerController implements Initializable {
                 objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
             } else {
                 objectInfo.setText("owner:\r" + owner.getName());
+            }
+        }
+    }
+
+    public void showCars(ActionEvent actionEvent) {
+        int id=StringConverter.convert(searchList.getSelectionModel().getSelectedItem());
+        searchList.getItems().clear();
+        String sp = "   ";
+        for (Object c : Object.findByOwner(id).get()) {
+            Client owner = Client.findById(c.getId_client()).get();
+            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
+                searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getFname() + sp + owner.getLname());
+            } else {
+                searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
             }
         }
     }

@@ -30,8 +30,8 @@ public class AddRequestController implements Initializable {
         LocalDate temp=startDate.getValue();
         Date temp2=Date.valueOf(temp);
         Date temp3=Date.valueOf(endDate.getValue());
-
         Request request=new Request(0,desc.getText(),res.getText(),status.getValue(),temp2,temp3,car.getId_object(),ManagerController.user.getId_personel());
+        Request r2=request;
         request.insert();
     }
 

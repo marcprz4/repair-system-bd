@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.ManagerController">
     <children>
-        <JFXButton fx:id="button1" layoutX="327.0" layoutY="47.0" onAction="#refreshObject" prefHeight="4.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="refresh" />
+        <JFXButton fx:id="button1" layoutX="408.0" layoutY="77.0" onAction="#refreshObject" prefHeight="4.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="refresh" />
         <ChoiceBox fx:id="searchList" layoutX="177.0" layoutY="77.0" prefHeight="22.0" prefWidth="214.0" />
         <JFXButton fx:id="addCar" layoutX="85.0" layoutY="140.0" onAction="#addCar" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="add car to owner" />
         <Label fx:id="userInfo" layoutX="637.0" layoutY="14.0" prefHeight="22.0" prefWidth="99.0" text="Label" />
@@ -22,7 +22,7 @@
         <ChoiceBox fx:id="reqList" layoutX="87.0" layoutY="190.0" prefHeight="22.0" prefWidth="214.0" />
         <Label layoutX="90.0" layoutY="173.0" prefHeight="17.0" prefWidth="153.0" text="requests" />
         <Label layoutX="87.0" layoutY="51.0" prefHeight="17.0" prefWidth="122.0" text="search by car/owner" />
-        <Label fx:id="objectInfo" layoutX="534.0" layoutY="51.0" prefHeight="77.0" prefWidth="153.0" text="active car/owner" />
+        <Label fx:id="objectInfo" layoutX="583.0" layoutY="51.0" prefHeight="77.0" prefWidth="153.0" text="active car/owner" />
         <JFXButton fx:id="addReq" layoutX="313.0" layoutY="190.0" onAction="#addRequest" prefHeight="22.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="add" />
         <JFXButton fx:id="activateReq" layoutX="387.0" layoutY="190.0" onAction="#activate" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="(de)activate" />
         <Label layoutX="90.0" layoutY="513.0" prefHeight="17.0" prefWidth="153.0" text="workers" />
@@ -30,6 +30,7 @@
       <TextField fx:id="searchField1" layoutX="54.0" layoutY="77.0" prefHeight="25.0" prefWidth="116.0" promptText="enter car/owner" />
       <CheckBox fx:id="business" layoutX="54.0" layoutY="111.0" mnemonicParsing="false" text="Business client" />
       <JFXButton fx:id="addClient" layoutX="211.0" layoutY="140.0" onAction="#addClient" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="add new client" />
-      <JFXButton fx:id="okButton" layoutX="398.0" layoutY="77.0" onAction="#refreshOk" prefHeight="4.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="ok" />
+      <JFXButton fx:id="okButton" layoutX="484.0" layoutY="77.0" onAction="#refreshOk" prefHeight="4.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="ok" />
+      <JFXButton fx:id="showcars" layoutX="408.0" layoutY="107.0" onAction="#showCars" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="show cars" />
     </children>
 </AnchorPane>

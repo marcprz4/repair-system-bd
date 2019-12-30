@@ -29,18 +29,36 @@ public class Object {
         this.id_type = id_type;
     }
 
-    public static Optional<ArrayList<Object>> findByName(String name) {
-        ArrayList<Client> cli=new ArrayList<>();
-        int idc=0;
-        try{
-            cli=Client.findByNames(name).get();
-            if(cli.size()>0)
-            idc=cli.get(0).getId_client();
-        } catch (NoSuchElementException e){
-            cli=null;
-        }
+    public static Optional<ArrayList<Object>> findByOwner(int id) {
+        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE id_client = ?;";
+        Object object;
+        ArrayList<Object> objects=new ArrayList<>();
+        try {
+            if (id==0) {
+                throw new NullPointerException();
+            }
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            statement.setInt(1, id);
 
-        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ? OR id_client = ?;";
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                object = new Object(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4));
+                objects.add(object);
+            }
+            return Optional.of(objects);
+        } catch (SQLException e) {
+            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
+            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
+        }
+        return Optional.empty();
+    }
+
+    public static Optional<ArrayList<Object>> findByName(String name) {
+        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ?;";
         Object object;
         ArrayList<Object> objects=new ArrayList<>();
         try {
@@ -51,7 +69,6 @@ public class Object {
             name = name + '%';
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setString(1, name);
-            statement.setInt(2, idc);
 
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {

@@ -50,6 +50,10 @@ public class AddObjectController implements Initializable {
             //error
             return;
         }
+        /*Stage stage = (Stage) applyButton.getScene().getWindow();
+            stage.close();*/
+        Stage stage=(Stage) applyButton.getScene().getWindow();
+        stage.close();
     }
 
     public void addType(ActionEvent actionEvent) throws IOException {

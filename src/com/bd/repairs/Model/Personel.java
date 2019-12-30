@@ -205,7 +205,6 @@ public class Personel {
 
     public int update() {
         String SQL = "UPDATE public.\"Personel\" SET first_name=?, last_name=?, role=?, active=? WHERE id_personel=?;";
-        int id = 0;
         int affectedRows = 0;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
