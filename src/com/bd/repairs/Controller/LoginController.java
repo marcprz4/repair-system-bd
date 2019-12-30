@@ -28,6 +28,7 @@ public class LoginController {
                 if(person.isActive()){
                     WindowLoader windowLoader = new WindowLoader();
                     try {
+                        ManagerController.user=person;
                         switch (person.getRole()) {
                             case "ADMIN": {
                                 windowLoader.load(new Stage(), "Application", "admin");

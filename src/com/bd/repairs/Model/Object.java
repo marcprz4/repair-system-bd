@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 /**
@@ -28,17 +29,29 @@ public class Object {
         this.id_type = id_type;
     }
 
-    public static Optional<ArrayList<Object>> FindByName(String name) {
-        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ?;";
+    public static Optional<ArrayList<Object>> findByName(String name) {
+        ArrayList<Client> cli=new ArrayList<>();
+        int idc=0;
+        try{
+            cli=Client.findByNames(name).get();
+            if(cli.size()>0)
+            idc=cli.get(0).getId_client();
+        } catch (NoSuchElementException e){
+            cli=null;
+        }
+
+        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ? OR id_client = ?;";
         Object object;
         ArrayList<Object> objects=new ArrayList<>();
         try {
             if (name.isEmpty()) {
                 throw new NullPointerException();
             }
+            name=name.toUpperCase();
             name = name + '%';
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setString(1, name);
+            statement.setInt(2, idc);
 
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -49,6 +62,35 @@ public class Object {
                 objects.add(object);
             }
             return Optional.of(objects);
+        } catch (SQLException e) {
+            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
+            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
+        }
+        return Optional.empty();
+    }
+
+    public static Optional<Object> findById(int id) {
+        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE id_object = ?;";
+        Object object;
+        try {
+            if (id==0) {
+                throw new NullPointerException();
+            }
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            statement.setInt(1, id);
+
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                object = new Object(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4));
+            }
+            else{
+                object=null;
+            }
+            return Optional.of(object);
         } catch (SQLException e) {
             AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
         } catch (NullPointerException | IndexOutOfBoundsException e) {
@@ -103,9 +145,9 @@ public class Object {
         try {
 
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            statement.setString(1, this.getName());
+            statement.setString(1, this.getName().toUpperCase());
             statement.setInt(2, this.getId_client());
-            statement.setString(3, this.getId_type());
+            statement.setString(3, this.getId_type().toUpperCase());
             int affectedRows = statement.executeUpdate();
 
             if (affectedRows > 0) {

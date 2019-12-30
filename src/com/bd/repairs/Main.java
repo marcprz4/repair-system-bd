@@ -22,6 +22,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         connection = PostgreSQLController.connect();
         WindowLoader windowLoader = new WindowLoader();
-        windowLoader.load(primaryStage, "Application", "login");
+        windowLoader.load(primaryStage, "Application", "manager");
     }
 }

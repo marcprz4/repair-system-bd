@@ -2,49 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc750c0b-584c-46e9-91c2-291195c4d4f0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddClientController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddObjectTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/072bd5ed-58f6-49df-a24f-d2195392fb20.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/072bd5ed-58f6-49df-a24f-d2195392fb20.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3408b8ce-e900-4380-bedf-9e3ec07ee3bd.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3408b8ce-e900-4380-bedf-9e3ec07ee3bd/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/3408b8ce-e900-4380-bedf-9e3ec07ee3bd/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddRequestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/ActDic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/ObjectType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/Request.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/META-INF/repair-system-bd.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddObjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddObjectController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/CreateUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/CreateUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/EditUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/EditUserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/WindowLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/WindowLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/WorkerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/WorkerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Activity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Object.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Object.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/PasswordAuthentication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/PasswordAuthentication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/AlertWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/AlertWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addActivity.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addActivity.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addActivityType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addActivityType.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/StringConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/StringConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addObject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addObject.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addObjectType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addObjectType.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addRequest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/addRequest.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/admin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/createUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/createUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/editUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/editUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/manager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/manager.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/worker.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/worker.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddObjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddObjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddObjectTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddObjectTypeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WorkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WorkerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Model/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/Object.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/addClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/addClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Model/StringConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/StringConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/addObject.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/addObject.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/addObjectType.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/addObjectType.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/addRequest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/addRequest.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,6 +113,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="debugger.hotswap" />
   </component>
   <component name="RecentsManager">
@@ -196,7 +182,10 @@
       <workItem from="1576264703583" duration="3701000" />
       <workItem from="1576319538432" duration="1542000" />
       <workItem from="1576321308758" duration="1060000" />
-      <workItem from="1576322572091" duration="3467000" />
+      <workItem from="1576322572091" duration="11503000" />
+      <workItem from="1576350232672" duration="16000" />
+      <workItem from="1577655301349" duration="161000" />
+      <workItem from="1577702358466" duration="7415000" />
     </task>
     <servers />
   </component>
@@ -221,50 +210,59 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Auto_Import/0.0.1920.1040@0.0.1920.1040" timestamp="1575472067333" />
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575471542323">
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576329708350">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575471542323" />
-    <state x="765" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1575476057963">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576329708350" />
+    <state x="1057" y="305" key="#com.intellij.ide.util.MemberChooser" timestamp="1577705539889">
+      <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state x="765" y="220" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1575476057963" />
+    <state x="765" y="220" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1576336254950" />
+    <state x="1057" y="305" key="#com.intellij.ide.util.MemberChooser/62.0.2498.1440@62.0.2498.1440" timestamp="1577705539889" />
     <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1575471486418">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1575471486418" />
-    <state width="933" height="261" key="GridCell.Tab.0.bottom" timestamp="1576325861751">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="2455" height="119" key="GridCell.Tab.0.bottom" timestamp="1577710339816">
+      <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state width="933" height="261" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576325861751" />
-    <state width="933" height="261" key="GridCell.Tab.0.center" timestamp="1576325861750">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="935" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576338600086" />
+    <state width="2455" height="119" key="GridCell.Tab.0.bottom/62.0.2498.1440@62.0.2498.1440" timestamp="1577710339816" />
+    <state width="2455" height="119" key="GridCell.Tab.0.center" timestamp="1577710339816">
+      <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state width="933" height="261" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576325861750" />
-    <state width="933" height="261" key="GridCell.Tab.0.left" timestamp="1576325861750">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="935" height="347" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576338600085" />
+    <state width="2455" height="119" key="GridCell.Tab.0.center/62.0.2498.1440@62.0.2498.1440" timestamp="1577710339816" />
+    <state width="2455" height="119" key="GridCell.Tab.0.left" timestamp="1577710339815">
+      <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state width="933" height="261" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576325861750" />
-    <state width="933" height="261" key="GridCell.Tab.0.right" timestamp="1576325861751">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="935" height="347" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576338600085" />
+    <state width="2455" height="119" key="GridCell.Tab.0.left/62.0.2498.1440@62.0.2498.1440" timestamp="1577710339815" />
+    <state width="2455" height="119" key="GridCell.Tab.0.right" timestamp="1577710339816">
+      <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state width="933" height="261" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576325861751" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1575485930568">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="935" height="347" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576338600086" />
+    <state width="2455" height="119" key="GridCell.Tab.0.right/62.0.2498.1440@62.0.2498.1440" timestamp="1577710339816" />
+    <state width="2455" height="506" key="GridCell.Tab.1.bottom" timestamp="1577710134634">
+      <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575485930568" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1575485930568">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="935" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576338600086" />
+    <state width="2455" height="506" key="GridCell.Tab.1.bottom/62.0.2498.1440@62.0.2498.1440" timestamp="1577710134634" />
+    <state width="2455" height="506" key="GridCell.Tab.1.center" timestamp="1577710134633">
+      <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575485930568" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1575485930568">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="935" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576338600086" />
+    <state width="2455" height="506" key="GridCell.Tab.1.center/62.0.2498.1440@62.0.2498.1440" timestamp="1577710134633" />
+    <state width="2455" height="506" key="GridCell.Tab.1.left" timestamp="1577710134633">
+      <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575485930568" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1575485930568">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="935" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576338600086" />
+    <state width="2455" height="506" key="GridCell.Tab.1.left/62.0.2498.1440@62.0.2498.1440" timestamp="1577710134633" />
+    <state width="2455" height="506" key="GridCell.Tab.1.right" timestamp="1577710134634">
+      <screen x="62" y="0" width="2498" height="1440" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575485930568" />
+    <state width="935" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576338600086" />
+    <state width="2455" height="506" key="GridCell.Tab.1.right/62.0.2498.1440@62.0.2498.1440" timestamp="1577710134634" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1575552469311">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -273,10 +271,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575471487942" />
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576322571429">
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576350245552">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576322571429" />
+    <state x="656" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576350245552" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1575476247618">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -1,13 +1,18 @@
 package com.bd.repairs.Controller;
 
 import com.bd.repairs.Model.Client;
+import com.bd.repairs.Model.Object;
+import com.bd.repairs.Model.ObjectType;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,20 +23,47 @@ public class AddObjectController implements Initializable {
     public ChoiceBox<String> typeList;
     public JFXButton newTypeButton;
     public Label owner;
+    private WindowLoader windowLoader;
+    private int clId;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Client client = Client.findById(ManagerController.clientId).get();
-        if (!client.getFname().isEmpty() && !client.getLname().isEmpty())
+        clId=ManagerController.clientId;
+        windowLoader=new WindowLoader();
+        Client client = Client.findById(clId).get();
+        if (!client.getFname().isEmpty() && !client.getLname().isEmpty()){
             owner.setText("Owner:\r" + client.getFname() + " " + client.getLname());
-        else
+        }
+
+        else{
             owner.setText("Owner:\r" + client.getName());
+        }
+        refresh();
     }
 
     public void apply(ActionEvent actionEvent) {
+        if(!brand.getText().isEmpty()&&!model.getText().isEmpty()&&!typeList.getSelectionModel().isEmpty()){
+            Object object=new Object(0,brand.getText()+" "+model.getText(), clId,typeList.getSelectionModel().getSelectedItem());
+            object.insert();
+        }
+        else{
+            //error
+            return;
+        }
     }
 
-    public void addType(ActionEvent actionEvent) {
+    public void addType(ActionEvent actionEvent) throws IOException {
+        windowLoader.load(new Stage(),"Application","addObjectType");
+    }
 
+    private void refresh() {
+        typeList.getItems().clear();
+        for(ObjectType objectType: ObjectType.findAll()){
+            typeList.getItems().add(objectType.getShortcut());
+        }
+    }
+
+    public void ref(ActionEvent actionEvent) {
+        refresh();
     }
 }
