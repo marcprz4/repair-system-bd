@@ -3,7 +3,6 @@ package com.bd.repairs.Model;
 //public class ActDic {
 
 import com.bd.repairs.Main;
-import com.bd.repairs.View.AlertWindow;
 import javafx.scene.control.Alert;
 
 import java.sql.PreparedStatement;
@@ -26,16 +25,16 @@ public class ActDic {
         this.actdic_fullname = actdic_fullname;
     }
 
-    public static Optional<ArrayList<ActDic>> find() {
-        String SQL = "SELECT actdic_shortcut, actdic_fullname FROM public.\"Act_dict\";";
-        Client client;
+    public static Optional<ActDic> find(String name) {
+        String SQL = "SELECT actdic_shortcut, actdic_fullname FROM public.\"Act_dict\" WHERE actdic_shortcut=?;";
+        ActDic actDic;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
-            statement.setInt(1, id);
+            statement.setString(1, name);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                client = new Client(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
-                return Optional.of(client);
+                actDic = new ActDic(rs.getString(1), rs.getString(2));
+                return Optional.of(actDic);
             } else {
                 throw new SQLException();
             }
@@ -56,7 +55,7 @@ public class ActDic {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                ActDic act= new ActDic(rs.getString(1),
+                ActDic act = new ActDic(rs.getString(1),
                         rs.getString(2));
                 list.add(act);
             }

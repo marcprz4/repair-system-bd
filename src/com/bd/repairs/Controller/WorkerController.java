@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 public class WorkerController implements Initializable {
     public Label userInfo;
     public JFXListView<String> actList;

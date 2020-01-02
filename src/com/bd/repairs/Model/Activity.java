@@ -35,16 +35,50 @@ public class Activity {
         this.actdic_shortcut = actdic_shortcut;
     }
 
-    public static Optional<ArrayList<Activity>> findByRequest(int req) {
-        String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE id_request=? ;";
-        ArrayList<Activity> activities=new ArrayList<>();
+    public static Optional<Activity> finById(int id) {
+        String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE id_activity=? ;";
+        ArrayList<Activity> activities = new ArrayList<>();
         Activity activ;
         try {
-            if (req==0) {
+            if (id == 0) {
                 throw new NullPointerException();
             }
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
-            statement.setInt(1,req);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                activ = new Activity(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getDate(6),
+                        rs.getDate(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getString(10));
+                return Optional.of(activ);
+            }
+        } catch (SQLException e) {
+            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
+            activ = null;
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
+            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
+            activ = null;
+        }
+        return Optional.empty();
+    }
+
+    public static Optional<ArrayList<Activity>> findByRequest(int req) {
+        String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE id_request=? ;";
+        ArrayList<Activity> activities = new ArrayList<>();
+        Activity activ;
+        try {
+            if (req == 0) {
+                throw new NullPointerException();
+            }
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            statement.setInt(1, req);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
                 activ = new Activity(rs.getInt(1),
@@ -57,13 +91,15 @@ public class Activity {
                         rs.getInt(8),
                         rs.getInt(9),
                         rs.getString(10));
-
+                activities.add(activ);
                 return Optional.of(activities);
             }
         } catch (SQLException e) {
             AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
+            activ = null;
         } catch (NullPointerException | IndexOutOfBoundsException e) {
             AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
+            activ = null;
         }
         return Optional.empty();
     }
@@ -161,6 +197,10 @@ public class Activity {
         return status;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Date getDate_start() {
         return date_start;
     }
@@ -179,6 +219,41 @@ public class Activity {
 
     public String getActdic_shortcut() {
         return actdic_shortcut;
+    }
+
+    public int update() {
+        String SQL = "UPDATE public.\"Activity\" SET seq_number=?, description=?, result=?, status=?, date_start=?, date_end=?, id_request=?, id_personel=?, actdic_shortcut=? WHERE id_activity=?;";
+        int id = 0;
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, this.getSeq_number());
+            statement.setString(2, this.getDescription());
+            statement.setString(3, this.getResult());
+            statement.setString(4, this.getStatus());
+            statement.setDate(5, this.getDate_start());
+            statement.setDate(6, this.getDate_end());
+            statement.setInt(7, this.getId_request());
+            statement.setInt(8, this.getId_personel());
+            statement.setString(9, this.getActdic_shortcut());
+            statement.setInt(10, this.getId_activity());
+
+            int affectedRows = statement.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet rs = statement.getGeneratedKeys()) {
+                    if (rs.next()) {
+                        id = rs.getInt(1);
+                    } else
+                        throw new SQLException();
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                }
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return id;
     }
 
     public int insert() {

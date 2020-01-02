@@ -21,6 +21,8 @@ import java.util.ResourceBundle;
 public class ManagerController implements Initializable {
     public static int clientId;
     public static Personel user;
+    public static Request request;
+    public static Activity act;
     public JFXButton button1;
     public ChoiceBox<String> searchList;
     public ChoiceBox<String> typeList;
@@ -37,11 +39,10 @@ public class ManagerController implements Initializable {
     public CheckBox business;
     public JFXButton addClient;
     public Label objectInfo;
-    private WindowLoader windowLoader;
     public JFXButton showcars;
     public JFXButton showA;
-    public static Request request;
-    private boolean showClicked=false;
+    private WindowLoader windowLoader;
+    private boolean showClicked = false;
 
     private void initList(int var) {
         searchList.getItems().clear();
@@ -116,14 +117,25 @@ public class ManagerController implements Initializable {
     }
 
     public void addActivity(ActionEvent actionEvent) throws IOException {
-        request=Request.findById(StringConverter.convert(reqList.getSelectionModel().getSelectedItem())).get();
+        request = Request.findById(StringConverter.convert(reqList.getSelectionModel().getSelectedItem())).get();
         windowLoader.load(new Stage(), "Application", "addActivity");
     }
 
     public void activate2(ActionEvent actionEvent) {
-    }
-
-    public void editActivityWorker(ActionEvent actionEvent) {
+        int id = StringConverter.convert(listView.getSelectionModel().getSelectedItem());
+        Activity temp = Activity.finById(id).get();
+        if (temp.getStatus().equals("IN PROGRESS")) {
+            temp.setStatus("FINISHED");
+        } else if (temp.getStatus().equals("CANCELED") || temp.getStatus().equals("FINISHED")) {
+            temp.setStatus("IN PROGRESS");
+        }
+        temp.update();
+        listView.getItems().clear();
+        ArrayList<Activity> activities = Activity.findByRequest(id).get();
+        for (Activity a : activities) {
+            Personel p = Personel.findById(a.getId_personel()).get();
+            listView.getItems().add(a.getId_activity() + " " + a.getDescription() + " " + p.getFirst_name() + " " + p.getLast_name() + " " + a.getStatus());
+        }
     }
 
     public void addRequest(ActionEvent actionEvent) throws IOException {
@@ -133,15 +145,22 @@ public class ManagerController implements Initializable {
     }
 
     public void activate(ActionEvent actionEvent) {
-        int id=StringConverter.convert(reqList.getSelectionModel().getSelectedItem());
-        ArrayList<Request> temp=Request.findByIdObject(id).get();
-        if(temp.get(0).getStatus().equals("IN PROGRESS")) {
+        int id = StringConverter.convert(reqList.getSelectionModel().getSelectedItem());
+        ArrayList<Request> temp = Request.findByIdObject(id).get();
+        if (temp.get(0).getStatus().equals("IN PROGRESS")) {
             temp.get(0).setStatus("FINISHED");
-        }
-        else if(temp.get(0).getStatus().equals("CANCELED")||temp.get(0).getStatus().equals("FINISHED")){
+        } else if (temp.get(0).getStatus().equals("CANCELED") || temp.get(0).getStatus().equals("FINISHED")) {
             temp.get(0).setStatus("IN PROGRESS");
         }
         temp.get(0).update();
+        reqList.getItems().clear();
+        Object car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+        Client owner = Client.findById(car.getId_client()).get();
+        ArrayList<Request> reqs = Request.findByIdObject(car.getId_object()).get();
+        for (Request req : reqs) {
+            String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname() + " " + req.getStatus();
+            reqList.getItems().add(requestString);
+        }
     }
 
     @Override
@@ -158,7 +177,7 @@ public class ManagerController implements Initializable {
             Object obj = Object.findById(req.getId_object()).get();
             Client cli = Client.findById(obj.getId_client()).get();
             //option with company name
-            String requestString = req.getId_request() + " " + obj.getName() + " " + cli.getLname()+ " " +req.getStatus();
+            String requestString = req.getId_request() + " " + obj.getName() + " " + cli.getLname() + " " + req.getStatus();
             reqList.getItems().add(requestString);
         }
     }
@@ -171,45 +190,44 @@ public class ManagerController implements Initializable {
     public void refreshOk(ActionEvent actionEvent) {
         String sp = "   ";
         if (typeList.getSelectionModel().getSelectedIndex() == 1) {
-            Object car=Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+            Object car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
             Client owner = Client.findById(car.getId_client()).get();
             if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
                 objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
             } else {
                 objectInfo.setText("owner:\r" + owner.getName());
             }
-            ArrayList<Request> reqs=Request.findByIdObject(car.getId_object()).get();
-            for(Request req:reqs){
-                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname()+ " " +req.getStatus();
+            ArrayList<Request> reqs = Request.findByIdObject(car.getId_object()).get();
+            for (Request req : reqs) {
+                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname() + " " + req.getStatus();
                 reqList.getItems().add(requestString);
             }
-        }      else if(typeList.getSelectionModel().getSelectedIndex() == 0&&!showClicked){
+        } else if (typeList.getSelectionModel().getSelectedIndex() == 0 && !showClicked) {
             Client owner = Client.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
             if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
                 objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
             } else {
                 objectInfo.setText("owner:\r" + owner.getName());
             }
-        }
-        else{
-            Object car=Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+        } else {
+            Object car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
             Client owner = Client.findById(car.getId_client()).get();
             if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
                 objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
             } else {
                 objectInfo.setText("owner:\r" + owner.getName());
             }
-            ArrayList<Request> reqs=Request.findByIdObject(car.getId_object()).get();
+            ArrayList<Request> reqs = Request.findByIdObject(car.getId_object()).get();
             reqList.getItems().clear();
-            for(Request req:reqs){
-                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname()+ " " +req.getStatus();
+            for (Request req : reqs) {
+                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname() + " " + req.getStatus();
                 reqList.getItems().add(requestString);
             }
         }
     }
 
     public void showCars(ActionEvent actionEvent) {
-        int id=StringConverter.convert(searchList.getSelectionModel().getSelectedItem());
+        int id = StringConverter.convert(searchList.getSelectionModel().getSelectedItem());
         searchList.getItems().clear();
         String sp = "   ";
         for (Object c : Object.findByOwner(id).get()) {
@@ -220,7 +238,7 @@ public class ManagerController implements Initializable {
                 searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
             }
         }
-        showClicked=true;
+        showClicked = true;
     }
 
     public void showActivities(ActionEvent actionEvent) {
@@ -230,9 +248,9 @@ public class ManagerController implements Initializable {
             ArrayList<Activity> activities = Activity.findByRequest(id).get();
             for (Activity a : activities) {
                 Personel p = Personel.findById(a.getId_personel()).get();
-                listView.getItems().add(a.getId_activity() + " " + a.getDescription() + " " + p.getLast_name());
+                listView.getItems().add(a.getId_activity() + " " + a.getDescription() + " " + p.getFirst_name() + " " + p.getLast_name() + " " + a.getStatus());
             }
-        } catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             return;
         }
     }

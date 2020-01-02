@@ -10,13 +10,14 @@ public class AddObjectTypeController {
     public JFXTextField shortcut;
     public JFXTextField fullname;
     public JFXButton applyButton;
+
     public void apply(ActionEvent actionEvent) {
-        if(!shortcut.getText().isEmpty()&&!fullname.getText().isEmpty()){
-            ObjectType objectType=new ObjectType(shortcut.getText(),fullname.getText());
+        if (!shortcut.getText().isEmpty() && !fullname.getText().isEmpty()) {
+            ObjectType objectType = new ObjectType(shortcut.getText(), fullname.getText());
             objectType.insert();
             Stage stage = (Stage) applyButton.getScene().getWindow();
             stage.close();
-        } else{
+        } else {
             //error
             return;
         }

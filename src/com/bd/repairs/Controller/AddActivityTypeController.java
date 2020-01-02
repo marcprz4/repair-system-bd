@@ -14,8 +14,9 @@ public class AddActivityTypeController implements Initializable {
     public JFXTextField shortcut;
     public JFXTextField full;
     public JFXButton apply;
+
     public void applyChanges(ActionEvent actionEvent) {
-        ActDic actDic=new ActDic(shortcut.getText(),full.getText());
+        ActDic actDic = new ActDic(shortcut.getText(), full.getText());
         actDic.insert();
         Stage stage = (Stage) apply.getScene().getWindow();
         stage.close();

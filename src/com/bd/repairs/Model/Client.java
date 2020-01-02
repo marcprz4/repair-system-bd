@@ -5,7 +5,10 @@ import com.bd.repairs.Main;
 import com.bd.repairs.View.AlertWindow;
 import javafx.scene.control.Alert;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -56,10 +59,10 @@ public class Client {
 
     public static Optional<ArrayList<Client>> findByNames(String name) {
         String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE fname LIKE ? OR lname LIKE ?;";
-        name=name.toUpperCase();
+        name = name.toUpperCase();
         name += '%';
         Client client;
-        ArrayList<Client> clients=new ArrayList<>();
+        ArrayList<Client> clients = new ArrayList<>();
         try {
             if (name.isEmpty()) {
                 throw new NullPointerException();
@@ -87,9 +90,9 @@ public class Client {
 
     public static Optional<ArrayList<Client>> findByName(String name) {
         String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE name LIKE ?;";
-        name=name.toUpperCase();
+        name = name.toUpperCase();
         name += '%';
-        ArrayList<Client> clients=new ArrayList<>();
+        ArrayList<Client> clients = new ArrayList<>();
         Client client;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);

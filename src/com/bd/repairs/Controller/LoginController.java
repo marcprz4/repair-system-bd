@@ -25,10 +25,10 @@ public class LoginController {
         try {
             Personel person = Personel.findByUsername(login.getText()).get();
             if (PasswordAuthentication.authenticate(password.getText().toCharArray(), person.getPassword())) {
-                if(person.isActive()){
+                if (person.isActive()) {
                     WindowLoader windowLoader = new WindowLoader();
                     try {
-                        ManagerController.user=person;
+                        ManagerController.user = person;
                         switch (person.getRole()) {
                             case "ADMIN": {
                                 windowLoader.load(new Stage(), "Application", "admin");

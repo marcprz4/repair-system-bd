@@ -1,7 +1,6 @@
 package com.bd.repairs.Model;
 
 import com.bd.repairs.Main;
-import com.bd.repairs.View.AlertWindow;
 import javafx.scene.control.Alert;
 
 import java.sql.PreparedStatement;
@@ -9,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class ObjectType {
     String shortcut;
@@ -18,14 +16,6 @@ public class ObjectType {
     public ObjectType(String shortcut, String fullname) {
         this.shortcut = shortcut;
         this.fullname = fullname;
-    }
-
-    public String getShortcut() {
-        return shortcut;
-    }
-
-    public String getFullname() {
-        return fullname;
     }
 
     public static ArrayList<ObjectType> findAll() {
@@ -48,6 +38,14 @@ public class ObjectType {
             alert.showAndWait();
         }
         return null;
+    }
+
+    public String getShortcut() {
+        return shortcut;
+    }
+
+    public String getFullname() {
+        return fullname;
     }
 
     public int insert() {

@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 /**
@@ -32,9 +31,9 @@ public class Object {
     public static Optional<ArrayList<Object>> findByOwner(int id) {
         String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE id_client = ?;";
         Object object;
-        ArrayList<Object> objects=new ArrayList<>();
+        ArrayList<Object> objects = new ArrayList<>();
         try {
-            if (id==0) {
+            if (id == 0) {
                 throw new NullPointerException();
             }
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
@@ -60,12 +59,12 @@ public class Object {
     public static Optional<ArrayList<Object>> findByName(String name) {
         String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ?;";
         Object object;
-        ArrayList<Object> objects=new ArrayList<>();
+        ArrayList<Object> objects = new ArrayList<>();
         try {
             if (name.isEmpty()) {
                 throw new NullPointerException();
             }
-            name=name.toUpperCase();
+            name = name.toUpperCase();
             name = name + '%';
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setString(1, name);
@@ -91,7 +90,7 @@ public class Object {
         String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE id_object = ?;";
         Object object;
         try {
-            if (id==0) {
+            if (id == 0) {
                 throw new NullPointerException();
             }
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
@@ -103,9 +102,8 @@ public class Object {
                         rs.getString(2),
                         rs.getInt(3),
                         rs.getString(4));
-            }
-            else{
-                object=null;
+            } else {
+                object = null;
             }
             return Optional.of(object);
         } catch (SQLException e) {

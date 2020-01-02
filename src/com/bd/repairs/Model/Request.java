@@ -1,7 +1,6 @@
 package com.bd.repairs.Model;
 
 import com.bd.repairs.Main;
-import com.bd.repairs.View.AlertWindow;
 import javafx.scene.control.Alert;
 
 import java.sql.*;
@@ -33,62 +32,10 @@ public class Request {
         this.id_personel = id_personel;
     }
 
-    public int getId_personel() {
-        return id_personel;
-    }
-
-    public int getId_request() {
-        return id_request;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public Date getDate_start() {
-        return date_start;
-    }
-
-    public Date getDate_end() {
-        return date_end;
-    }
-
-    public int getId_object() {
-        return id_object;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void setDate_start(Date date_start) {
-        this.date_start = date_start;
-    }
-
-    public void setDate_end(Date date_end) {
-        this.date_end = date_end;
-    }
-
     public static Optional<ArrayList<Request>> findByIdObject(int id) {
         String SQL = "SELECT id_request, description, result, status, date_start, date_end, id_object, id_personel FROM public.\"Request\" WHERE id_object = ?;";
         Request req;
-        ArrayList<Request> reqs=new ArrayList<>();
+        ArrayList<Request> reqs = new ArrayList<>();
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setInt(1, id);
@@ -171,7 +118,57 @@ public class Request {
         return null;
     }
 
+    public int getId_personel() {
+        return id_personel;
+    }
 
+    public int getId_request() {
+        return id_request;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getDate_start() {
+        return date_start;
+    }
+
+    public void setDate_start(Date date_start) {
+        this.date_start = date_start;
+    }
+
+    public Date getDate_end() {
+        return date_end;
+    }
+
+    public void setDate_end(Date date_end) {
+        this.date_end = date_end;
+    }
+
+    public int getId_object() {
+        return id_object;
+    }
 
     public int update() {
         String SQL = "UPDATE public.\"Request\" SET description=?, result=?, status=?, date_start=?, date_end=?, id_object=?,id_personel=? WHERE id_request=?;";
@@ -185,8 +182,8 @@ public class Request {
             statement.setDate(4, this.getDate_start());
             statement.setDate(5, this.getDate_end());
             statement.setInt(6, this.getId_object());
-            statement.setInt(7,this.getId_personel());
-            statement.setInt(8,this.getId_request());
+            statement.setInt(7, this.getId_personel());
+            statement.setInt(8, this.getId_request());
 
             affectedRows = statement.executeUpdate();
         } catch (SQLException ex) {
@@ -206,7 +203,7 @@ public class Request {
             statement.setDate(4, this.getDate_start());
             statement.setDate(5, this.getDate_end());
             statement.setInt(6, this.getId_object());
-            statement.setInt(7,this.getId_personel());
+            statement.setInt(7, this.getId_personel());
             affectedRows = statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

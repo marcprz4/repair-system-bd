@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,41 +27,38 @@ public class AddObjectController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        clId=ManagerController.clientId;
-        windowLoader=new WindowLoader();
+        clId = ManagerController.clientId;
+        windowLoader = new WindowLoader();
         Client client = Client.findById(clId).get();
-        if (!client.getFname().isEmpty() && !client.getLname().isEmpty()){
+        if (!client.getFname().isEmpty() && !client.getLname().isEmpty()) {
             owner.setText("Owner:\r" + client.getFname() + " " + client.getLname());
-        }
-
-        else{
+        } else {
             owner.setText("Owner:\r" + client.getName());
         }
         refresh();
     }
 
     public void apply(ActionEvent actionEvent) {
-        if(!brand.getText().isEmpty()&&!model.getText().isEmpty()&&!typeList.getSelectionModel().isEmpty()){
-            Object object=new Object(0,brand.getText()+" "+model.getText(), clId,typeList.getSelectionModel().getSelectedItem());
+        if (!brand.getText().isEmpty() && !model.getText().isEmpty() && !typeList.getSelectionModel().isEmpty()) {
+            Object object = new Object(0, brand.getText() + " " + model.getText(), clId, typeList.getSelectionModel().getSelectedItem());
             object.insert();
-        }
-        else{
+        } else {
             //error
             return;
         }
         /*Stage stage = (Stage) applyButton.getScene().getWindow();
             stage.close();*/
-        Stage stage=(Stage) applyButton.getScene().getWindow();
+        Stage stage = (Stage) applyButton.getScene().getWindow();
         stage.close();
     }
 
     public void addType(ActionEvent actionEvent) throws IOException {
-        windowLoader.load(new Stage(),"Application","addObjectType");
+        windowLoader.load(new Stage(), "Application", "addObjectType");
     }
 
     private void refresh() {
         typeList.getItems().clear();
-        for(ObjectType objectType: ObjectType.findAll()){
+        for (ObjectType objectType : ObjectType.findAll()) {
             typeList.getItems().add(objectType.getShortcut());
         }
     }
