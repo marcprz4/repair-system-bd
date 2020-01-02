@@ -182,20 +182,19 @@ public class Activity {
     }
 
     public int insert() {
-        String SQL = "INSERT INTO public.\"Activity\"(id_activity, seq_number, description, result, status,date_start,date_end, id_request,id_personel,actdic_shortcut) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String SQL = "INSERT INTO public.\"Activity\"(seq_number, description, result, status,date_start,date_end, id_request,id_personel,actdic_shortcut) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
         int id = 0;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, this.getId_activity());
-            statement.setInt(2, this.getSeq_number());
-            statement.setString(3, this.getDescription());
-            statement.setString(4, this.getResult());
-            statement.setString(5, this.getStatus());
-            statement.setDate(6, this.getDate_start());
-            statement.setDate(7, this.getDate_end());
-            statement.setInt(8, this.getId_request());
-            statement.setInt(9, this.getId_personel());
-            statement.setString(10, this.getActdic_shortcut());
+            statement.setInt(1, this.getSeq_number());
+            statement.setString(2, this.getDescription());
+            statement.setString(3, this.getResult());
+            statement.setString(4, this.getStatus());
+            statement.setDate(5, this.getDate_start());
+            statement.setDate(6, this.getDate_end());
+            statement.setInt(7, this.getId_request());
+            statement.setInt(8, this.getId_personel());
+            statement.setString(9, this.getActdic_shortcut());
 
             int affectedRows = statement.executeUpdate();
 

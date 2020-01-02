@@ -26,9 +26,32 @@ public class ActDic {
         this.actdic_fullname = actdic_fullname;
     }
 
-    public static ArrayList<ActDic> findAll() {
+    public static Optional<ArrayList<ActDic>> find() {
+        String SQL = "SELECT actdic_shortcut, actdic_fullname FROM public.\"Act_dict\";";
+        Client client;
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                client = new Client(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+                return Optional.of(client);
+            } else {
+                throw new SQLException();
+            }
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Id of client not found.");
+            alert.setContentText("Check your input.");
+            alert.showAndWait();
+        }
+        return Optional.empty();
+    }
+
+    public static Optional<ArrayList<ActDic>> findAll() {
         ArrayList<ActDic> list = new ArrayList<>();
-        String SQL = "SELECT actdic_shortcut, actdic_fullname FROM public.\"Act_dict\"; ORDER BY id_personel;";
+        String SQL = "SELECT actdic_shortcut, actdic_fullname FROM public.\"Act_dict\";";
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             ResultSet rs = statement.executeQuery();
@@ -37,15 +60,16 @@ public class ActDic {
                         rs.getString(2));
                 list.add(act);
             }
-            return list;
+            return Optional.of(list);
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Activity_dic not found.");
             alert.setContentText("Check your input.");
             alert.showAndWait();
+            System.out.print(e.getMessage());
         }
-        return null;
+        return Optional.empty();
     }
 
     public String getActdic_shortcut() {

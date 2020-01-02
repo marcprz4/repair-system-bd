@@ -44,6 +44,38 @@ public class Personel {
         this.active = other.isActive();
     }
 
+    public static Optional<ArrayList<Personel>> findByRole(String role) {
+        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE role=?;";
+        role = role.toUpperCase();
+        ArrayList<Personel> people = new ArrayList<>();
+        Personel person;
+        try {
+            if (role.isEmpty()) {
+                throw new NullPointerException();
+            }
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            statement.setString(1, role);
+
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                person = new Personel(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getBoolean(7));
+                people.add(person);
+            }
+            return Optional.of(people);
+        } catch (SQLException e) {
+            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
+            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
+        }
+        return Optional.empty();
+    }
+
     public static Optional<ArrayList<Personel>> findByName(String name) {
         String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name LIKE ? OR last_name LIKE ?;";
         name = name.toUpperCase();

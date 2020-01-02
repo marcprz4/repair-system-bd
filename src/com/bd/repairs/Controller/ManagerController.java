@@ -40,6 +40,7 @@ public class ManagerController implements Initializable {
     private WindowLoader windowLoader;
     public JFXButton showcars;
     public JFXButton showA;
+    public static Request request;
     private boolean showClicked=false;
 
     private void initList(int var) {
@@ -115,6 +116,7 @@ public class ManagerController implements Initializable {
     }
 
     public void addActivity(ActionEvent actionEvent) throws IOException {
+        request=Request.findById(StringConverter.convert(reqList.getSelectionModel().getSelectedItem())).get();
         windowLoader.load(new Stage(), "Application", "addActivity");
     }
 
