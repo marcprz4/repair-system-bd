@@ -35,6 +35,39 @@ public class Activity {
         this.actdic_shortcut = actdic_shortcut;
     }
 
+    public static Optional<ArrayList<Activity>> findByRequest(int req) {
+        String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE id_request=? ;";
+        ArrayList<Activity> activities=new ArrayList<>();
+        Activity activ;
+        try {
+            if (req==0) {
+                throw new NullPointerException();
+            }
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            statement.setInt(1,req);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                activ = new Activity(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getDate(6),
+                        rs.getDate(7),
+                        rs.getInt(8),
+                        rs.getInt(9),
+                        rs.getString(10));
+
+                return Optional.of(activities);
+            }
+        } catch (SQLException e) {
+            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
+            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
+        }
+        return Optional.empty();
+    }
+
     public static Optional<Activity> findByName(String actdic_shortcut) {
         String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE actdic_shortcut=? ;";
         Activity activ;

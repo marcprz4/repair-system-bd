@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="614.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.221">
+            prefHeight="614.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.221" fx:controller="com.bd.repairs.Controller.AddActivityController">
     <children>
         <Label layoutX="44.0" layoutY="21.0" prefHeight="21.0" prefWidth="187.0" text="Add new activity"/>
         <Label layoutX="44.0" layoutY="53.0" prefHeight="17.0" prefWidth="143.0" text="current request"/>

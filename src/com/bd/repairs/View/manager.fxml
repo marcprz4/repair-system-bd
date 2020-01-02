@@ -32,5 +32,6 @@
       <JFXButton fx:id="addClient" layoutX="211.0" layoutY="140.0" onAction="#addClient" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="add new client" />
       <JFXButton fx:id="okButton" layoutX="484.0" layoutY="77.0" onAction="#refreshOk" prefHeight="4.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="ok" />
       <JFXButton fx:id="showcars" layoutX="408.0" layoutY="107.0" onAction="#showCars" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="show cars" />
+      <JFXButton fx:id="showA" layoutX="440.0" layoutY="233.0" onAction="#showActivities" prefHeight="4.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="show" />
     </children>
 </AnchorPane>

@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
 
 public class ManagerController implements Initializable {
@@ -37,6 +39,8 @@ public class ManagerController implements Initializable {
     public Label objectInfo;
     private WindowLoader windowLoader;
     public JFXButton showcars;
+    public JFXButton showA;
+    private boolean showClicked=false;
 
     private void initList(int var) {
         searchList.getItems().clear();
@@ -67,6 +71,7 @@ public class ManagerController implements Initializable {
 
     public void refreshObject(ActionEvent actionEvent) {
         String sp = "   ";
+//        listView.add
         if (searchField1.getText().isEmpty()) {
             initList(typeList.getSelectionModel().getSelectedIndex());
         } else {
@@ -90,10 +95,8 @@ public class ManagerController implements Initializable {
                         Client owner = Client.findById(c.getId_client()).get();
                         if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
                             searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getFname() + sp + owner.getLname());
-//                            objectInfo.setText("owner:\r"+owner.getFname()+sp+owner.getLname());
                         } else {
                             searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
-//                            objectInfo.setText("owner:\r"+owner.getName());
                         }
                     }
                     break;
@@ -111,7 +114,8 @@ public class ManagerController implements Initializable {
         }
     }
 
-    public void addActivity(ActionEvent actionEvent) {
+    public void addActivity(ActionEvent actionEvent) throws IOException {
+        windowLoader.load(new Stage(), "Application", "addActivity");
     }
 
     public void activate2(ActionEvent actionEvent) {
@@ -128,14 +132,14 @@ public class ManagerController implements Initializable {
 
     public void activate(ActionEvent actionEvent) {
         int id=StringConverter.convert(reqList.getSelectionModel().getSelectedItem());
-        Request temp=Request.findByIdObject(id).get();
-        if(temp.getStatus().equals("IN PROGRESS")) {
-            temp.setStatus("FINISHED");
+        ArrayList<Request> temp=Request.findByIdObject(id).get();
+        if(temp.get(0).getStatus().equals("IN PROGRESS")) {
+            temp.get(0).setStatus("FINISHED");
         }
-        else if(temp.getStatus().equals("CANCELED")||temp.getStatus().equals("FINISHED")){
-            temp.setStatus("IN PROGRESS");
+        else if(temp.get(0).getStatus().equals("CANCELED")||temp.get(0).getStatus().equals("FINISHED")){
+            temp.get(0).setStatus("IN PROGRESS");
         }
-        temp.update();
+        temp.get(0).update();
     }
 
     @Override
@@ -163,13 +167,41 @@ public class ManagerController implements Initializable {
     }
 
     public void refreshOk(ActionEvent actionEvent) {
+        String sp = "   ";
         if (typeList.getSelectionModel().getSelectedIndex() == 1) {
-            String sp = "   ";
+            Object car=Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+            Client owner = Client.findById(car.getId_client()).get();
+            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
+                objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
+            } else {
+                objectInfo.setText("owner:\r" + owner.getName());
+            }
+            ArrayList<Request> reqs=Request.findByIdObject(car.getId_object()).get();
+            for(Request req:reqs){
+                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname()+ " " +req.getStatus();
+                reqList.getItems().add(requestString);
+            }
+        }      else if(typeList.getSelectionModel().getSelectedIndex() == 0&&!showClicked){
             Client owner = Client.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
             if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
                 objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
             } else {
                 objectInfo.setText("owner:\r" + owner.getName());
+            }
+        }
+        else{
+            Object car=Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+            Client owner = Client.findById(car.getId_client()).get();
+            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
+                objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
+            } else {
+                objectInfo.setText("owner:\r" + owner.getName());
+            }
+            ArrayList<Request> reqs=Request.findByIdObject(car.getId_object()).get();
+            reqList.getItems().clear();
+            for(Request req:reqs){
+                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname()+ " " +req.getStatus();
+                reqList.getItems().add(requestString);
             }
         }
     }
@@ -185,6 +217,21 @@ public class ManagerController implements Initializable {
             } else {
                 searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
             }
+        }
+        showClicked=true;
+    }
+
+    public void showActivities(ActionEvent actionEvent) {
+        listView.getItems().clear();
+        try {
+            int id = Request.findById(StringConverter.convert(reqList.getSelectionModel().getSelectedItem())).get().getId_request();
+            ArrayList<Activity> activities = Activity.findByRequest(id).get();
+            for (Activity a : activities) {
+                Personel p = Personel.findById(a.getId_personel()).get();
+                listView.getItems().add(a.getId_activity() + " " + a.getDescription() + " " + p.getLast_name());
+            }
+        } catch (NoSuchElementException e){
+            return;
         }
     }
 }
