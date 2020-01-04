@@ -2,23 +2,25 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.AddRequestController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="614.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.221"
+            fx:controller="com.bd.repairs.Controller.AddRequestController">
     <children>
-        <Label layoutX="44.0" layoutY="21.0" prefHeight="21.0" prefWidth="187.0" text="Add new request" />
-        <JFXTextArea fx:id="desc" layoutX="44.0" layoutY="72.0" prefHeight="95.0" prefWidth="343.0" promptText="description" />
-        <JFXTextArea fx:id="res" layoutX="44.0" layoutY="184.0" prefHeight="95.0" prefWidth="343.0" promptText="result" />
-        <DatePicker fx:id="startDate" layoutX="45.0" layoutY="379.0" />
-        <DatePicker fx:id="endDate" layoutX="45.0" layoutY="432.0" />
-        <Label layoutX="47.0" layoutY="355.0" prefHeight="17.0" prefWidth="143.0" text="start" />
-        <Label layoutX="47.0" layoutY="415.0" prefHeight="17.0" prefWidth="143.0" text="end" />
-        <ChoiceBox fx:id="status" layoutX="44.0" layoutY="324.0" prefWidth="150.0" />
-        <Label layoutX="44.0" layoutY="307.0" prefHeight="17.0" prefWidth="143.0" text="status" />
-        <Label fx:id="ccar" layoutX="44.0" layoutY="42.0" prefHeight="21.0" prefWidth="187.0" text="current car" />
-        <JFXButton fx:id="applyButton" layoutX="148.0" layoutY="560.0" onAction="#apply" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: #e6e6e6;" text="Apply" />
+        <Label layoutX="44.0" layoutY="21.0" prefHeight="21.0" prefWidth="187.0" text="Add new request"/>
+        <JFXTextArea fx:id="desc" layoutX="44.0" layoutY="72.0" prefHeight="95.0" prefWidth="343.0"
+                     promptText="description"/>
+        <JFXTextArea fx:id="res" layoutX="44.0" layoutY="184.0" prefHeight="95.0" prefWidth="343.0"
+                     promptText="result"/>
+        <DatePicker fx:id="startDate" layoutX="45.0" layoutY="379.0"/>
+        <DatePicker fx:id="endDate" layoutX="45.0" layoutY="432.0"/>
+        <Label layoutX="47.0" layoutY="355.0" prefHeight="17.0" prefWidth="143.0" text="start"/>
+        <Label layoutX="47.0" layoutY="415.0" prefHeight="17.0" prefWidth="143.0" text="end"/>
+        <ChoiceBox fx:id="status" layoutX="44.0" layoutY="324.0" prefWidth="150.0"/>
+        <Label layoutX="44.0" layoutY="307.0" prefHeight="17.0" prefWidth="143.0" text="status"/>
+        <Label fx:id="ccar" layoutX="44.0" layoutY="42.0" prefHeight="21.0" prefWidth="187.0" text="current car"/>
+        <JFXButton fx:id="applyButton" layoutX="148.0" layoutY="560.0" onAction="#apply" prefHeight="25.0"
+                   prefWidth="143.0" style="-fx-background-color: #e6e6e6;" text="Apply"/>
     </children>
 </AnchorPane>

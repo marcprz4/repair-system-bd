@@ -4,12 +4,14 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.AddObjectTypeController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="403.0" prefWidth="437.0" xmlns="http://javafx.com/javafx/8.0.221"
+            fx:controller="com.bd.repairs.Controller.AddObjectTypeController">
     <children>
-        <JFXButton fx:id="applyButton" layoutX="164.0" layoutY="319.0" onAction="#apply" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #e6e6e6;" text="Apply" />
-        <Label layoutX="59.0" layoutY="21.0" prefHeight="17.0" prefWidth="153.0" text="add new object type" />
-        <JFXTextField fx:id="shortcut" layoutX="151.0" layoutY="98.0" promptText="shortcut" />
-        <JFXTextField fx:id="fullname" layoutX="151.0" layoutY="158.0" promptText="fullname" />
+        <JFXButton fx:id="applyButton" layoutX="164.0" layoutY="319.0" onAction="#apply" prefHeight="25.0"
+                   prefWidth="109.0" style="-fx-background-color: #e6e6e6;" text="Apply"/>
+        <Label layoutX="59.0" layoutY="21.0" prefHeight="17.0" prefWidth="153.0" text="add new object type"/>
+        <JFXTextField fx:id="shortcut" layoutX="151.0" layoutY="98.0" promptText="shortcut"/>
+        <JFXTextField fx:id="fullname" layoutX="151.0" layoutY="158.0" promptText="fullname"/>
     </children>
 </AnchorPane>
