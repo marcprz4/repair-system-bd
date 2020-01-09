@@ -248,7 +248,7 @@ public class ManagerController implements Initializable {
             ArrayList<Activity> activities = Activity.findByRequest(id).get();
             for (Activity a : activities) {
                 Personel p = Personel.findById(a.getId_personel()).get();
-                listView.getItems().add(a.getId_activity() + " " + a.getDescription() + " "+a.getResult()+" " + p.getFirst_name() + " " + p.getLast_name() + " " + a.getStatus());
+                listView.getItems().add(a.getId_activity() + " " + a.getDescription() + " Notatka: "+a.getResult()+" " + p.getFirst_name() + " " + p.getLast_name() + " " + a.getStatus());
             }
         } catch (NoSuchElementException e) {
             return;
