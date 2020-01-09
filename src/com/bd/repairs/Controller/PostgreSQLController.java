@@ -12,6 +12,7 @@ public class PostgreSQLController {
         Connection c = null;
         try {
             Class.forName("org.postgresql.Driver");
+//            DriverManager.registerDriver(new org.postgresql.Driver());
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:5432/czysta",
                             "postgres", "root");
