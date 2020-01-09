@@ -34,6 +34,7 @@ public class ManagerController implements Initializable {
     public JFXButton editWorker;
     public ChoiceBox<String> reqList;
     public JFXButton addReq;
+    public JFXButton addReq1;
     public JFXButton activateReq;
     public TextField searchField1;
     public CheckBox business;
@@ -43,6 +44,7 @@ public class ManagerController implements Initializable {
     public JFXButton showA;
     private WindowLoader windowLoader;
     private boolean showClicked = false;
+    public static int reqNum;
 
     private void initList(int var) {
         searchList.getItems().clear();
@@ -142,6 +144,13 @@ public class ManagerController implements Initializable {
         AddRequestController.car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
 
         windowLoader.load(new Stage(), "Application", "addRequest");
+    }
+
+    public void editRequest(ActionEvent actionEvent) throws IOException {
+        request = Request.findById(StringConverter.convert(reqList.getSelectionModel().getSelectedItem())).get();
+//        reqNum=StringConverter.convert(reqList.getSelectionModel().getSelectedItem());
+        AddRequestController.car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+        windowLoader.load(new Stage(), "Application", "editRequest");
     }
 
     public void activate(ActionEvent actionEvent) {
@@ -253,5 +262,11 @@ public class ManagerController implements Initializable {
         } catch (NoSuchElementException e) {
             return;
         }
+    }
+
+    public void editActivity(ActionEvent actionEvent) throws IOException {
+        act=Activity.finById(StringConverter.convert(listView.getSelectionModel().getSelectedItem())).get();
+        request = Request.findById(StringConverter.convert(reqList.getSelectionModel().getSelectedItem())).get();
+        windowLoader.load(new Stage(), "Application", "editActivity");
     }
 }

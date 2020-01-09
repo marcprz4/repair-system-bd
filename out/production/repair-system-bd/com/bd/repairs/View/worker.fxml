@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -12,5 +13,6 @@
         <Label layoutX="54.0" layoutY="73.0" prefHeight="17.0" prefWidth="201.0" text="activities" />
         <JFXButton fx:id="doneButton" layoutX="54.0" layoutY="350.0" onAction="#checkDone" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Done" />
         <JFXButton fx:id="cancelButton" layoutX="193.0" layoutY="350.0" onAction="#cancel" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Cancel" />
+      <JFXTextArea fx:id="result" layoutX="54.0" layoutY="390.0" prefHeight="122.0" prefWidth="464.0" promptText="insert result here" />
     </children>
 </AnchorPane>

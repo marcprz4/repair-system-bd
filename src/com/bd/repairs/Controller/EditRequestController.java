@@ -32,14 +32,20 @@ public class EditRequestController implements Initializable {
         Date temp3 = Date.valueOf(endDate.getValue());
         Request request = new Request(0, desc.getText(), res.getText(), status.getValue(), temp2, temp3, car.getId_object(), ManagerController.user.getId_personel());
         Request r2 = request;
-        request.insert();
+        request.update();
         Stage stage = (Stage) applyButton.getScene().getWindow();
         stage.close();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Request r=ManagerController.request;
+        car=Object.findById(r.getId_object()).get();
         status.getItems().addAll("IN PROGRESS", "FINISHED", "CANCELED");
         ccar.setText(car.getName());
+        startDate.setValue(r.getDate_start().toLocalDate());
+        endDate.setValue(r.getDate_end().toLocalDate());
+        desc.setText(r.getDescription());
+        res.setText(r.getResult());
     }
 }

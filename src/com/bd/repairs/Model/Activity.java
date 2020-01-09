@@ -264,6 +264,7 @@ public class Activity {
         String SQL = "UPDATE public.\"Activity\" SET seq_number=?, description=?, result=?, status=?, date_start=?, date_end=?, id_request=?, id_personel=?, actdic_shortcut=? WHERE id_activity=?;";
         int id = 0;
         try {
+            int affectedRows=0;
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, this.getSeq_number());
             statement.setString(2, this.getDescription());
@@ -276,19 +277,7 @@ public class Activity {
             statement.setString(9, this.getActdic_shortcut());
             statement.setInt(10, this.getId_activity());
 
-            int affectedRows = statement.executeUpdate();
-
-            if (affectedRows > 0) {
-                try (ResultSet rs = statement.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        id = rs.getInt(1);
-                    } else
-                        throw new SQLException();
-                } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
-                }
-
-            }
+            affectedRows = statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
