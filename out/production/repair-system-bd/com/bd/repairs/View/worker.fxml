@@ -8,11 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.WorkerController">
     <children>
-        <Label fx:id="userInfo" layoutX="506.0" layoutY="14.0" prefHeight="30.0" prefWidth="107.0" text="Label" />
-        <JFXListView fx:id="actList" layoutX="54.0" layoutY="90.0" prefHeight="251.0" prefWidth="302.0" />
+        <Label fx:id="userInfo" layoutX="432.0" layoutY="14.0" prefHeight="30.0" prefWidth="181.0" text="Label" />
+        <JFXListView fx:id="actList" layoutX="54.0" layoutY="90.0" prefHeight="251.0" prefWidth="472.0" />
         <Label layoutX="54.0" layoutY="73.0" prefHeight="17.0" prefWidth="201.0" text="activities" />
-        <JFXButton fx:id="doneButton" layoutX="54.0" layoutY="350.0" onAction="#checkDone" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Done" />
-        <JFXButton fx:id="cancelButton" layoutX="193.0" layoutY="350.0" onAction="#cancel" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Cancel" />
-      <JFXTextArea fx:id="result" layoutX="54.0" layoutY="390.0" prefHeight="122.0" prefWidth="464.0" promptText="insert result here" />
+        <JFXButton fx:id="doneButton" layoutX="54.0" layoutY="482.0" onAction="#checkDone" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Finish" />
+        <JFXButton fx:id="cancelButton" layoutX="193.0" layoutY="482.0" onAction="#cancel" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Cancel" />
+      <JFXTextArea fx:id="result" layoutX="54.0" layoutY="348.0" prefHeight="122.0" prefWidth="464.0" promptText="insert result here" style="-fx-background-color: #ffffff;" />
+      <JFXButton fx:id="startButton" layoutX="331.0" layoutY="482.0" onAction="#start" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Start activity" />
     </children>
 </AnchorPane>

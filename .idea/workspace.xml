@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d6dff5fa-713d-4a81-bb10-d9cc176b6dcb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/repair_system_bd.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+    <list default="true" id="d3354a35-3de4-44c2-8f07-895efa54cd98" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/repair_system_bd.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/86c5f9bc-25ab-4e57-b30f-0864398e6443.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/86c5f9bc-25ab-4e57-b30f-0864398e6443/storage_v2/_src_/database/czysta._rffrw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/86c5f9bc-25ab-4e57-b30f-0864398e6443/storage_v2/_src_/database/czysta._rffrw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/86c5f9bc-25ab-4e57-b30f-0864398e6443/storage_v2/_src_/database/czysta._rffrw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/86c5f9bc-25ab-4e57-b30f-0864398e6443/storage_v2/_src_/database/czysta._rffrw/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8__kopia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_8_0_8__kopia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/PostgreSQLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/PostgreSQLController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/WorkerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/WorkerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Activity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/manager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/manager.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/worker.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/worker.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditRequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repair-system-bd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/repair-system-bd.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WorkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WorkerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Model/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/worker.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/worker.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +35,6 @@
     <expand />
     <select />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="1WA9YtkRu9ntQEGyFCKkOarWN5I" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -58,20 +46,13 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/bd/repairs/View" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/postgresql-42.2.9.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.bd.repairs.Controller" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Mprzy\Desktop\repo\repair-system-bd\src\com\bd\repairs\View" />
-    </key>
+    <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -95,12 +76,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:czysta@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@5242eff" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:czysta@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@2fe244df" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@6cbcfca3" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -114,12 +90,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d6dff5fa-713d-4a81-bb10-d9cc176b6dcb" name="Default Changelist" comment="" />
-      <created>1578581582310</created>
+      <changelist id="d3354a35-3de4-44c2-8f07-895efa54cd98" name="Default Changelist" comment="" />
+      <created>1578655562614</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1578581582310</updated>
-      <workItem from="1578581585195" duration="2708000" />
+      <updated>1578655562614</updated>
+      <workItem from="1578655564976" duration="1043000" />
     </task>
     <servers />
   </component>
@@ -127,53 +103,53 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="149" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578584068896">
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578655702623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="149" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578584068896" />
-    <state x="689" y="305" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578581749839">
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578655702623" />
+    <state x="689" y="305" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578655621068">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="305" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578581749839" />
-    <state x="666" y="262" key="FileChooserDialogImpl" timestamp="1578581816319">
+    <state x="689" y="305" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1578655621068" />
+    <state x="666" y="262" key="FileChooserDialogImpl" timestamp="1578655837858">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578581816319" />
-    <state width="1877" height="215" key="GridCell.Tab.0.bottom" timestamp="1578584178880">
+    <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578655837858" />
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1578656549537">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="215" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578584178880" />
-    <state width="1877" height="215" key="GridCell.Tab.0.center" timestamp="1578584178880">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578656549537" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1578656549536">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="215" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578584178880" />
-    <state width="1877" height="215" key="GridCell.Tab.0.left" timestamp="1578584178879">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578656549536" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1578656549536">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="215" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578584178879" />
-    <state width="1877" height="215" key="GridCell.Tab.0.right" timestamp="1578584178880">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578656549536" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1578656549537">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="215" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578584178880" />
-    <state width="1877" height="215" key="GridCell.Tab.1.bottom" timestamp="1578584178880">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578656549537" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1578656549325">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="215" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578584178880" />
-    <state width="1877" height="215" key="GridCell.Tab.1.center" timestamp="1578584178880">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578656549325" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1578656549324">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="215" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578584178880" />
-    <state width="1877" height="215" key="GridCell.Tab.1.left" timestamp="1578584178880">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578656549324" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1578656549324">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="215" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578584178880" />
-    <state width="1877" height="215" key="GridCell.Tab.1.right" timestamp="1578584178880">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578656549324" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1578656549325">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="215" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578584178880" />
-    <state x="440" y="95" key="SettingsEditor" timestamp="1578581819280">
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578656549325" />
+    <state x="440" y="95" key="SettingsEditor" timestamp="1578655840811">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578581819280" />
+    <state x="440" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578655840811" />
   </component>
 </project>
