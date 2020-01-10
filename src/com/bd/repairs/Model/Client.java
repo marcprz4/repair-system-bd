@@ -88,10 +88,11 @@ public class Client {
         return Optional.empty();
     }
 
-    public static Optional<ArrayList<Client>> findByName(String name) {
+    public static Optional<ArrayList<Client>> findByName(String name1) {
         String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE name LIKE ?;";
-        name = name.toUpperCase();
-        name += '%';
+        name1 = name1.toUpperCase();
+        String name="%";
+        name += name1+'%';
         ArrayList<Client> clients = new ArrayList<>();
         Client client;
         try {

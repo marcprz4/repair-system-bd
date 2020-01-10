@@ -22,7 +22,7 @@
         <JFXButton fx:id="addReq" layoutX="313.0" layoutY="190.0" onAction="#addRequest" prefHeight="22.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="add" />
         <JFXButton fx:id="activateReq" layoutX="462.0" layoutY="190.0" onAction="#activate" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="(de)activate" />
         <ChoiceBox fx:id="typeList" layoutX="293.0" layoutY="13.0" prefHeight="25.0" prefWidth="123.0" />
-        <TextField fx:id="searchField1" layoutX="44.0" layoutY="13.0" prefHeight="25.0" prefWidth="173.0" promptText="enter car/owner" />
+        <TextField fx:id="searchField1" layoutX="44.0" layoutY="13.0" onKeyPressed="#refresh" prefHeight="25.0" prefWidth="173.0" promptText="enter car/owner" />
         <JFXButton fx:id="addClient" layoutX="211.0" layoutY="140.0" onAction="#addClient" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: #e6e6e6;" text="add/edit client" />
         <JFXButton fx:id="showA" layoutX="440.0" layoutY="233.0" onAction="#showActivities" prefHeight="4.0" prefWidth="64.0" style="-fx-background-color: #e6e6e6;" text="show" />
       <JFXButton fx:id="addActivity1" layoutX="65.0" layoutY="490.0" onAction="#editActivity" prefHeight="33.0" prefWidth="141.0" style="-fx-background-color: #e6e6e6;" text="edit activity" />

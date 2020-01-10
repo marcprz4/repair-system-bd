@@ -4,15 +4,18 @@ import com.bd.repairs.Model.Object;
 import com.bd.repairs.Model.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -45,69 +48,70 @@ public class ManagerController implements Initializable {
     private WindowLoader windowLoader;
     private boolean showClicked = false;
     public static int reqNum;
+    public JFXListView<String> searchListResult;
 
-    private void initList(int var) {
-        searchList.getItems().clear();
-        String sp = "   ";
-        switch (var) {
-            case 0: {
-                for (Client c : Client.findAll()) {
-                    if (!c.getFname().isEmpty() && !c.getLname().isEmpty()) {
-                        searchList.getItems().add(c.getId_client() + sp + c.getFname() + sp + c.getLname());
-                    } else
-                        searchList.getItems().add(c.getId_client() + sp + c.getName());
-                }
-                break;
-            }
-            case 1: {
-                for (Object c : Object.findAll()) {
-                    Client owner = Client.findById(c.getId_client()).get();
-                    if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
-                        searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getFname() + sp + owner.getLname());
-                    } else {
-                        searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
-                    }
-                }
-                break;
-            }
-        }
-    }
+//    private void initList(int var) {
+//        searchList.getItems().clear();
+//        String sp = "   ";
+//        switch (var) {
+//            case 0: {
+//                for (Client c : Client.findAll()) {
+//                    if (!c.getFname().isEmpty() && !c.getLname().isEmpty()) {
+//                        searchList.getItems().add(c.getId_client() + sp + c.getFname() + sp + c.getLname());
+//                    } else
+//                        searchList.getItems().add(c.getId_client() + sp + c.getName());
+//                }
+//                break;
+//            }
+//            case 1: {
+//                for (Object c : Object.findAll()) {
+//                    Client owner = Client.findById(c.getId_client()).get();
+//                    if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
+//                        searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getFname() + sp + owner.getLname());
+//                    } else {
+//                        searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
+//                    }
+//                }
+//                break;
+//            }
+//        }
+//    }
 
-    public void refreshObject(ActionEvent actionEvent) {
-        String sp = "   ";
-//        listView.add
-        if (searchField1.getText().isEmpty()) {
-            initList(typeList.getSelectionModel().getSelectedIndex());
-        } else {
-            switch (typeList.getSelectionModel().getSelectedIndex()) {
-                case 0: {
-                    searchList.getItems().clear();
-                    if (business.isSelected()) {
-                        for (Client c : Client.findByName(searchField1.getText()).get()) {
-                            searchList.getItems().add(c.getId_client() + sp + c.getName());
-                        }
-                    } else {
-                        for (Client c : Client.findByNames(searchField1.getText()).get()) {
-                            searchList.getItems().add(c.getId_client() + sp + c.getFname() + sp + c.getLname());
-                        }
-                    }
-                    break;
-                }
-                case 1: {
-                    searchList.getItems().clear();
-                    for (Object c : Object.findByName(searchField1.getText()).get()) {
-                        Client owner = Client.findById(c.getId_client()).get();
-                        if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
-                            searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getFname() + sp + owner.getLname());
-                        } else {
-                            searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-    }
+//    public void refreshObject(ActionEvent actionEvent) {
+//        String sp = "   ";
+////        listView.add
+//        if (searchField1.getText().isEmpty()) {
+////            initList(typeList.getSelectionModel().getSelectedIndex());
+//        } else {
+//            switch (typeList.getSelectionModel().getSelectedIndex()) {
+//                case 0: {
+//                    searchList.getItems().clear();
+//                    if (business.isSelected()) {
+//                        for (Client c : Client.findByName(searchField1.getText()).get()) {
+//                            searchList.getItems().add(c.getId_client() + sp + c.getName());
+//                        }
+//                    } else {
+//                        for (Client c : Client.findByNames(searchField1.getText()).get()) {
+//                            searchList.getItems().add(c.getId_client() + sp + c.getFname() + sp + c.getLname());
+//                        }
+//                    }
+//                    break;
+//                }
+//                case 1: {
+//                    searchList.getItems().clear();
+//                    for (Object c : Object.findByName(searchField1.getText()).get()) {
+//                        Client owner = Client.findById(c.getId_client()).get();
+//                        if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
+//                            searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getFname() + sp + owner.getLname());
+//                        } else {
+//                            searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
+//                        }
+//                    }
+//                    break;
+//                }
+//            }
+//        }
+//    }
 
     public void addCar(ActionEvent actionEvent) throws IOException {
         if (typeList.getSelectionModel().getSelectedItem().equals("by Owner") && !searchList.getSelectionModel().getSelectedItem().isEmpty()) {
@@ -174,11 +178,17 @@ public class ManagerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ArrayList<String> stringList=new ArrayList<>();
+        ArrayList<Client> clients=Client.findAll();
+        for(Client c:clients){
+            stringList.add(c.getId_client()+" "+c.getFname()+" "+c.getLname()+" "+c.getName());
+        }
+searchListResult.getItems().addAll(stringList);
         windowLoader = new WindowLoader();
         typeList.getItems().add("by Owner");
         typeList.getItems().add("by Car");
         typeList.getSelectionModel().select(0);
-        initList(typeList.getSelectionModel().getSelectedIndex());
+//        initList(typeList.getSelectionModel().getSelectedIndex());
         if (user != null)
             userInfo.setText(user.getFirst_name() + " " + user.getLast_name());
         for (int i = 0; i < Request.findAll().size(); i++) {
@@ -196,59 +206,59 @@ public class ManagerController implements Initializable {
         windowLoader.load(new Stage(), "Application", "addClient");
     }
 
-    public void refreshOk(ActionEvent actionEvent) {
-        String sp = "   ";
-        if (typeList.getSelectionModel().getSelectedIndex() == 1) {
-            Object car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
-            Client owner = Client.findById(car.getId_client()).get();
-            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
-                objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
-            } else {
-                objectInfo.setText("owner:\r" + owner.getName());
-            }
-            ArrayList<Request> reqs = Request.findByIdObject(car.getId_object()).get();
-            for (Request req : reqs) {
-                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname() + " " + req.getStatus();
-                reqList.getItems().add(requestString);
-            }
-        } else if (typeList.getSelectionModel().getSelectedIndex() == 0 && !showClicked) {
-            Client owner = Client.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
-            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
-                objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
-            } else {
-                objectInfo.setText("owner:\r" + owner.getName());
-            }
-        } else {
-            Object car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
-            Client owner = Client.findById(car.getId_client()).get();
-            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
-                objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
-            } else {
-                objectInfo.setText("owner:\r" + owner.getName());
-            }
-            ArrayList<Request> reqs = Request.findByIdObject(car.getId_object()).get();
-            reqList.getItems().clear();
-            for (Request req : reqs) {
-                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname() + " " + req.getStatus();
-                reqList.getItems().add(requestString);
-            }
-        }
-    }
+//    public void refreshOk(ActionEvent actionEvent) {
+//        String sp = "   ";
+//        if (typeList.getSelectionModel().getSelectedIndex() == 1) {
+//            Object car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+//            Client owner = Client.findById(car.getId_client()).get();
+//            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
+//                objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
+//            } else {
+//                objectInfo.setText("owner:\r" + owner.getName());
+//            }
+//            ArrayList<Request> reqs = Request.findByIdObject(car.getId_object()).get();
+//            for (Request req : reqs) {
+//                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname() + " " + req.getStatus();
+//                reqList.getItems().add(requestString);
+//            }
+//        } else if (typeList.getSelectionModel().getSelectedIndex() == 0 && !showClicked) {
+//            Client owner = Client.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+//            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
+//                objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
+//            } else {
+//                objectInfo.setText("owner:\r" + owner.getName());
+//            }
+//        } else {
+//            Object car = Object.findById(StringConverter.convert(searchList.getSelectionModel().getSelectedItem())).get();
+//            Client owner = Client.findById(car.getId_client()).get();
+//            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
+//                objectInfo.setText("owner:\r" + owner.getFname() + sp + owner.getLname());
+//            } else {
+//                objectInfo.setText("owner:\r" + owner.getName());
+//            }
+//            ArrayList<Request> reqs = Request.findByIdObject(car.getId_object()).get();
+//            reqList.getItems().clear();
+//            for (Request req : reqs) {
+//                String requestString = req.getId_request() + " " + car.getName() + " " + owner.getLname() + " " + req.getStatus();
+//                reqList.getItems().add(requestString);
+//            }
+//        }
+//    }
 
-    public void showCars(ActionEvent actionEvent) {
-        int id = StringConverter.convert(searchList.getSelectionModel().getSelectedItem());
-        searchList.getItems().clear();
-        String sp = "   ";
-        for (Object c : Object.findByOwner(id).get()) {
-            Client owner = Client.findById(c.getId_client()).get();
-            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
-                searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getFname() + sp + owner.getLname());
-            } else {
-                searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
-            }
-        }
-        showClicked = true;
-    }
+//    public void showCars(ActionEvent actionEvent) {
+//        int id = StringConverter.convert(searchList.getSelectionModel().getSelectedItem());
+//        searchList.getItems().clear();
+//        String sp = "   ";
+//        for (Object c : Object.findByOwner(id).get()) {
+//            Client owner = Client.findById(c.getId_client()).get();
+//            if (!owner.getFname().isEmpty() && !owner.getLname().isEmpty()) {
+//                searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getFname() + sp + owner.getLname());
+//            } else {
+//                searchList.getItems().add(c.getId_object() + sp + c.getName() + sp + owner.getName());
+//            }
+//        }
+//        showClicked = true;
+//    }
 
     public void showActivities(ActionEvent actionEvent) {
         listView.getItems().clear();
@@ -268,5 +278,31 @@ public class ManagerController implements Initializable {
         act=Activity.finById(StringConverter.convert(listView.getSelectionModel().getSelectedItem())).get();
         request = Request.findById(StringConverter.convert(reqList.getSelectionModel().getSelectedItem())).get();
         windowLoader.load(new Stage(), "Application", "editActivity");
+    }
+
+    public void refresh(KeyEvent keyEvent) {
+        searchListResult.getItems().clear();
+        ArrayList<String> stringList=new ArrayList<>();
+        if(typeList.getSelectionModel().isSelected(0)){
+
+                ArrayList<Client> clients=Client.findByName(searchField1.getText()).get();
+                if(clients.size()==0){
+                    clients=Client.findByNames(searchField1.getText()).get();
+                    if(clients.size()!=0){
+                        for(Client c:clients){
+                            stringList.add(c.getId_client()+" "+c.getFname()+" "+c.getLname());
+                        }
+                    }
+                } else{
+                    for(Client c:clients){
+                        stringList.add(c.getId_client()+" "+c.getName());
+                    }
+                }
+
+            searchListResult.getItems().addAll(FXCollections.observableArrayList(stringList));
+        }
+        else if (typeList.getSelectionModel().isSelected(1)){
+
+        }
     }
 }
