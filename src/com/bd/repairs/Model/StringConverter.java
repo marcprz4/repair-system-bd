@@ -3,11 +3,16 @@ package com.bd.repairs.Model;
 public class StringConverter {
     public static int convert(String string) {
         int result = 0;
+        boolean wasNumber=false;
         String num = "";
         int i = 0;
         for (char c : string.toCharArray()) {
-            if ((c >= '0') && (c <= '9') && (i < 6)) {
+            if(!Character.isDigit(c)&&wasNumber){
+                i=10;
+            }
+            if (Character.isDigit(c)&&i<6) {
                 num += c;
+                wasNumber=true;
             }
             ++i;
         }

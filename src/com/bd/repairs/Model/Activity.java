@@ -74,7 +74,7 @@ public class Activity {
         return Optional.empty();
     }
 
-    public static Optional<Activity> finById(int id) {
+    public static Optional<Activity> findById(int id) {
         String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE id_activity=?;";
         ArrayList<Activity> activities = new ArrayList<>();
         Activity activ;
@@ -143,47 +143,47 @@ public class Activity {
         }
         return Optional.empty();
     }
-
-    public static Optional<Activity> findByName(String actdic_shortcut) {
-        String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE actdic_shortcut=? ;";
-        Activity activ;
-        try {
-            if (actdic_shortcut.isEmpty()) {
-                throw new NullPointerException();
-            }
-            String[] names = actdic_shortcut.split("\\s+");
-            PreparedStatement statement = Main.connection.prepareStatement(SQL);
-            if (names.length == 2) {
-                statement.setString(1, names[0]);
-            } else if (names.length == 3) {
-                statement.setString(1, names[0] + " " + names[1]);
-            } else {
-                throw new IndexOutOfBoundsException();
-            }
-
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
-                activ = new Activity(rs.getInt(1),
-                        rs.getInt(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getDate(6),
-                        rs.getDate(7),
-                        rs.getInt(8),
-                        rs.getInt(9),
-                        rs.getString(10));
-                return Optional.of(activ);
-            } else {
-                throw new SQLException();
-            }
-        } catch (SQLException e) {
-            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
-        } catch (NullPointerException | IndexOutOfBoundsException e) {
-            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
-        }
-        return Optional.empty();
-    }
+//
+//    public static Optional<Activity> findByName(String actdic_shortcut) {
+//        String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE actdic_shortcut=? ;";
+//        Activity activ;
+//        try {
+//            if (actdic_shortcut.isEmpty()) {
+//                throw new NullPointerException();
+//            }
+//            String[] names = actdic_shortcut.split("\\s+");
+//            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+//            if (names.length == 2) {
+//                statement.setString(1, names[0]);
+//            } else if (names.length == 3) {
+//                statement.setString(1, names[0] + " " + names[1]);
+//            } else {
+//                throw new IndexOutOfBoundsException();
+//            }
+//
+//            ResultSet rs = statement.executeQuery();
+//            if (rs.next()) {
+//                activ = new Activity(rs.getInt(1),
+//                        rs.getInt(2),
+//                        rs.getString(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getDate(6),
+//                        rs.getDate(7),
+//                        rs.getInt(8),
+//                        rs.getInt(9),
+//                        rs.getString(10));
+//                return Optional.of(activ);
+//            } else {
+//                throw new SQLException();
+//            }
+//        } catch (SQLException e) {
+//            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
+//        } catch (NullPointerException | IndexOutOfBoundsException e) {
+//            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
+//        }
+//        return Optional.empty();
+//    }
 
     public static ArrayList<Activity> findAll() {
         ArrayList<Activity> list = new ArrayList<>();

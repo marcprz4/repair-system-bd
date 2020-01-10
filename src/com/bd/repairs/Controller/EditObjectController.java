@@ -56,12 +56,11 @@ private Client client;
             AlertWindow alertWindow=new AlertWindow("error","error","Empty fields!");
             return;
         }
-        Stage stage = (Stage) applyButton.getScene().getWindow();
-        stage.close();
+        applyButton.getScene().getWindow().hide();
     }
 
     public void addType(ActionEvent actionEvent) throws IOException {
-        windowLoader.load(new Stage(), "Application", "addObjectType");
+        windowLoader.load(applyButton.getScene().getWindow(),new Stage(), "Application", "addObjectType");
     }
 
     private void refresh() {

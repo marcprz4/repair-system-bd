@@ -28,8 +28,7 @@ public class EditUserController implements Initializable {
         pass=new PasswordAuthentication();
         Personel person = new Personel(Personel.findById(AdminController.id).get().getId_personel(), fname.getText(), lname.getText(), role.getSelectionModel().getSelectedItem(), username.getText(), pass.hash(password.getText()), active.isSelected());
         person.update();
-        Stage stage = (Stage) applyButton.getScene().getWindow();
-        stage.close();
+        applyButton.getScene().getWindow().hide();
     }
 
     @Override

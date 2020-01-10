@@ -214,7 +214,6 @@ public class Request {
             statement.setInt(6, this.getId_object());
             statement.setInt(7, this.getId_personel());
             statement.setInt(8, this.getId_request());
-
             affectedRows = statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

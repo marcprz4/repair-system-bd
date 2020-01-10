@@ -36,16 +36,20 @@ public class EditActivityController implements Initializable {
     public Label currentReq;
     private WindowLoader windowLoader;
     private ArrayList<ActDic> actDics;
+    private Activity a;
+    public JFXButton addNewType;
 
     public void apply(ActionEvent actionEvent) {
 
         LocalDate temp = startDate.getValue();
         Date temp2 = Date.valueOf(temp);
-        Date temp3 = Date.valueOf(endDate.getValue());
-        Activity activity = new Activity(0, Integer.parseInt(seqNumber.getText()), desc.getText(), res.getText(), status.getSelectionModel().getSelectedItem(), temp2, temp3, ManagerController.req.getId_request(), StringConverter.convert(workerList.getSelectionModel().getSelectedItem()), ActDic.find(StringConverter.convertText(actDic.getSelectionModel().getSelectedItem())).get().getActdic_shortcut());
+        Date temp3=null;
+        if(endDate.getValue()!= null){
+            temp3 = Date.valueOf(endDate.getValue());
+        }
+        Activity activity = new Activity(a.getId_activity(), Integer.parseInt(seqNumber.getText()), desc.getText(), res.getText(), status.getSelectionModel().getSelectedItem(), temp2, temp3, ManagerController.request.getId_request(), StringConverter.convert(workerList.getSelectionModel().getSelectedItem()), ActDic.find(StringConverter.convertText(actDic.getSelectionModel().getSelectedItem())).get().getActdic_shortcut());
         activity.update();
-        Stage stage = (Stage) applyButton.getScene().getWindow();
-        stage.close();
+        applyButton.getScene().getWindow().hide();
     }
 
     @Override
@@ -60,42 +64,27 @@ public class EditActivityController implements Initializable {
         } catch (NoSuchElementException e) {
 
         }
-        currentReq.setText("current request: " + ManagerController.req.getId_request());
+        currentReq.setText("current request: " + ManagerController.request.getId_request());
         status.getItems().addAll("OPEN","IN PROGRESS", "FINISHED", "CANCELED");
         ArrayList<Personel> array = Personel.findByRole("WORKER").get();
         for (Personel p : array) {
             workerList.getItems().add(p.getId_personel() + " " + p.getFirst_name() + " " + p.getLast_name());
         }
-        Activity a=Activity.finById(ManagerController.ac.getId_activity()).get();
+        a=ManagerController.activity;
         desc.setText(a.getDescription());
+        status.getSelectionModel().select(a.getStatus());
         res.setText(a.getResult());
         startDate.setValue(a.getDate_start().toLocalDate());
-        endDate.setValue(a.getDate_end().toLocalDate());
+        if(a.getDate_end()!=null){
+            endDate.setValue(a.getDate_end().toLocalDate());
+        }
+
         currentReq.setText(Integer.toString(a.getId_request()));
         seqNumber.setText(Integer.toString(a.getSeq_number()));
-
-        /*public JFXTextField seqNumber;
-    public JFXTextArea desc;
-    public JFXTextArea res;
-    public DatePicker startDate;
-    public DatePicker endDate;
-    public ChoiceBox<String> status;
-    public ChoiceBox<String> workerList;
-    public JFXButton applyButton;
-    public ChoiceBox<String> actDic;
-    public Label currentReq;
-    private WindowLoader windowLoader;
-    private ArrayList<ActDic> actDics;*/
-//
-//        LocalDate temp = startDate.getValue();
-//        Date temp2 = Date.valueOf(temp);
-//        Date temp3 = Date.valueOf(endDate.getValue());
-//        Activity activity = new Activity(0, Integer.parseInt(seqNumber.getText()), desc.getText(), res.getText(), status.getSelectionModel().getSelectedItem(), temp2, temp3, ManagerController.request.getId_request(), StringConverter.convert(workerList.getSelectionModel().getSelectedItem()), ActDic.find(StringConverter.convertText(actDic.getSelectionModel().getSelectedItem())).get().getActdic_shortcut());
-//        activity.insert();
     }
 
     public void addNewType(ActionEvent actionEvent) throws IOException {
-        windowLoader.load(new Stage(), "Application", "addActivityType");
+        windowLoader.load(addNewType.getScene().getWindow(),new Stage(), "Application", "addActivityType");
     }
 
     public void refresh(ActionEvent actionEvent) {

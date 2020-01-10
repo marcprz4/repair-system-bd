@@ -25,27 +25,32 @@ public class EditRequestController implements Initializable {
     public ChoiceBox<String> status;
     public Label ccar;
     public JFXButton applyButton;
-
+    private Request re;
     public void apply(ActionEvent actionEvent) {
         LocalDate temp = startDate.getValue();
         Date temp2 = Date.valueOf(temp);
-        Date temp3 = Date.valueOf(endDate.getValue());
-        Request request = new Request(0, desc.getText(), res.getText(), status.getValue(), temp2, temp3, car.getId_object(), ManagerController.user.getId_personel());
+        Date temp3=null;
+        if(endDate.getValue()!= null){
+            temp3 = Date.valueOf(endDate.getValue());
+        }
+        Request request = new Request(re.getId_request(), desc.getText(), res.getText(), status.getValue(), temp2, temp3, car.getId_object(), ManagerController.user.getId_personel());
         Request r2 = request;
         request.update();
-        Stage stage = (Stage) applyButton.getScene().getWindow();
-        stage.close();
+        applyButton.getScene().getWindow().hide();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Request r=ManagerController.req;
-        car=Object.findById(r.getId_object()).get();
+        re=ManagerController.request;
+        car=Object.findById(re.getId_object()).get();
         status.getItems().addAll("OPEN","IN PROGRESS", "FINISHED", "CANCELED");
+        status.getSelectionModel().select(re.getStatus());
         ccar.setText(car.getName());
-        startDate.setValue(r.getDate_start().toLocalDate());
-        endDate.setValue(r.getDate_end().toLocalDate());
-        desc.setText(r.getDescription());
-        res.setText(r.getResult());
+        startDate.setValue(re.getDate_start().toLocalDate());
+        if(re.getDate_end()!=null){
+            endDate.setValue(re.getDate_end().toLocalDate());
+        }
+        desc.setText(re.getDescription());
+        res.setText(re.getResult());
     }
 }

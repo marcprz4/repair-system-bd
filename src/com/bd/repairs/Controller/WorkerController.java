@@ -42,7 +42,7 @@ public class WorkerController implements Initializable {
 
     public void checkDone(ActionEvent actionEvent) {
         if(!actList.getSelectionModel().isEmpty()){
-            Activity a = Activity.finById(StringConverter.convert(actList.getSelectionModel().getSelectedItem())).get();
+            Activity a = Activity.findById(StringConverter.convert(actList.getSelectionModel().getSelectedItem())).get();
             selected=actList.getSelectionModel().getSelectedIndex();
             a.setStatus("FINISHED");
             if(!result.getText().isEmpty())
@@ -57,7 +57,7 @@ public class WorkerController implements Initializable {
 
     public void cancel(ActionEvent actionEvent) {
         if(!actList.getSelectionModel().isEmpty()) {
-            Activity a = Activity.finById(StringConverter.convert(actList.getSelectionModel().getSelectedItem())).get();
+            Activity a = Activity.findById(StringConverter.convert(actList.getSelectionModel().getSelectedItem())).get();
             selected = actList.getSelectionModel().getSelectedIndex();
             a.setStatus("CANCELED");
             if(!result.getText().isEmpty())
@@ -72,7 +72,7 @@ public class WorkerController implements Initializable {
 
     public void start(ActionEvent actionEvent) {
         if(!actList.getSelectionModel().isEmpty()) {
-            Activity a = Activity.finById(StringConverter.convert(actList.getSelectionModel().getSelectedItem())).get();
+            Activity a = Activity.findById(StringConverter.convert(actList.getSelectionModel().getSelectedItem())).get();
             selected = actList.getSelectionModel().getSelectedIndex();
             a.setStatus("IN PROGRESS");
             if(!result.getText().isEmpty())

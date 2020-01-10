@@ -36,11 +36,9 @@ telephone.setText(ManagerController.client.getTelephone());
         } else if (((fname.getText().isEmpty() && lname.getText().isEmpty()) && (!company.getText().isEmpty()))) {
             Client client = new Client(ManagerController.client.getId_client(), fname.getText(), lname.getText(), company.getText(), telephone.getText());
             client.update();
-            Stage stage = (Stage) applyButton.getScene().getWindow();
-            stage.close();
+            applyButton.getScene().getWindow().hide();
         } else {
             warning.setText("Insert full name or company name.");
         }
-
     }
 }

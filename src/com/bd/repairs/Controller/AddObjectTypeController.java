@@ -15,8 +15,7 @@ public class AddObjectTypeController {
         if (!shortcut.getText().isEmpty() && !fullname.getText().isEmpty()) {
             ObjectType objectType = new ObjectType(shortcut.getText(), fullname.getText());
             objectType.insert();
-            Stage stage = (Stage) applyButton.getScene().getWindow();
-            stage.close();
+            applyButton.getScene().getWindow().hide();
         } else {
             //error
             return;

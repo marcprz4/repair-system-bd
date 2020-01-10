@@ -31,17 +31,17 @@ public class LoginController {
 
                         switch (person.getRole()) {
                             case "ADMIN": {
-                                windowLoader.load(new Stage(), "Application", "admin");
+                                windowLoader.load(button.getScene().getWindow(),new Stage(), "Application", "admin");
                                 break;
                             }
                             case "MANAGER": {
                                 ManagerController.user = person;
-                                windowLoader.load(new Stage(), "Application", "manager");
+                                windowLoader.load(button.getScene().getWindow(),new Stage(), "Application", "manager");
                                 break;
                             }
                             case "WORKER": {
                                 WorkerController.user=person;
-                                windowLoader.load(new Stage(), "Application", "worker");
+                                windowLoader.load(button.getScene().getWindow(),new Stage(), "Application", "worker");
                                 break;
                             }
                         }

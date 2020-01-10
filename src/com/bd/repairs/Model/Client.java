@@ -57,36 +57,36 @@ public class Client {
         return Optional.empty();
     }
 
-    public static Optional<ArrayList<Client>> findByNames(String name) {
-        String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE fname LIKE ? OR lname LIKE ?;";
-        name = name.toUpperCase();
-        name += '%';
-        Client client;
-        ArrayList<Client> clients = new ArrayList<>();
-        try {
-            if (name.isEmpty()) {
-                throw new NullPointerException();
-            }
-            PreparedStatement statement = Main.connection.prepareStatement(SQL);
-            statement.setString(1, name);
-            statement.setString(2, name);
-            ResultSet rs = statement.executeQuery();
-            while (rs.next()) {
-                client = new Client(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5));
-                clients.add(client);
-            }
-            return Optional.of(clients);
-        } catch (SQLException e) {
-            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
-        } catch (NullPointerException | IndexOutOfBoundsException e) {
-            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
-        }
-        return Optional.empty();
-    }
+//    public static Optional<ArrayList<Client>> findByNames(String name) {
+//        String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE fname LIKE ? OR lname LIKE ?;";
+//        name = name.toUpperCase();
+//        name += '%';
+//        Client client;
+//        ArrayList<Client> clients = new ArrayList<>();
+//        try {
+//            if (name.isEmpty()) {
+//                throw new NullPointerException();
+//            }
+//            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+//            statement.setString(1, name);
+//            statement.setString(2, name);
+//            ResultSet rs = statement.executeQuery();
+//            while (rs.next()) {
+//                client = new Client(rs.getInt(1),
+//                        rs.getString(2),
+//                        rs.getString(3),
+//                        rs.getString(4),
+//                        rs.getString(5));
+//                clients.add(client);
+//            }
+//            return Optional.of(clients);
+//        } catch (SQLException e) {
+//            AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
+//        } catch (NullPointerException | IndexOutOfBoundsException e) {
+//            AlertWindow alert = new AlertWindow("Error", "Wrong name field.", "Check your input.");
+//        }
+//        return Optional.empty();
+//    }
 
     public static Optional<ArrayList<Client>> findByName(String name1) {
         String SQL = "SELECT id_client, fname, lname, name, telephone FROM public.\"Client\" WHERE name LIKE ?;";

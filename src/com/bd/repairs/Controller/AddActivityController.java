@@ -36,16 +36,19 @@ public class AddActivityController implements Initializable {
     public Label currentReq;
     private WindowLoader windowLoader;
     private ArrayList<ActDic> actDics;
+    public JFXButton addNewType;
 
     public void apply(ActionEvent actionEvent) {
 
         LocalDate temp = startDate.getValue();
         Date temp2 = Date.valueOf(temp);
-        Date temp3 = Date.valueOf(endDate.getValue());
-        Activity activity = new Activity(0, Integer.parseInt(seqNumber.getText()), desc.getText(), res.getText(), status.getSelectionModel().getSelectedItem(), temp2, temp3, ManagerController.req.getId_request(), StringConverter.convert(workerList.getSelectionModel().getSelectedItem()), ActDic.find(StringConverter.convertText(actDic.getSelectionModel().getSelectedItem())).get().getActdic_shortcut());
+        Date temp3=null;
+        if(endDate.getValue()!= null){
+            temp3 = Date.valueOf(endDate.getValue());
+        }
+        Activity activity = new Activity(0, Integer.parseInt(seqNumber.getText()), desc.getText(), res.getText(), status.getSelectionModel().getSelectedItem(), temp2, temp3, ManagerController.request.getId_request(), StringConverter.convert(workerList.getSelectionModel().getSelectedItem()), ActDic.find(StringConverter.convertText(actDic.getSelectionModel().getSelectedItem())).get().getActdic_shortcut());
         activity.insert();
-        Stage stage = (Stage) applyButton.getScene().getWindow();
-        stage.close();
+        applyButton.getScene().getWindow().hide();
     }
 
     @Override
@@ -60,7 +63,7 @@ public class AddActivityController implements Initializable {
         } catch (NoSuchElementException e) {
 
         }
-        currentReq.setText("current request: " + ManagerController.req.getId_request());
+        currentReq.setText("current request: " + ManagerController.request.getId_request());
         status.getItems().addAll("OPEN","IN PROGRESS", "FINISHED", "CANCELED");
         ArrayList<Personel> array = Personel.findByRole("WORKER").get();
         for (Personel p : array) {
@@ -69,7 +72,7 @@ public class AddActivityController implements Initializable {
     }
 
     public void addNewType(ActionEvent actionEvent) throws IOException {
-        windowLoader.load(new Stage(), "Application", "addActivityType");
+        windowLoader.load(addNewType.getScene().getWindow(),new Stage(), "Application", "addActivityType");
     }
 
     public void refresh(ActionEvent actionEvent) {

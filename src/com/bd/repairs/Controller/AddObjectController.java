@@ -38,15 +38,12 @@ private Client client;
             Object object = new Object(0, brand.getText() + " " + model.getText(), client.getId_client(), typeList.getSelectionModel().getSelectedItem());
             object.insert();
         } else {
-            //error
             return;
         }
-        Stage stage = (Stage) applyButton.getScene().getWindow();
-        stage.close();
+        applyButton.getScene().getWindow().hide();
     }
-
     public void addType(ActionEvent actionEvent) throws IOException {
-        windowLoader.load(new Stage(), "Application", "addObjectType");
+        windowLoader.load(applyButton.getScene().getWindow(),new Stage(), "Application", "addObjectType");
     }
 
     private void refresh() {

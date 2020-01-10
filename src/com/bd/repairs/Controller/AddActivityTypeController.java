@@ -18,8 +18,7 @@ public class AddActivityTypeController implements Initializable {
     public void applyChanges(ActionEvent actionEvent) {
         ActDic actDic = new ActDic(shortcut.getText(), full.getText());
         actDic.insert();
-        Stage stage = (Stage) apply.getScene().getWindow();
-        stage.close();
+        apply.getScene().getWindow().hide();
     }
 
     @Override

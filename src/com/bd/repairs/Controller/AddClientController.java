@@ -24,8 +24,7 @@ public class AddClientController {
         } else if (((fname.getText().isEmpty() && lname.getText().isEmpty()) && (!company.getText().isEmpty()))) {
             Client client = new Client(0, fname.getText(), lname.getText(), company.getText(), telephone.getText());
             client.insert();
-            Stage stage = (Stage) applyButton.getScene().getWindow();
-            stage.close();
+            applyButton.getScene().getWindow().hide();
         } else {
             warning.setText("Insert full name or company name.");
         }

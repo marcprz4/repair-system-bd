@@ -2,6 +2,7 @@ package com.bd.repairs.Controller;
 
 import com.bd.repairs.Model.Personel;
 import com.bd.repairs.Model.StringConverter;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -22,7 +23,8 @@ public class AdminController implements Initializable {
     public TextField findField;
     private WindowLoader windowLoader;
     private ArrayList<String> users;
-
+public JFXButton editButton;
+public JFXButton refreshButton;
     public AdminController() {
         windowLoader = new WindowLoader();
     }
@@ -48,14 +50,14 @@ public class AdminController implements Initializable {
     }
 
     public void add(ActionEvent actionEvent) throws IOException {
-        windowLoader.load(new Stage(), "Application", "createUser");
+        windowLoader.load(editButton.getScene().getWindow(),new Stage(), "Application", "createUser");
     }
 
     public void edit(ActionEvent actionEvent) throws IOException {
         if (!usersList.getSelectionModel().isEmpty()) {
             String line = usersList.getSelectionModel().getSelectedItem().toString();
             id = StringConverter.convert(line);
-            windowLoader.load(new Stage(), "Application", "editUser");
+            windowLoader.load(editButton.getScene().getWindow(),new Stage(), "Application", "editUser");
         }
     }
 

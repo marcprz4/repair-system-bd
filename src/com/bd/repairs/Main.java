@@ -3,6 +3,9 @@ package com.bd.repairs;
 import com.bd.repairs.Controller.PostgreSQLController;
 import com.bd.repairs.Controller.WindowLoader;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -19,9 +22,16 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
         connection = PostgreSQLController.connect();
-        WindowLoader windowLoader = new WindowLoader();
-        windowLoader.load(primaryStage, "Application", "login");
+        Parent root = FXMLLoader.load(getClass().getResource("View/login.fxml"));
+
+        Scene scene = new Scene(root);
+
+        stage.setTitle("FXML Welcome");
+        stage.setScene(scene);
+        stage.show();
+//        WindowLoader windowLoader = new WindowLoader();
+//        windowLoader.load(,primaryStage, "Application", "login");
     }
 }

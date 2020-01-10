@@ -29,8 +29,7 @@ public class CreateUserController implements Initializable {
 
         Personel personel = new Personel(0, fname.getText(), lname.getText(), role.getSelectionModel().getSelectedItem(), username.getText(), passwordE, active.isSelected());
         personel.insert();
-        Stage stage = (Stage) applyButton.getScene().getWindow();
-        stage.close();
+        applyButton.getScene().getWindow().hide();
     }
 
     @Override
