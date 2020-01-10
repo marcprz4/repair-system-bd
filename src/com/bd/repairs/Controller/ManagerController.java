@@ -78,7 +78,7 @@ public class ManagerController implements Initializable {
         listObject.getItems().addAll(stringList);
     }
 
-    private void refreshObjects() {a
+    private void refreshObjects() {
         ArrayList<Object> objects = Object.findAll();
         displayObjects(objects);
     }
