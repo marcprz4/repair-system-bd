@@ -109,7 +109,7 @@ public class Activity {
     }
 
     public static Optional<ArrayList<Activity>> findByRequest(int req) {
-        String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE id_request=? ;";
+        String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE id_request=? ORDER BY seq_number;";
         ArrayList<Activity> activities = new ArrayList<>();
         Activity activ;
         try {
