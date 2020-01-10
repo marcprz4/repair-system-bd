@@ -39,7 +39,7 @@ public class Activity {
         this.result = result;
     }
 
-    public static Optional<ArrayList<Activity>> finByWorkerId(int id) {
+    public static Optional<ArrayList<Activity>> findByWorkerId(int id) {
         String SQL = "SELECT id_activity, seq_number, description, result, status, date_start, date_end, id_request, id_personel, actdic_shortcut  FROM public.\"Activity\"  WHERE id_personel=? ORDER BY date_start,seq_number,id_activity;";
         ArrayList<Activity> activities = new ArrayList<>();
         Activity activ;

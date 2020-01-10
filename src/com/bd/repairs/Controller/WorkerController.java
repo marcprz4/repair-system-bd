@@ -9,6 +9,8 @@ import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -22,22 +24,49 @@ public class WorkerController implements Initializable {
     public JFXButton cancelButton;
     public JFXTextArea result;
     private static int selected;
+    public TextField searchField;
     AlertWindow alertWindow;
-    private void refresh() {
-        ArrayList<Activity> arrayList = Activity.finByWorkerId(user.getId_personel()).get();
+
+    private void displayActivities2(String text) {
+        ArrayList<Activity> activities=Activity.findByWorkerId(user.getId_personel()).get();
         actList.getItems().clear();
-        for (Activity a : arrayList) {
-            Request r = Request.findById(a.getId_request()).get();
-            Object car = Object.findById(r.getId_object()).get();
-            actList.getItems().add(a.getId_activity()+ " s: " + a.getDate_start() + " e: " +a.getDate_end()+ " " + car.getName() + " " + a.getDescription() + " " + a.getResult()+" " + a.getSeq_number() + " " + a.getStatus());
+        ArrayList<String> stringList=new ArrayList<>();
+        for(Activity a:activities){
+            Request r=Request.findById(a.getId_request()).get();
+            Object c=Object.findById(r.getId_object()).get();
+            if(c.getName().contains(text.toUpperCase())){
+                stringList.add(a.getId_activity()+ " s: " + a.getDate_start() + " e: " +a.getDate_end()+ " " + c.getName()
+                        + " " + a.getDescription() + " " + a.getResult()+" " + a.getSeq_number() + " " + a.getStatus());
+            }
         }
-        actList.getSelectionModel().select(selected);
+        actList.getItems().addAll(stringList);
+    }
+
+    private void displayActivities(ArrayList<Activity> activities){
+        actList.getItems().clear();
+        ArrayList<String> stringList=new ArrayList<>();
+        for(Activity a:activities){
+            Request r=Request.findById(a.getId_request()).get();
+            Object c=Object.findById(r.getId_object()).get();
+            stringList.add(a.getId_activity()+ " s: " + a.getDate_start() + " e: " +a.getDate_end()+ " " + c.getName()
+                    + " " + a.getDescription() + " " + a.getResult()+" " + a.getSeq_number() + " " + a.getStatus());
+        }
+        actList.getItems().addAll(stringList);
+    }
+
+    private void refreshActivitiess(){
+        if(searchField.getText().isEmpty()){
+            ArrayList<Activity> activities=Activity.findByWorkerId(user.getId_personel()).get();
+            displayActivities(activities);
+        }else{
+            displayActivities2(searchField.getText());
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         userInfo.setText("Hello " + user.getFirst_name() + " " + user.getLast_name());
-        refresh();
+        refreshActivitiess();
     }
 
     public void checkDone(ActionEvent actionEvent) {
@@ -48,7 +77,7 @@ public class WorkerController implements Initializable {
             if(!result.getText().isEmpty())
                 a.setResult(result.getText());
             a.update();
-            refresh();
+            refreshActivitiess();
         }
         else{
             alertWindow=new AlertWindow("error","error","No item selected!");
@@ -63,7 +92,7 @@ public class WorkerController implements Initializable {
             if(!result.getText().isEmpty())
                 a.setResult(result.getText());
             a.update();
-            refresh();
+            refreshActivitiess();
         }
         else{
             alertWindow=new AlertWindow("error","error","No item selected!");
@@ -78,10 +107,18 @@ public class WorkerController implements Initializable {
             if(!result.getText().isEmpty())
             a.setResult(result.getText());
             a.update();
-            refresh();
+            refreshActivitiess();
         }
         else{
             alertWindow=new AlertWindow("error","error","No item selected!");
+        }
+    }
+
+    public void find(KeyEvent keyEvent) {
+        if(searchField.getText().isEmpty()){
+            refreshActivitiess();
+        }else{
+            displayActivities2(searchField.getText());
         }
     }
 }

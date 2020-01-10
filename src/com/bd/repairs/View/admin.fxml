@@ -14,6 +14,6 @@
         <JFXButton fx:id="addButton" layoutX="54.0" layoutY="350.0" onAction="#add" prefHeight="30.0" prefWidth="97.0" style="-fx-background-color: #e6e6e6;" text="Add" />
         <JFXButton fx:id="editButton" layoutX="174.0" layoutY="350.0" onAction="#edit" prefHeight="30.0" prefWidth="97.0" style="-fx-background-color: #e6e6e6;" text="Edit" />
         <JFXButton fx:id="refreshButton" layoutX="458.0" layoutY="90.0" onAction="#refresh" prefHeight="30.0" prefWidth="97.0" style="-fx-background-color: #e6e6e6;" text="clear" />
-        <TextField fx:id="findField" layoutX="146.0" layoutY="61.0" onKeyPressed="#findName" prefHeight="25.0" prefWidth="174.0" promptText="enter name to find" />
+        <TextField fx:id="findField" layoutX="146.0" layoutY="61.0" onKeyReleased="#findName" prefHeight="25.0" prefWidth="174.0" promptText="enter name to find" />
     </children>
 </AnchorPane>

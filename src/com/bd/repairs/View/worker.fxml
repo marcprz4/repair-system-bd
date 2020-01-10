@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="536.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.WorkerController">
@@ -15,5 +16,6 @@
         <JFXButton fx:id="cancelButton" layoutX="193.0" layoutY="482.0" onAction="#cancel" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Cancel" />
       <JFXTextArea fx:id="result" layoutX="54.0" layoutY="348.0" prefHeight="122.0" prefWidth="464.0" promptText="insert result here" style="-fx-background-color: #ffffff;" />
       <JFXButton fx:id="startButton" layoutX="331.0" layoutY="482.0" onAction="#start" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #e6e6e6;" text="Start activity" />
+      <TextField fx:id="searchField" layoutX="193.0" layoutY="61.0" onKeyReleased="#find" prefHeight="17.0" prefWidth="262.0" promptText="enter car name" />
     </children>
 </AnchorPane>
