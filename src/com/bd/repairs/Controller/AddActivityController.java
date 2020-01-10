@@ -61,7 +61,7 @@ public class AddActivityController implements Initializable {
 
         }
         currentReq.setText("current request: " + ManagerController.request.getId_request());
-        status.getItems().addAll("IN PROGRESS", "FINISHED", "CANCELED");
+        status.getItems().addAll("OPEN","IN PROGRESS", "FINISHED", "CANCELED");
         ArrayList<Personel> array = Personel.findByRole("WORKER").get();
         for (Personel p : array) {
             workerList.getItems().add(p.getId_personel() + " " + p.getFirst_name() + " " + p.getLast_name());

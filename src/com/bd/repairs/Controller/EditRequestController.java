@@ -41,7 +41,7 @@ public class EditRequestController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         Request r=ManagerController.request;
         car=Object.findById(r.getId_object()).get();
-        status.getItems().addAll("IN PROGRESS", "FINISHED", "CANCELED");
+        status.getItems().addAll("OPEN","IN PROGRESS", "FINISHED", "CANCELED");
         ccar.setText(car.getName());
         startDate.setValue(r.getDate_start().toLocalDate());
         endDate.setValue(r.getDate_end().toLocalDate());
