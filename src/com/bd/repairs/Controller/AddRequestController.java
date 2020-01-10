@@ -1,7 +1,8 @@
 package com.bd.repairs.Controller;
 
+import com.bd.repairs.Model.*;
 import com.bd.repairs.Model.Object;
-import com.bd.repairs.Model.Request;
+import com.bd.repairs.View.AlertWindow;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
@@ -27,15 +28,19 @@ public class AddRequestController implements Initializable {
     public JFXButton applyButton;
 
     public void apply(ActionEvent actionEvent) {
-        LocalDate temp = startDate.getValue();
-        Date temp2 = Date.valueOf(temp);
-        Date temp3=null;
-        if(endDate.getValue()!= null){
-            temp3 = Date.valueOf(endDate.getValue());
+        if(!desc.getText().isEmpty()&&startDate.getValue()!=null&&!status.getSelectionModel().isEmpty()){
+            LocalDate temp = startDate.getValue();
+            Date temp2 = Date.valueOf(temp);
+            Date temp3=null;
+            if(endDate.getValue()!= null){
+                temp3 = Date.valueOf(endDate.getValue());
+            }
+            Request request = new Request(0, desc.getText(), res.getText(), status.getValue(), temp2, temp3, car.getId_object(), ManagerController.user.getId_personel());
+            Request r2 = request;
+            request.insert();applyButton.getScene().getWindow().hide();
+        } else{
+            AlertWindow alertWindow=new AlertWindow("error","error","Empty fields!");
         }
-        Request request = new Request(0, desc.getText(), res.getText(), status.getValue(), temp2, temp3, car.getId_object(), ManagerController.user.getId_personel());
-        Request r2 = request;
-        request.insert();applyButton.getScene().getWindow().hide();
     }
 
     @Override

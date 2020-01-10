@@ -156,16 +156,17 @@ public class ManagerController implements Initializable {
     }
 
     public void addActivity(ActionEvent actionEvent) throws IOException {
-        request = Request.findById(StringConverter.convert(listRequest.getSelectionModel().getSelectedItem())).get();
         if (listActivity.getSelectionModel().isEmpty()) {
             if (listRequest.getSelectionModel().isEmpty()) {
                 AlertWindow alertWindow = new AlertWindow("Error", "error", "No request selected to add activity.");
             } else {
+                request = Request.findById(StringConverter.convert(listRequest.getSelectionModel().getSelectedItem())).get();
                 windowLoader.load(addAcButton.getScene().getWindow(),new Stage(), "Application", "addActivity");
             }
         } else {
             Activity activity1=Activity.findById(StringConverter.convert(listActivity.getSelectionModel().getSelectedItem())).get();
             activity = activity1;
+            request = Request.findById(StringConverter.convert(listRequest.getSelectionModel().getSelectedItem())).get();
             windowLoader.load(addAcButton.getScene().getWindow(),new Stage(), "Application", "editActivity");
         }
         loadActivities(mouseEvent);

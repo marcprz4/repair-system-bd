@@ -4,6 +4,7 @@ import com.bd.repairs.Model.ActDic;
 import com.bd.repairs.Model.Activity;
 import com.bd.repairs.Model.Personel;
 import com.bd.repairs.Model.StringConverter;
+import com.bd.repairs.View.AlertWindow;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -40,16 +41,20 @@ public class EditActivityController implements Initializable {
     public JFXButton addNewType;
 
     public void apply(ActionEvent actionEvent) {
-
-        LocalDate temp = startDate.getValue();
-        Date temp2 = Date.valueOf(temp);
-        Date temp3=null;
-        if(endDate.getValue()!= null){
-            temp3 = Date.valueOf(endDate.getValue());
+        if(!seqNumber.getText().isEmpty()&&!desc.getText().isEmpty()&&startDate.getValue()!=null&&!status.getSelectionModel().isEmpty()&&!workerList.getSelectionModel().isEmpty()&&!actDic.getSelectionModel().isEmpty()){
+            LocalDate temp = startDate.getValue();
+            Date temp2 = Date.valueOf(temp);
+            Date temp3=null;
+            if(endDate.getValue()!= null){
+                temp3 = Date.valueOf(endDate.getValue());
+            }
+            Activity activity = new Activity(a.getId_activity(), Integer.parseInt(seqNumber.getText()), desc.getText(), res.getText(), status.getSelectionModel().getSelectedItem(), temp2, temp3, ManagerController.request.getId_request(), StringConverter.convert(workerList.getSelectionModel().getSelectedItem()), ActDic.find(StringConverter.convertText(actDic.getSelectionModel().getSelectedItem())).get().getActdic_shortcut());
+            activity.update();
+            applyButton.getScene().getWindow().hide();
+        } else{
+            AlertWindow alertWindow=new AlertWindow("error","error","Empty fields!");
         }
-        Activity activity = new Activity(a.getId_activity(), Integer.parseInt(seqNumber.getText()), desc.getText(), res.getText(), status.getSelectionModel().getSelectedItem(), temp2, temp3, ManagerController.request.getId_request(), StringConverter.convert(workerList.getSelectionModel().getSelectedItem()), ActDic.find(StringConverter.convertText(actDic.getSelectionModel().getSelectedItem())).get().getActdic_shortcut());
-        activity.update();
-        applyButton.getScene().getWindow().hide();
+
     }
 
     @Override
@@ -78,7 +83,10 @@ public class EditActivityController implements Initializable {
         if(a.getDate_end()!=null){
             endDate.setValue(a.getDate_end().toLocalDate());
         }
-
+        ActDic ac=ActDic.find(a.getActdic_shortcut()).get();
+        actDic.getSelectionModel().select(ac.getActdic_shortcut() + " - " + ac.getActdic_fullname());
+        Personel p=Personel.findById(a.getId_personel()).get();
+        workerList.getSelectionModel().select(p.getId_personel() + " " + p.getFirst_name() + " " + p.getLast_name());
         currentReq.setText(Integer.toString(a.getId_request()));
         seqNumber.setText(Integer.toString(a.getSeq_number()));
     }
