@@ -118,6 +118,8 @@ public class ManagerController implements Initializable {
         } else{
             windowLoader.load(new Stage(), "Application", "addClient");
         }
+        KeyEvent keyEvent=null;
+        loadClients(keyEvent);
     }
 
     public void addObject(ActionEvent actionEvent) throws IOException {
@@ -147,7 +149,7 @@ public class ManagerController implements Initializable {
 //        req = Request.findById(StringConverter.convert(reqList.getSelectionModel().getSelectedItem())).get();
 //        windowLoader.load(new Stage(), "Application", "addActivity");
     }
-    
+
 //---------obsluga myszki/przyciskow klawiatury
     public void loadClients(KeyEvent keyEvent) {
         if(searchField1.getText().isEmpty()){
