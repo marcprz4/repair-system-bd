@@ -102,15 +102,15 @@ public class ManagerController implements Initializable {
         ArrayList<String> stringList = new ArrayList<>();
         for (Activity c : activities) {
             Personel worker = Personel.findById(c.getId_personel()).get();
-            stringList.add(c.getId_activity() + " s: " + c.getDate_start() + " e: " + c.getDate_end() + " " + c.getStatus() + " " + worker.getLast_name() + " " + c.getDescription() + " " + c.getResult());
+            stringList.add(c.getId_activity() + " seq: "+c.getSeq_number()+" s: " + c.getDate_start() + " e: " + c.getDate_end() + " " + c.getStatus() + " " + worker.getLast_name() + " " + c.getDescription() + " " + c.getResult());
         }
         listActivity.getItems().addAll(stringList);
     }
 
-    private void refreshActivities() {
-        ArrayList<Activity> activities = Activity.findAll();
-        displayActivities(activities);
-    }
+//    private void refreshActivities() {
+//        ArrayList<Activity> activities = Activity.findAll();
+//        displayActivities(activities);
+//    }
 
     //-----------------obsluga przyciskow
     public void addClient(ActionEvent actionEvent) throws IOException, InterruptedException {
