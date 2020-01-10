@@ -11,12 +11,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
@@ -28,7 +30,7 @@ public class ManagerController implements Initializable {
     public static Activity act;
     public JFXButton button1;
     public ChoiceBox<String> searchList;
-    public ChoiceBox<String> typeList;
+//    public ChoiceBox<String> typeList;
     public JFXButton addCar;
     public Label userInfo;
     public JFXListView<String> listView;
@@ -114,12 +116,12 @@ public class ManagerController implements Initializable {
 //    }
 
     public void addCar(ActionEvent actionEvent) throws IOException {
-        if (typeList.getSelectionModel().getSelectedItem().equals("by Owner") && !searchList.getSelectionModel().getSelectedItem().isEmpty()) {
-            clientId = StringConverter.convert(searchList.getSelectionModel().getSelectedItem());
-            windowLoader.load(new Stage(), "Application", "addObject");
-        } else {
-            return;
-        }
+//        if (typeList.getSelectionModel().getSelectedItem().equals("by Owner") && !searchList.getSelectionModel().getSelectedItem().isEmpty()) {
+//            clientId = StringConverter.convert(searchList.getSelectionModel().getSelectedItem());
+//            windowLoader.load(new Stage(), "Application", "addObject");
+//        } else {
+//            return;
+//        }
     }
 
     public void addActivity(ActionEvent actionEvent) throws IOException {
@@ -175,19 +177,21 @@ public class ManagerController implements Initializable {
             reqList.getItems().add(requestString);
         }
     }
-
+public void refreshList(){
+    ArrayList<String> stringList=new ArrayList<>();
+    ArrayList<Client> clients=Client.findAll();
+    for(Client c:clients){
+        stringList.add(c.getId_client()+" "+c.getFname()+" "+c.getLname()+" "+c.getName());
+    }
+    searchListResult.getItems().addAll(stringList);
+}
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<String> stringList=new ArrayList<>();
-        ArrayList<Client> clients=Client.findAll();
-        for(Client c:clients){
-            stringList.add(c.getId_client()+" "+c.getFname()+" "+c.getLname()+" "+c.getName());
-        }
-searchListResult.getItems().addAll(stringList);
+        refreshList();
         windowLoader = new WindowLoader();
-        typeList.getItems().add("by Owner");
-        typeList.getItems().add("by Car");
-        typeList.getSelectionModel().select(0);
+//        typeList.getItems().add("by Owner");
+//        typeList.getItems().add("by Car");
+//        typeList.getSelectionModel().select(0);
 //        initList(typeList.getSelectionModel().getSelectedIndex());
         if (user != null)
             userInfo.setText(user.getFirst_name() + " " + user.getLast_name());
@@ -281,28 +285,27 @@ searchListResult.getItems().addAll(stringList);
     }
 
     public void refresh(KeyEvent keyEvent) {
+        if(keyEvent.getCode()== KeyCode.BACK_SPACE&&searchField1.getText().isEmpty()){
+            refreshList();
+        }
         searchListResult.getItems().clear();
         ArrayList<String> stringList=new ArrayList<>();
-        if(typeList.getSelectionModel().isSelected(0)){
-
-                ArrayList<Client> clients=Client.findByName(searchField1.getText()).get();
-                if(clients.size()==0){
-                    clients=Client.findByNames(searchField1.getText()).get();
-                    if(clients.size()!=0){
-                        for(Client c:clients){
+                ArrayList<Client> clients2=Client.findByName(searchField1.getText()).get();
+                if(clients2.size()==0){
+                    clients2=Client.findByNames(searchField1.getText()).get();
+                    if(clients2.size()!=0){
+                        for(Client c:clients2){
                             stringList.add(c.getId_client()+" "+c.getFname()+" "+c.getLname());
                         }
                     }
                 } else{
-                    for(Client c:clients){
+                    for(Client c:clients2){
                         stringList.add(c.getId_client()+" "+c.getName());
                     }
                 }
-
             searchListResult.getItems().addAll(FXCollections.observableArrayList(stringList));
-        }
-        else if (typeList.getSelectionModel().isSelected(1)){
+    }
 
-        }
+    public void refreshCars(KeyEvent keyEvent) {
     }
 }
