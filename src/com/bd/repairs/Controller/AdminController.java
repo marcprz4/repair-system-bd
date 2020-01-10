@@ -11,8 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -23,6 +25,7 @@ public class AdminController implements Initializable {
     public TextField findField;
     private WindowLoader windowLoader;
     private ArrayList<String> users;
+    public static Personel user;
 public JFXButton editButton;
 public JFXButton refreshButton;
     public AdminController() {
@@ -30,7 +33,8 @@ public JFXButton refreshButton;
     }
 
     public void refreshList() {
-        users.clear();
+        usersList.getItems().clear();
+        users=new ArrayList<>();
         for (Personel person : Personel.findAll()) {
             String sp = "    ";
             users.add(person.getId_personel() + sp + person.getFirst_name() + sp + person.getLast_name() +
@@ -40,7 +44,8 @@ public JFXButton refreshButton;
     }
 
     public void refreshArrayOfElements(ArrayList<Personel> people) {
-        users.clear();
+        usersList.getItems().clear();
+        users=new ArrayList<>();
         String sp = "    ";
         for (Personel person : people) {
             users.add(person.getId_personel() + sp + person.getFirst_name() + sp + person.getLast_name() +
@@ -63,25 +68,32 @@ public JFXButton refreshButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        userInfo.setText("");
-        users = new ArrayList<>();
-        for (Personel person : Personel.findAll()) {
-            String sp = "    ";
-            users.add(person.getId_personel() + sp + person.getFirst_name() + sp + person.getLast_name() +
-                    sp + person.getUsername() + sp + person.getRole() + sp + person.isActive());
-        }
-        usersList.getItems().setAll(FXCollections.observableList(users));
+        userInfo.setText(user.getFirst_name()+ " "+user.getLast_name());
+        users=new ArrayList<>();
+        refreshList();
+//        users = new ArrayList<>();
+//        for (Personel person : Personel.findAll()) {
+//            String sp = "    ";
+//            users.add(person.getId_personel() + sp + person.getFirst_name() + sp + person.getLast_name() +
+//                    sp + person.getUsername() + sp + person.getRole() + "   active:  " + person.isActive());
+//        }
+//        usersList.getItems().setAll(FXCollections.observableList(users));
     }
 
     public void refresh(ActionEvent actionEvent) {
-        findField.setText("");
+        findField.clear();
         refreshList();
     }
 
-    public void find(ActionEvent actionEvent) {
-        if (!findField.getText().isEmpty()) {
-            ArrayList<Personel> people = Personel.findByName(findField.getText()).get();
+    public void findName(javafx.scene.input.KeyEvent keyEvent) {
+        ArrayList<Personel> people=null;
+        if (findField.getText().isEmpty()) {
+            refreshList();
+        }
+        else{
+            people = Personel.findByName(findField.getText()).get();
             refreshArrayOfElements(people);
+
         }
     }
 }

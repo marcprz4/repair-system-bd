@@ -76,10 +76,10 @@ public class Personel {
         return Optional.empty();
     }
 
-    public static Optional<ArrayList<Personel>> findByName(String name) {
-        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name LIKE ? OR last_name LIKE ?;";
-        name = name.toUpperCase();
-        name += '%';
+    public static Optional<ArrayList<Personel>> findByName(String name1) {
+        String SQL = "SELECT id_personel, first_name, last_name, role, username, password, active FROM public.\"Personel\" WHERE first_name LIKE ? OR last_name LIKE ? ORDER BY id_personel;";
+        name1 = name1.toUpperCase();
+        String name = "%"+name1+'%';
         ArrayList<Personel> people = new ArrayList<>();
         Personel person;
         try {

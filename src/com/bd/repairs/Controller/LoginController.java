@@ -31,6 +31,7 @@ public class LoginController {
 
                         switch (person.getRole()) {
                             case "ADMIN": {
+                                AdminController.user = person;
                                 windowLoader.load(button.getScene().getWindow(),new Stage(), "Application", "admin");
                                 break;
                             }

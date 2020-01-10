@@ -29,7 +29,7 @@ public class WorkerController implements Initializable {
         for (Activity a : arrayList) {
             Request r = Request.findById(a.getId_request()).get();
             Object car = Object.findById(r.getId_object()).get();
-            actList.getItems().add(a.getId_activity() + " " + car.getName() + " " + a.getDescription() + " " + a.getResult() + " " + a.getDate_start() + " " + a.getSeq_number() + " " + a.getStatus());
+            actList.getItems().add(a.getId_activity()+ " s: " + a.getDate_start() + " e: " +a.getDate_end()+ " " + car.getName() + " " + a.getDescription() + " " + a.getResult()+" " + a.getSeq_number() + " " + a.getStatus());
         }
         actList.getSelectionModel().select(selected);
     }

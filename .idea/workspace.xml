@@ -3,14 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d3354a35-3de4-44c2-8f07-895efa54cd98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddActivityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddRequestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddRequestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddActivityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddRequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditActivityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditRequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditRequestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/WorkerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/WorkerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/admin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WorkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/WorkerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +115,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578655562614</updated>
-      <workItem from="1578655564976" duration="21616000" />
+      <workItem from="1578655564976" duration="22896000" />
     </task>
     <servers />
   </component>
@@ -145,45 +147,90 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578655837858" />
-    <state width="1877" height="222" key="GridCell.Tab.0.bottom" timestamp="1578691121561">
+    <state width="1877" height="222" key="GridCell.Tab.0.bottom" timestamp="1578692489972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578691121561" />
-    <state width="1877" height="222" key="GridCell.Tab.0.center" timestamp="1578691121561">
+    <state width="1877" height="222" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578692489972" />
+    <state width="1877" height="222" key="GridCell.Tab.0.center" timestamp="1578692489972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578691121561" />
-    <state width="1877" height="222" key="GridCell.Tab.0.left" timestamp="1578691121560">
+    <state width="1877" height="222" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578692489972" />
+    <state width="1877" height="222" key="GridCell.Tab.0.left" timestamp="1578692489971">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578691121560" />
-    <state width="1877" height="222" key="GridCell.Tab.0.right" timestamp="1578691121561">
+    <state width="1877" height="222" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578692489971" />
+    <state width="1877" height="222" key="GridCell.Tab.0.right" timestamp="1578692489972">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578691121561" />
-    <state width="1877" height="222" key="GridCell.Tab.1.bottom" timestamp="1578691121402">
+    <state width="1877" height="222" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578692489972" />
+    <state width="1877" height="222" key="GridCell.Tab.1.bottom" timestamp="1578692489815">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578691121402" />
-    <state width="1877" height="222" key="GridCell.Tab.1.center" timestamp="1578691121402">
+    <state width="1877" height="222" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578692489815" />
+    <state width="1877" height="222" key="GridCell.Tab.1.center" timestamp="1578692489814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578691121402" />
-    <state width="1877" height="222" key="GridCell.Tab.1.left" timestamp="1578691121402">
+    <state width="1877" height="222" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578692489814" />
+    <state width="1877" height="222" key="GridCell.Tab.1.left" timestamp="1578692489814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578691121402" />
-    <state width="1877" height="222" key="GridCell.Tab.1.right" timestamp="1578691121402">
+    <state width="1877" height="222" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578692489814" />
+    <state width="1877" height="222" key="GridCell.Tab.1.right" timestamp="1578692489814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578691121402" />
+    <state width="1877" height="222" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578692489814" />
     <state x="440" y="95" key="SettingsEditor" timestamp="1578655840811">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="95" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1578655840811" />
+    <state x="521" y="257" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1578692229542">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="521" y="257" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1578692229542" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1578683260129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1578683260129" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
