@@ -1,5 +1,6 @@
 package com.bd.repairs.Controller;
 
+import com.bd.repairs.Model.PasswordAuthentication;
 import com.bd.repairs.Model.Personel;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.Initializable;
@@ -20,10 +21,12 @@ public class EditUserController implements Initializable {
     public CheckBox active;
     public JFXButton applyButton;
     public ChoiceBox<String> role;
+    private PasswordAuthentication pass;
     Personel person;
 
     public void apply() {
-        Personel person = new Personel(Personel.findById(AdminController.id).get().getId_personel(), fname.getText(), lname.getText(), role.getSelectionModel().getSelectedItem(), username.getText(), password.getText(), active.isSelected());
+        pass=new PasswordAuthentication();
+        Personel person = new Personel(Personel.findById(AdminController.id).get().getId_personel(), fname.getText(), lname.getText(), role.getSelectionModel().getSelectedItem(), username.getText(), pass.hash(password.getText()), active.isSelected());
         person.update();
         Stage stage = (Stage) applyButton.getScene().getWindow();
         stage.close();
@@ -35,7 +38,6 @@ public class EditUserController implements Initializable {
         this.fname.setText(person.getFirst_name());
         this.lname.setText(person.getLast_name());
         this.username.setText(person.getUsername());
-        this.password.setEditable(false);
         this.password.setText(person.getPassword());
         this.active.setSelected(person.isActive());
         role.getItems().add("ADMIN");

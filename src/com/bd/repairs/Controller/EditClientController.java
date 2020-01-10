@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class AddClientController {
+public class EditClientController {
     public JFXTextField fname;
     public JFXTextField lname;
     public JFXTextField company;

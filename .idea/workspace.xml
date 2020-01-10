@@ -3,9 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="d3354a35-3de4-44c2-8f07-895efa54cd98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddObjectController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/AddObjectController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/EditUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/EditUserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Object.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Object.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Model/Personel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/manager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/View/manager.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddObjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AddObjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/EditUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Model/Object.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/Object.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Model/Personel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/admin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/View/manager.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +36,20 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="czysta@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,13 +62,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/postgresql-42.2.9.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/bd/repairs/View" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Repos\repair-system-bd\src\com\bd\repairs\View" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -65,6 +94,11 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:czysta@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:czysta@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@be7fba6" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
             </expand>
             <select />
           </treeState>
@@ -82,7 +116,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578655562614</updated>
-      <workItem from="1578655564976" duration="3309000" />
+      <workItem from="1578655564976" duration="8488000" />
     </task>
     <servers />
   </component>
@@ -102,38 +136,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578655837858" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1578658786639">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1578677278184">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578658786639" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1578658786639">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578677278184" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1578677278184">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578658786639" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1578658786639">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578677278184" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1578677278183">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578658786639" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1578658786639">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578677278183" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1578677278184">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578658786639" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1578657870620">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578677278184" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1578677278013">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578657870620" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1578657870620">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578677278013" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1578677278012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578657870620" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1578657870620">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578677278012" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1578677278012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578657870620" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1578657870620">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578677278012" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1578677278012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578657870620" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578677278012" />
     <state x="440" y="95" key="SettingsEditor" timestamp="1578655840811">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

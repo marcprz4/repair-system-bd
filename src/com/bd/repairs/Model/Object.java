@@ -57,15 +57,12 @@ public class Object {
     }
 
     public static Optional<ArrayList<Object>> findByName(String name) {
-        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ?;";
+        String SQL = "SELECT id_object, name, id_client, id_type FROM public.\"Object\" WHERE name LIKE ? ORDER BY id_client, name;";
         Object object;
         ArrayList<Object> objects = new ArrayList<>();
         try {
-            if (name.isEmpty()) {
-                throw new NullPointerException();
-            }
             name = name.toUpperCase();
-            name = name + '%';
+            name ="%"+ name + '%';
             PreparedStatement statement = Main.connection.prepareStatement(SQL);
             statement.setString(1, name);
 
@@ -182,4 +179,18 @@ public class Object {
         return id;
     }
 
+    public void update() {
+        String SQL = "UPDATE public.\"Object\" SET name=?, id_client=?, id_type=? WHERE id_object=?;";
+        int affectedRows=0;
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, this.getName().toUpperCase());
+            statement.setInt(2, this.getId_client());
+            statement.setString(3, this.getId_type().toUpperCase());
+            statement.setInt(4, this.getId_object());
+            affectedRows = statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 }

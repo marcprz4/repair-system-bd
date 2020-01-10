@@ -236,7 +236,7 @@ public class Personel {
     }
 
     public int update() {
-        String SQL = "UPDATE public.\"Personel\" SET first_name=?, last_name=?, role=?, active=? WHERE id_personel=?;";
+        String SQL = "UPDATE public.\"Personel\" SET first_name=?, last_name=?, role=?, active=?, username=?, password=? WHERE id_personel=?;";
         int affectedRows = 0;
         try {
             PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -244,7 +244,9 @@ public class Personel {
             statement.setString(2, this.getLast_name().toUpperCase());
             statement.setString(3, this.getRole());
             statement.setBoolean(4, this.isActive());
-            statement.setInt(5, this.getId_personel());
+            statement.setString(5, this.getUsername());
+            statement.setString(6, this.getPassword());
+            statement.setInt(7, this.getId_personel());
             affectedRows = statement.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

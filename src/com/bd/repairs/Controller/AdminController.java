@@ -47,26 +47,8 @@ public class AdminController implements Initializable {
         usersList.getItems().setAll(FXCollections.observableList(users));
     }
 
-    public void refreshSingleElement(Personel person) {
-        users.clear();
-        String sp = "    ";
-        users.add(person.getId_personel() + sp + person.getFirst_name() + sp + person.getLast_name() +
-                sp + person.getUsername() + sp + person.getRole() + sp + person.isActive());
-        usersList.getItems().setAll(FXCollections.observableList(users));
-    }
-
     public void add(ActionEvent actionEvent) throws IOException {
         windowLoader.load(new Stage(), "Application", "createUser");
-    }
-
-    public void deactivate(ActionEvent actionEvent) {
-        if (!usersList.getSelectionModel().isEmpty()) {
-            String line = usersList.getSelectionModel().getSelectedItem().toString();
-            Personel personel = Personel.findById(StringConverter.convert(line)).get();
-            personel.changeActive();
-            personel.update();
-            refreshList();
-        }
     }
 
     public void edit(ActionEvent actionEvent) throws IOException {
