@@ -8,24 +8,21 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="773.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bd.repairs.Controller.ManagerController">
     <children>
-        <JFXButton fx:id="addCar" layoutX="525.0" layoutY="302.0" onAction="#addCar" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="add/edit car" />
-        <Label fx:id="userInfo" layoutX="595.0" layoutY="14.0" prefHeight="22.0" prefWidth="141.0" text="Label" />
-        <JFXListView fx:id="searchListResultA" layoutX="44.0" layoutY="507.0" prefHeight="131.0" prefWidth="462.0" />
-        <JFXButton fx:id="addActivity" layoutX="514.0" layoutY="626.0" onAction="#addActivity" prefHeight="17.0" prefWidth="108.0" style="-fx-background-color: #e6e6e6;" text="add/edit activity" />
-        <JFXButton fx:id="activateAct" layoutX="627.0" layoutY="626.0" onAction="#activate2" prefHeight="0.0" prefWidth="78.0" style="-fx-background-color: #e6e6e6;" text="(de)activate" />
-        <Label fx:id="objectInfo" layoutX="583.0" layoutY="51.0" prefHeight="77.0" prefWidth="153.0" text="active car/owner" />
-        <JFXButton fx:id="addReq" layoutX="525.0" layoutY="467.0" onAction="#addRequest" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="add/edit req" />
-        <JFXButton fx:id="activateReq" layoutX="621.0" layoutY="468.0" onAction="#activate" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #e6e6e6;" text="(de)activate" />
-        <TextField fx:id="searchField1" layoutX="44.0" layoutY="13.0" onKeyPressed="#refresh" prefHeight="25.0" prefWidth="173.0" promptText="enter client's name" />
-        <JFXButton fx:id="addClient" layoutX="520.0" layoutY="119.0" onAction="#addClient" prefHeight="0.0" prefWidth="95.0" style="-fx-background-color: #e6e6e6;" text="add/edit client" />
-      <JFXListView fx:id="searchListResult" layoutX="44.0" layoutY="45.0" onMouseReleased="#loadCars" prefHeight="86.0" prefWidth="462.0" />
-      <JFXListView fx:id="searchListResult2" layoutX="44.0" layoutY="183.0" onMouseReleased="#loadRequests" prefHeight="131.0" prefWidth="462.0" />
-      <TextField fx:id="searchField2" layoutX="44.0" layoutY="151.0" onKeyPressed="#refreshCars" prefHeight="25.0" prefWidth="173.0" promptText="enter car brand+model" />
-      <JFXButton fx:id="clearButton" layoutX="406.0" layoutY="13.0" onAction="#clear" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: #e6e6e6;" text="clear" />
+        <JFXButton fx:id="addCarButton" layoutX="525.0" layoutY="302.0" onAction="#addObject" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="add/edit car" />
+        <Label fx:id="loggedUserInfo" layoutX="595.0" layoutY="14.0" prefHeight="22.0" prefWidth="141.0" text="Label" />
+        <JFXListView fx:id="listActivity" layoutX="44.0" layoutY="507.0" prefHeight="131.0" prefWidth="462.0" />
+        <JFXButton fx:id="addAcButton" layoutX="514.0" layoutY="626.0" onAction="#addActivity" prefHeight="17.0" prefWidth="108.0" style="-fx-background-color: #e6e6e6;" text="add/edit activity" />
+        <JFXButton fx:id="addReqButton" layoutX="525.0" layoutY="467.0" onAction="#addRequest" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #e6e6e6;" text="add/edit req" />
+        <TextField fx:id="searchField1" layoutX="44.0" layoutY="13.0" onKeyPressed="#loadClients" prefHeight="25.0" prefWidth="173.0" promptText="enter client's name" />
+        <JFXButton fx:id="addClientButton" layoutX="520.0" layoutY="119.0" onAction="#addClient" prefHeight="0.0" prefWidth="95.0" style="-fx-background-color: #e6e6e6;" text="add/edit client" />
+      <JFXListView fx:id="listClient" layoutX="44.0" layoutY="45.0" onMouseReleased="#loadObjects2" prefHeight="86.0" prefWidth="462.0" />
+      <JFXListView fx:id="listObject" layoutX="44.0" layoutY="183.0" onMouseReleased="#loadRequests" prefHeight="131.0" prefWidth="462.0" />
+      <TextField fx:id="searchField2" layoutX="44.0" layoutY="151.0" onKeyPressed="#loadObjects" prefHeight="25.0" prefWidth="173.0" promptText="enter car brand+model" />
+      <JFXButton fx:id="clrButton" layoutX="406.0" layoutY="13.0" onAction="#clear" prefHeight="25.0" prefWidth="101.0" style="-fx-background-color: #e6e6e6;" text="clear" />
       <Label layoutX="507.0" layoutY="43.0" prefHeight="17.0" prefWidth="49.0" text="clients" />
       <Label layoutX="507.0" layoutY="183.0" prefHeight="17.0" prefWidth="49.0" text="cars" />
       <Label layoutX="507.0" layoutY="348.0" prefHeight="17.0" prefWidth="49.0" text="requests" />
       <Label layoutX="507.0" layoutY="508.0" prefHeight="17.0" prefWidth="49.0" text="activities" />
-      <JFXListView fx:id="searchListResultR" layoutX="44.0" layoutY="348.0" onMouseReleased="#loadActivities" prefHeight="131.0" prefWidth="462.0" />
+      <JFXListView fx:id="listRequest" layoutX="44.0" layoutY="348.0" onMouseReleased="#loadActivities" prefHeight="131.0" prefWidth="462.0" />
     </children>
 </AnchorPane>

@@ -24,26 +24,23 @@ public class AddObjectController implements Initializable {
     public Label owner;
     private WindowLoader windowLoader;
     private int clId;
-
+private Client client;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        clId = ManagerController.clientId;
         windowLoader = new WindowLoader();
-        Client client = Client.findById(clId).get();
+        client = ManagerController.client;
             owner.setText("Owner:\r" + client.getName());
         refresh();
     }
 
     public void apply(ActionEvent actionEvent) {
         if (!brand.getText().isEmpty() && !model.getText().isEmpty() && !typeList.getSelectionModel().isEmpty()) {
-            Object object = new Object(0, brand.getText() + " " + model.getText(), clId, typeList.getSelectionModel().getSelectedItem());
+            Object object = new Object(0, brand.getText() + " " + model.getText(), client.getId_client(), typeList.getSelectionModel().getSelectedItem());
             object.insert();
         } else {
             //error
             return;
         }
-        /*Stage stage = (Stage) applyButton.getScene().getWindow();
-            stage.close();*/
         Stage stage = (Stage) applyButton.getScene().getWindow();
         stage.close();
     }

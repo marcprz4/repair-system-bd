@@ -33,7 +33,7 @@ public class Request {
     }
 
     public static Optional<ArrayList<Request>> findByIdObject(int id) {
-        String SQL = "SELECT id_request, description, result, status, date_start, date_end, id_object, id_personel FROM public.\"Request\" WHERE id_object = ?;";
+        String SQL = "SELECT id_request, description, result, status, date_start, date_end, id_object, id_personel FROM public.\"Request\" WHERE id_object = ? ORDER BY date_start, status;";
         Request req;
         ArrayList<Request> reqs = new ArrayList<>();
         try {
@@ -50,8 +50,38 @@ public class Request {
                         rs.getInt(7),
                         rs.getInt(8));
                 reqs.add(req);
-                return Optional.of(reqs);
             }
+            return Optional.of(reqs);
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Id not found.");
+            alert.setContentText("Check your input.");
+            alert.showAndWait();
+        }
+        return Optional.empty();
+    }
+
+    public static Optional<ArrayList<Request>> findByIdPersonel(int id) {
+        String SQL = "SELECT id_request, description, result, status, date_start, date_end, id_object, id_personel FROM public.\"Request\" WHERE id_personel = ? ORDER BY date_start, result;";
+        Request req;
+        ArrayList<Request> requests=new ArrayList<>();
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                req = new Request(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getDate(5),
+                        rs.getDate(6),
+                        rs.getInt(7),
+                        rs.getInt(8));
+                requests.add(req);
+            }
+            return Optional.of(requests);
         } catch (SQLException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

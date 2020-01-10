@@ -42,7 +42,7 @@ public class EditActivityController implements Initializable {
         LocalDate temp = startDate.getValue();
         Date temp2 = Date.valueOf(temp);
         Date temp3 = Date.valueOf(endDate.getValue());
-        Activity activity = new Activity(0, Integer.parseInt(seqNumber.getText()), desc.getText(), res.getText(), status.getSelectionModel().getSelectedItem(), temp2, temp3, ManagerController.request.getId_request(), StringConverter.convert(workerList.getSelectionModel().getSelectedItem()), ActDic.find(StringConverter.convertText(actDic.getSelectionModel().getSelectedItem())).get().getActdic_shortcut());
+        Activity activity = new Activity(0, Integer.parseInt(seqNumber.getText()), desc.getText(), res.getText(), status.getSelectionModel().getSelectedItem(), temp2, temp3, ManagerController.req.getId_request(), StringConverter.convert(workerList.getSelectionModel().getSelectedItem()), ActDic.find(StringConverter.convertText(actDic.getSelectionModel().getSelectedItem())).get().getActdic_shortcut());
         activity.update();
         Stage stage = (Stage) applyButton.getScene().getWindow();
         stage.close();
@@ -60,13 +60,13 @@ public class EditActivityController implements Initializable {
         } catch (NoSuchElementException e) {
 
         }
-        currentReq.setText("current request: " + ManagerController.request.getId_request());
+        currentReq.setText("current request: " + ManagerController.req.getId_request());
         status.getItems().addAll("OPEN","IN PROGRESS", "FINISHED", "CANCELED");
         ArrayList<Personel> array = Personel.findByRole("WORKER").get();
         for (Personel p : array) {
             workerList.getItems().add(p.getId_personel() + " " + p.getFirst_name() + " " + p.getLast_name());
         }
-        Activity a=Activity.finById(ManagerController.act.getId_activity()).get();
+        Activity a=Activity.finById(ManagerController.ac.getId_activity()).get();
         desc.setText(a.getDescription());
         res.setText(a.getResult());
         startDate.setValue(a.getDate_start().toLocalDate());

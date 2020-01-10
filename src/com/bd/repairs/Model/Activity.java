@@ -131,8 +131,9 @@ public class Activity {
                         rs.getInt(9),
                         rs.getString(10));
                 activities.add(activ);
-                return Optional.of(activities);
+
             }
+            return Optional.of(activities);
         } catch (SQLException e) {
             AlertWindow alert = new AlertWindow("Error", "Name not found.", "Check your input.");
             activ = null;

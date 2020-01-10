@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -25,15 +24,14 @@ public class EditObjectController implements Initializable {
     public JFXButton newTypeButton;
     public Label owner;
     private WindowLoader windowLoader;
-    private int clId;
-
+private Client client;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         windowLoader = new WindowLoader();
-        Client client = Client.findById(ManagerController.clientId).get();
+        client = Client.findById(ManagerController.object.getId_client()).get();
         owner.setText("Owner:\r" + client.getName());
-        String carName=ManagerController.car.getName();
-        typeList.getSelectionModel().select(ManagerController.car.getId_type());
+        String carName=ManagerController.object.getName();
+        typeList.getSelectionModel().select(ManagerController.object.getId_type());
         //String[] phones = lineOfPhonesWithMultipleWhiteSpace.split("\\s+");
         String[] names = carName.split("\\s+");
         int i=0;
@@ -52,7 +50,7 @@ public class EditObjectController implements Initializable {
 
     public void apply(ActionEvent actionEvent) {
         if (!brand.getText().isEmpty() && !model.getText().isEmpty() && !typeList.getSelectionModel().isEmpty()) {
-            Object object = new Object(0, brand.getText() + " " + model.getText(), clId, typeList.getSelectionModel().getSelectedItem());
+            Object object = new Object(ManagerController.object.getId_object(), brand.getText() + " " + model.getText(), client.getId_client(), typeList.getSelectionModel().getSelectedItem());
             object.update();
         } else {
             AlertWindow alertWindow=new AlertWindow("error","error","Empty fields!");

@@ -47,6 +47,7 @@ public class LoginController {
                         }
                     } catch (IOException e) {
                         label.setText("can't open window.");
+                        e.printStackTrace();
                     }
                 } else {
                     label.setText("user not active.");

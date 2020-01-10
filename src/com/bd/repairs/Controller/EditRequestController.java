@@ -39,7 +39,7 @@ public class EditRequestController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Request r=ManagerController.request;
+        Request r=ManagerController.req;
         car=Object.findById(r.getId_object()).get();
         status.getItems().addAll("OPEN","IN PROGRESS", "FINISHED", "CANCELED");
         ccar.setText(car.getName());

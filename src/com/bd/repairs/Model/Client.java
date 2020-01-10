@@ -194,5 +194,38 @@ public class Client {
         return id;
     }
 
-
+/*public int update() {
+        String SQL = "UPDATE public.\"Personel\" SET first_name=?, last_name=?, role=?, active=?, username=?, password=? WHERE id_personel=?;";
+        int affectedRows = 0;
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, this.getFirst_name().toUpperCase());
+            statement.setString(2, this.getLast_name().toUpperCase());
+            statement.setString(3, this.getRole());
+            statement.setBoolean(4, this.isActive());
+            statement.setString(5, this.getUsername());
+            statement.setString(6, this.getPassword());
+            statement.setInt(7, this.getId_personel());
+            affectedRows = statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return affectedRows;
+    }*/
+    public int update() {
+        String SQL = "UPDATE public.\"Client\" SET fname=?, lname=?, name=?, telephone=? WHERE id_client=?;";
+        int affectedRows = 0;
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, this.getFname().toUpperCase());
+            statement.setString(2, this.getLname().toUpperCase());
+            statement.setString(3, this.getName().toUpperCase());
+            statement.setString(4, this.getTelephone());
+            statement.setInt(5, this.getId_client());
+            affectedRows = statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return affectedRows;
+    }
 }
