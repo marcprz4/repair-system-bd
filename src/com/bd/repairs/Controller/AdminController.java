@@ -68,7 +68,9 @@ public JFXButton refreshButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        userInfo.setText(user.getFirst_name()+ " "+user.getLast_name());
+        if(user!=null){
+            userInfo.setText(user.getFirst_name()+ " "+user.getLast_name());
+        }
         users=new ArrayList<>();
         refreshList();
 //        users = new ArrayList<>();
