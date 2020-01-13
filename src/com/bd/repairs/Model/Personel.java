@@ -235,6 +235,24 @@ public class Personel {
         active = !active;
     }
 
+    public int updateWoutPass() {
+        String SQL = "UPDATE public.\"Personel\" SET first_name=?, last_name=?, role=?, active=?, username=? WHERE id_personel=?;";
+        int affectedRows = 0;
+        try {
+            PreparedStatement statement = Main.connection.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, this.getFirst_name().toUpperCase());
+            statement.setString(2, this.getLast_name().toUpperCase());
+            statement.setString(3, this.getRole());
+            statement.setBoolean(4, this.isActive());
+            statement.setString(5, this.getUsername());
+            statement.setInt(6, this.getId_personel());
+            affectedRows = statement.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return affectedRows;
+    }
+
     public int update() {
         String SQL = "UPDATE public.\"Personel\" SET first_name=?, last_name=?, role=?, active=?, username=?, password=? WHERE id_personel=?;";
         int affectedRows = 0;

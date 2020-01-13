@@ -26,8 +26,13 @@ public class EditUserController implements Initializable {
 
     public void apply() {
         pass=new PasswordAuthentication();
-        Personel person = new Personel(Personel.findById(AdminController.id).get().getId_personel(), fname.getText(), lname.getText(), role.getSelectionModel().getSelectedItem(), username.getText(), pass.hash(password.getText()), active.isSelected());
-        person.update();
+        if(password.getText().isEmpty()){
+            Personel person = new Personel(Personel.findById(AdminController.id).get().getId_personel(), fname.getText(), lname.getText(), role.getSelectionModel().getSelectedItem(), username.getText(), "", active.isSelected());
+            person.updateWoutPass();
+        } else {
+            Personel person = new Personel(Personel.findById(AdminController.id).get().getId_personel(), fname.getText(), lname.getText(), role.getSelectionModel().getSelectedItem(), username.getText(), pass.hash(password.getText()), active.isSelected());
+            person.update();
+        }
         applyButton.getScene().getWindow().hide();
     }
 
@@ -37,7 +42,7 @@ public class EditUserController implements Initializable {
         this.fname.setText(person.getFirst_name());
         this.lname.setText(person.getLast_name());
         this.username.setText(person.getUsername());
-        this.password.setText(person.getPassword());
+//        this.password.setText(person.getPassword());
         this.active.setSelected(person.isActive());
         role.getItems().add("ADMIN");
         role.getItems().add("MANAGER");
