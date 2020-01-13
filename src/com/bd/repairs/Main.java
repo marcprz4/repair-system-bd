@@ -24,7 +24,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         connection = PostgreSQLController.connect();
-        Parent root = FXMLLoader.load(getClass().getResource("View/admin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("View/login.fxml"));
 
         Scene scene = new Scene(root);
 

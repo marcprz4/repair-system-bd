@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -76,6 +77,8 @@ public class WorkerController implements Initializable {
             a.setStatus("FINISHED");
             if(!result.getText().isEmpty())
                 a.setResult(result.getText());
+            java.util.Date now=new java.util.Date();
+            a.setDate_end(new Date(now.getTime()));
             a.update();
             refreshActivitiess();
         }
@@ -91,6 +94,8 @@ public class WorkerController implements Initializable {
             a.setStatus("CANCELED");
             if(!result.getText().isEmpty())
                 a.setResult(result.getText());
+            java.util.Date now=new java.util.Date();
+            a.setDate_end(new Date(now.getTime()));
             a.update();
             refreshActivitiess();
         }

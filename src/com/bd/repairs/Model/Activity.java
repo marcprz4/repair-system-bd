@@ -21,6 +21,9 @@ public class Activity {
     private int id_personel;
     private String actdic_shortcut;
 
+    public void setDate_end(Date date_end) {
+        this.date_end = date_end;
+    }
 
     public Activity(int id_activity, int seq_number, String description, String result, String status, Date date_start, Date date_end, int id_request, int id_personel, String actdic_shortcut) {
         this.id_activity = id_activity;
