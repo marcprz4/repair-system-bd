@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3354a35-3de4-44c2-8f07-895efa54cd98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/repair-system-bd/com/bd/repairs/Controller/ManagerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +96,7 @@
       <updated>1578655562614</updated>
       <workItem from="1578655564976" duration="25144000" />
       <workItem from="1578930010306" duration="79000" />
-      <workItem from="1578932050578" duration="1175000" />
+      <workItem from="1578932050578" duration="1699000" />
     </task>
     <servers />
   </component>

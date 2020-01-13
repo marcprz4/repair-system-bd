@@ -87,7 +87,7 @@ public class ManagerController implements Initializable {
         listRequest.getItems().clear();
         ArrayList<String> stringList = new ArrayList<>();
         for (Request c : requests) {
-            stringList.add(c.getId_request() + " s: " + c.getDate_start() + " e: " + c.getDate_end() + " " + c.getStatus() + " " + c.getDescription() + "\nResult:" + c.getResult());
+            stringList.add(c.getId_request() + " s: " + c.getDate_start() + " e: " + c.getDate_end() + " " + c.getStatus() + " " + c.getDescription() + "\nResult: " + c.getResult());
         }
         listRequest.getItems().addAll(stringList);
     }
