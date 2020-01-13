@@ -56,6 +56,7 @@ public JFXButton refreshButton;
 
     public void add(ActionEvent actionEvent) throws IOException {
         windowLoader.load(editButton.getScene().getWindow(),new Stage(), "Application", "createUser");
+        refreshList();
     }
 
     public void edit(ActionEvent actionEvent) throws IOException {
@@ -63,6 +64,7 @@ public JFXButton refreshButton;
             String line = usersList.getSelectionModel().getSelectedItem().toString();
             id = StringConverter.convert(line);
             windowLoader.load(editButton.getScene().getWindow(),new Stage(), "Application", "editUser");
+            refreshList();
         }
     }
 
