@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d3354a35-3de4-44c2-8f07-895efa54cd98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bd/repairs/Controller/ManagerController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +35,10 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1WLXmA8gxdGHbzHKcp6SkkjXtpn" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -50,7 +53,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/bd/repairs/View" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -74,22 +77,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:czysta@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:czysta@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@be7fba6" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:czysta@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@6cbcfca3" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -106,7 +94,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578655562614</updated>
-      <workItem from="1578655564976" duration="25115000" />
+      <workItem from="1578655564976" duration="25144000" />
+      <workItem from="1578930010306" duration="79000" />
     </task>
     <servers />
   </component>
@@ -114,6 +103,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Project_Structure" timestamp="1578930058534">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1578930058534" />
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578655702623">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -138,38 +131,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1578655837858" />
-    <state width="1877" height="222" key="GridCell.Tab.0.bottom" timestamp="1578694463158">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1578930089795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578694463158" />
-    <state width="1877" height="222" key="GridCell.Tab.0.center" timestamp="1578694463158">
+    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578930089795" />
+    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1578930089795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578694463158" />
-    <state width="1877" height="222" key="GridCell.Tab.0.left" timestamp="1578694463158">
+    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578930089795" />
+    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1578930089795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578694463158" />
-    <state width="1877" height="222" key="GridCell.Tab.0.right" timestamp="1578694463158">
+    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578930089795" />
+    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1578930089795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578694463158" />
-    <state width="1877" height="222" key="GridCell.Tab.1.bottom" timestamp="1578694463004">
+    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578930089795" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1578930089795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578694463004" />
-    <state width="1877" height="222" key="GridCell.Tab.1.center" timestamp="1578694463004">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1578930089795" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1578930089795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578694463004" />
-    <state width="1877" height="222" key="GridCell.Tab.1.left" timestamp="1578694463004">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1578930089795" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1578930089795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578694463004" />
-    <state width="1877" height="222" key="GridCell.Tab.1.right" timestamp="1578694463004">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1578930089795" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1578930089795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="222" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578694463004" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1578930089795" />
     <state x="440" y="95" key="SettingsEditor" timestamp="1578655840811">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
