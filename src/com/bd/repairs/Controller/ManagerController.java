@@ -87,7 +87,7 @@ public class ManagerController implements Initializable {
         listRequest.getItems().clear();
         ArrayList<String> stringList = new ArrayList<>();
         for (Request c : requests) {
-            stringList.add(c.getId_request() + " s: " + c.getDate_start() + " e: " + c.getDate_end() + " " + c.getStatus() + " " + c.getDescription() + "\nManager's result:" + c.getResult());
+            stringList.add(c.getId_request() + " s: " + c.getDate_start() + " e: " + c.getDate_end() + " " + c.getStatus() + " " + c.getDescription() + "\nResult:" + c.getResult());
         }
         listRequest.getItems().addAll(stringList);
     }
@@ -102,7 +102,7 @@ public class ManagerController implements Initializable {
         ArrayList<String> stringList = new ArrayList<>();
         for (Activity c : activities) {
             Personel worker = Personel.findById(c.getId_personel()).get();
-            stringList.add(c.getId_activity() + " seq: "+c.getSeq_number()+" s: " + c.getDate_start() + " e: " + c.getDate_end() + " " + c.getStatus() + " " + worker.getLast_name() + " " + c.getDescription() + "\nWorker's result: " + c.getResult());
+            stringList.add(c.getId_activity() + " seq: "+c.getSeq_number()+" s: " + c.getDate_start() + " e: " + c.getDate_end() + " " + c.getStatus() + " " + worker.getLast_name() + " " + c.getDescription() + "\nWorker's note: " + c.getResult());
         }
         listActivity.getItems().addAll(stringList);
     }
