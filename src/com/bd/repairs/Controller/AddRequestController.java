@@ -45,6 +45,7 @@ public class AddRequestController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        car=ManagerController.object;
         status.getItems().addAll("OPEN","IN PROGRESS", "FINISHED", "CANCELED");
         ccar.setText(car.getName());
     }
